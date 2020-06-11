@@ -38,10 +38,6 @@ public class Solicitud implements Serializable {
     @Column(name = "horaSolicitud")
     private LocalTime horaSolicitud;
 
-    //No sé que significa alv
-    @Column(name = "parada_llegada")
-    private boolean paradaLlegada;
-
     @Column(name = "distancia_total")
     private double distanciaTotal;
 
@@ -53,5 +49,14 @@ public class Solicitud implements Serializable {
 
     @Column(name = "parada_id")
     private Parada parada;
+
+    //En lista
+    //En viaje
+    //En destino
+    @Column(name = "estado_pasajero", length = 10)
+    private String estadoPasajero;
+
+    @Column(name = "estado_tabla")
+    private boolean estadoTabla;
 
 }

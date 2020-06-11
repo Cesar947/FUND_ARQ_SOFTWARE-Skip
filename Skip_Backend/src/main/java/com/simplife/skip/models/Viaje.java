@@ -34,6 +34,9 @@ public class Viaje implements Serializable {
     @Column(name = "fecha_publicacion")
     private LocalDate fechaPublicacion;
 
+    @Column(name = "fecha_viaje")
+    private LocalDate fechaViaje;
+
     @Column(name = "hora_inicio")
     private LocalTime horaInicio;
 
@@ -49,10 +52,11 @@ public class Viaje implements Serializable {
     @Column(name = "ruta_id")
     private Ruta ruta;
 
-    //Iniciado - Finalizado
-    @Column(name = "estado_viaje")
+    //En curso - Finalizado
+    @Column(name = "estado_viaje", length = 10)
     private String estadoViaje;
 
-
+    @Column(name = "estado_tabla")
+    private boolean estadoTabla;
 
 }

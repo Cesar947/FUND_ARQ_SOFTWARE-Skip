@@ -23,20 +23,8 @@ public class Usuario implements Serializable {
     @Column(name = "usuario_id")
     private Long id;
 
-    @Column(name = "codigo")
-    private String codigo;
-
-    @Column(name = "nombre_usuario")
-    private String nombreUsuario;
-
     @Column(name = "dni")
     private String dni;
-
-    @Column(name = "correo_upc")
-    private String correoUPC;
-
-    @Column(name = "contrasena")
-    private String contrasena;
 
     @Column(name = "nombres")
     private String nombres;
@@ -44,26 +32,15 @@ public class Usuario implements Serializable {
     @Column(name = "apellidos")
     private String apellidos;
 
-    @Column(name = "facebook_id")
-    private String facebookId;
-
-    @Column(name = "telefono")
-    private String telefono;
-
-    @Column(name = "licencia_conducir")
-    private String licenciaConductir;
-
     @Column(name = "sede")
     private String sede;
 
-    @Column(name = "direccion")
-    private String direccion;
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cuenta_id", nullable = false)
+    @Column(name = "cuenta_id")
+    private Cuenta cuenta;
 
-    @Column(name = "latitud")
-    private double latitud;
-
-    @Column(name = "longitud")
-    private double longitud;
-
+    @Column(name = "estado_tabla")
+    private boolean estadoTabla;
 
 }
