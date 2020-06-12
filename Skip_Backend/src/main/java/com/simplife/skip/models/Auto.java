@@ -23,7 +23,7 @@ public class Auto implements Serializable {
     @Column(name = "auto_id")
     private Long id;
 
-    @Column(name = "placa")
+    @Column(name = "placa", length = 7)
     private String placa;
 
     @Column(name = "poliza_soat")
@@ -41,12 +41,14 @@ public class Auto implements Serializable {
     @Column(name = "anhos_uso")
     private int anhosUso;
 
+    @Column(name = "estado_tabla")
+    private boolean estadoTabla;
+
     @ManyToOne
     @JoinColumn(name="info_conductor_id", nullable = false)
     private InformacionConductor infoConductor;
 
-    @Column(name = "estado_tabla")
-    private boolean estadoTabla;
+
 
 
 }

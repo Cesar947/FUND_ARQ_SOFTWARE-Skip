@@ -35,12 +35,11 @@ public class Usuario implements Serializable {
     @Column(name = "sede")
     private String sede;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "cuenta_id", nullable = false)
-    @Column(name = "cuenta_id")
-    private Cuenta cuenta;
-
     @Column(name = "estado_tabla")
     private boolean estadoTabla;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "cuenta_id", nullable = false)
+    private Cuenta cuenta;
 
 }

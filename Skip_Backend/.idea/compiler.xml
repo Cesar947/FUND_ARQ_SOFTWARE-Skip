@@ -2,9 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-<<<<<<< HEAD
       <profile default="true" name="Default" enabled="true" />
-=======
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
@@ -12,11 +10,7 @@
         </processorPath>
         <module name="Skip_Backend.main" />
       </profile>
->>>>>>> ee5c1a9992c799b523595995650abe4e0c4da482
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="com.simplife.skip.Skip_Backend.main" target="1.8" />
-      <module name="com.simplife.skip.Skip_Backend.test" target="1.8" />
-    </bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8" />
   </component>
 </project>

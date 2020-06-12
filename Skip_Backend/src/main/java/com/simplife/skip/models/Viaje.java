@@ -25,8 +25,13 @@ public class Viaje implements Serializable {
     @Column(name = "viaje_id")
     private Long id;
 
-    @Column(name = "conductor_id")
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "conductor_id", nullable = false)
     private Usuario conductor;
+
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "ruta_id", nullable = false)
+    private Ruta ruta;
 
     @Column(name = "descripcion")
     private String descripcion;
@@ -48,9 +53,6 @@ public class Viaje implements Serializable {
 
     @Column(name = "visualizacion_habilitada")
     private boolean visualizacionHabilitada;
-
-    @Column(name = "ruta_id")
-    private Ruta ruta;
 
     //En curso - Finalizado
     @Column(name = "estado_viaje", length = 10)
