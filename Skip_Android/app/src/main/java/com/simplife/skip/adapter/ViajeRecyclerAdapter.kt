@@ -45,7 +45,7 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         val viajeText = itemView.viaje_text
 
         fun bind(viaje: Viaje){
-            viajeTitle.setText(viaje.title)
+            viajeTitle.setText(viaje.publish)
             author.setText(viaje.username)
             viajeText.setText(viaje.body)
 

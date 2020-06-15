@@ -7,6 +7,8 @@ data class Viaje (
     var destiny: String,
     var source: String,
     var username: String,
+    var horaDestino: String,
+    var horaLlegada: String,
     var publish: String
 ) {
 
