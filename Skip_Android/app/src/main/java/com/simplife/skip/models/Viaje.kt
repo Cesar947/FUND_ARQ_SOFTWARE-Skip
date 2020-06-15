@@ -8,7 +8,7 @@ data class Viaje (
     var source: String,
     var username: String,
     var horaDestino: String,
-    var horaLlegada: String,
+    var horaSalida: String,
     var publish: String
 ) {
 

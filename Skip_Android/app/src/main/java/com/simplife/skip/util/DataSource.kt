@@ -46,6 +46,32 @@ class DataSource {
                         "9 Nov"
                     )
                 )
+                list.add(
+                    Viaje(
+                        "Mi nombre es optimus prime",
+                        "Mi nombre es optimus prime",
+                        "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/04/optimus-prime-transformers-1911133.jpg",
+                        "UPC San Isidro",
+                        "Cybertron",
+                        "Optimus Prime",
+                        "11:00 am",
+                        "8:00 am",
+                        "9 Nov"
+                    )
+                )
+                list.add(
+                    Viaje(
+                        "Mi nombre es optimus prime",
+                        "Hey hey, Shirogane san",
+                        "https://i.ytimg.com/vi/XWRD8FD9V1w/maxresdefault.jpg",
+                        "UPC San Isidro",
+                        "Academia",
+                        "Hayasaka",
+                        "11:00 am",
+                        "8:00 am",
+                        "9 Nov"
+                    )
+                )
                 return list
             }
         }

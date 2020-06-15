@@ -3,10 +3,7 @@ package com.simplife.skip.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.simplife.skip.fragments.HomeFragment
-import com.simplife.skip.fragments.NotificacionFragment
-import com.simplife.skip.fragments.PerfilFragment
-import com.simplife.skip.fragments.ViajesFragment
+import com.simplife.skip.fragments.*
 
 internal class PagerViewAdapter(fm:FragmentManager?) : FragmentPagerAdapter(fm!!) {
     override fun getItem(position: Int): Fragment {
@@ -15,12 +12,15 @@ internal class PagerViewAdapter(fm:FragmentManager?) : FragmentPagerAdapter(fm!!
                 HomeFragment()
             }
             1->{
-                ViajesFragment()
+                SearchFragment()
             }
             2->{
-                NotificacionFragment()
+                ViajesFragment()
             }
             3->{
+                NotificacionFragment()
+            }
+            4->{
                 PerfilFragment()
             }
             else -> HomeFragment()
@@ -28,7 +28,7 @@ internal class PagerViewAdapter(fm:FragmentManager?) : FragmentPagerAdapter(fm!!
     }
 
     override fun getCount(): Int {
-        return 4
+        return 5
     }
 
 }

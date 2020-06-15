@@ -43,11 +43,19 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         val viajeTitle = itemView.viaje_title
         val author = itemView.viaje_author
         val viajeText = itemView.viaje_text
+        val viajeSource = itemView.viaje_origen
+        val viajeDestiny = itemView.viaje_destino
+        val viajeHoraOrigen = itemView.viaje_hora_origen
+        val viajeHoraDestino = itemView.viaje_hora_destino
 
         fun bind(viaje: Viaje){
             viajeTitle.setText(viaje.publish)
             author.setText(viaje.username)
             viajeText.setText(viaje.body)
+            viajeSource.setText(viaje.source)
+            viajeDestiny.setText(viaje.destiny)
+            viajeHoraDestino.setText(viaje.horaDestino)
+            viajeHoraOrigen.setText(viaje.horaSalida)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)

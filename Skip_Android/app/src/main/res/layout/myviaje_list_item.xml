@@ -18,14 +18,93 @@
         >
 
 
+        <TextView
+            android:id="@+id/miviaje_fecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            tools:layout_editor_absoluteX="412dp">
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:layout_width="414dp"
+                android:layout_width="298dp"
+                android:layout_height="84dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/miviaje_left"
+                        android:layout_width="56dp"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/left" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="66dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginRight="30dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/miviaje_origen"
+                                android:layout_width="135dp"
+                                android:layout_height="wrap_content"
+                                android:text="Carabayllo" />
+
+                            <TextView
+                                android:id="@+id/miviaje_hora_origen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="09:00 am" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/miviaje_divider"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/divider" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="30dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/viaje_destino"
+                                android:layout_width="134dp"
+                                android:layout_height="wrap_content"
+                                android:text="UPC San Miguel" />
+
+                            <TextView
+                                android:id="@+id/viaje_hora_destino"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="11:00 am" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
@@ -64,87 +143,6 @@
 
 
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginBottom="20dp">
-
-                <TextView
-                    android:id="@+id/viaje_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Nuevo Viaje"
-                    android:layout_margin="15dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/leftimage"
-                        android:layout_width="56dp"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/left" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="30dp"
-                            android:layout_marginRight="30dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/viaje_origen"
-                                android:layout_width="135dp"
-                                android:layout_height="wrap_content"
-                                android:text="Carabayllo" />
-
-                            <TextView
-                                android:id="@+id/viaje_hora_origen"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="09:00 am" />
-                        </LinearLayout>
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@drawable/divider" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="30dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/viaje_destino"
-                                android:layout_width="134dp"
-                                android:layout_height="wrap_content"
-                                android:text="UPC San Miguel" />
-
-                            <TextView
-                                android:id="@+id/viaje_hora_destino"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:text="11:00 am" />
-                        </LinearLayout>
-
-                    </LinearLayout>
-                </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>

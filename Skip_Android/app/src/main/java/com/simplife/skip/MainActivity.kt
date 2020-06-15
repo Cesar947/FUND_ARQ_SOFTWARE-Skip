@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viajesbtn: ImageButton
     private lateinit var notifbtn: ImageButton
     private lateinit var perfilbtn: ImageButton
+    private lateinit var buscarbtn: ImageButton
 
     private lateinit var mViewPager: ViewPager
     private lateinit var mPagerViewAdapter: PagerViewAdapter
@@ -31,25 +32,31 @@ class MainActivity : AppCompatActivity() {
         viajesbtn = findViewById(R.id.carbtn)
         notifbtn = findViewById(R.id.notifbtn)
         perfilbtn = findViewById(R.id.profilebtn)
+        buscarbtn = findViewById(R.id.searchbtn)
 
         homebtn.setOnClickListener {
             mViewPager.currentItem = 0
 
         }
 
-        viajesbtn.setOnClickListener {
-
+        buscarbtn.setOnClickListener {
             mViewPager.currentItem = 1
 
         }
 
-        notifbtn.setOnClickListener {
+        viajesbtn.setOnClickListener {
+
             mViewPager.currentItem = 2
 
         }
 
-        perfilbtn.setOnClickListener {
+        notifbtn.setOnClickListener {
             mViewPager.currentItem = 3
+
+        }
+
+        perfilbtn.setOnClickListener {
+            mViewPager.currentItem = 4
 
         }
 
@@ -83,24 +90,35 @@ class MainActivity : AppCompatActivity() {
 
         if (position == 0) {
             homebtn.setImageResource(R.drawable.ic_home_selected)
+            buscarbtn.setImageResource(R.drawable.ic_search)
             viajesbtn.setImageResource(R.drawable.ic_car)
             notifbtn.setImageResource(R.drawable.ic_notifications)
             perfilbtn.setImageResource(R.drawable.ic_account)
         }
         if (position == 1) {
             homebtn.setImageResource(R.drawable.ic_home_gray)
-            viajesbtn.setImageResource(R.drawable.ic_car_selected)
+            buscarbtn.setImageResource(R.drawable.ic_search_selected)
+            viajesbtn.setImageResource(R.drawable.ic_car)
             notifbtn.setImageResource(R.drawable.ic_notifications)
             perfilbtn.setImageResource(R.drawable.ic_account)
         }
         if (position == 2) {
             homebtn.setImageResource(R.drawable.ic_home_gray)
-            viajesbtn.setImageResource(R.drawable.ic_car)
-            notifbtn.setImageResource(R.drawable.ic_notifications_selected)
+            buscarbtn.setImageResource(R.drawable.ic_search)
+            viajesbtn.setImageResource(R.drawable.ic_car_selected)
+            notifbtn.setImageResource(R.drawable.ic_notifications)
             perfilbtn.setImageResource(R.drawable.ic_account)
         }
         if (position == 3) {
             homebtn.setImageResource(R.drawable.ic_home_gray)
+            buscarbtn.setImageResource(R.drawable.ic_search)
+            viajesbtn.setImageResource(R.drawable.ic_car)
+            notifbtn.setImageResource(R.drawable.ic_notifications_selected)
+            perfilbtn.setImageResource(R.drawable.ic_account)
+        }
+        if (position == 4) {
+            homebtn.setImageResource(R.drawable.ic_home_gray)
+            buscarbtn.setImageResource(R.drawable.ic_search)
             viajesbtn.setImageResource(R.drawable.ic_car)
             notifbtn.setImageResource(R.drawable.ic_notifications)
             perfilbtn.setImageResource(R.drawable.ic_account_selected)
