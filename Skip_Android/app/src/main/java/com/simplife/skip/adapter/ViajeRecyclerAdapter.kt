@@ -42,10 +42,12 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         val userImage = itemView.viaje_image
         val viajeTitle = itemView.viaje_title
         val author = itemView.viaje_author
+        val viajeText = itemView.viaje_text
 
         fun bind(viaje: Viaje){
             viajeTitle.setText(viaje.title)
             author.setText(viaje.username)
+            viajeText.setText(viaje.body)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)

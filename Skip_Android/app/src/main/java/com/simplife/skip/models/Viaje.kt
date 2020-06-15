@@ -6,7 +6,8 @@ data class Viaje (
     var image: String,
     var destiny: String,
     var source: String,
-    var username: String
+    var username: String,
+    var publish: String
 ) {
 
     override fun toString(): String {

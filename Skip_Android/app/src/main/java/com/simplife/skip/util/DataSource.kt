@@ -27,6 +27,16 @@ class DataSource {
                         "Cesar Pizarro"
                     )
                 )
+                list.add(
+                    Viaje(
+                        "Viaje a la diversion",
+                        "Unanse bbs",
+                        "https://vignette.wikia.nocookie.net/youtubepedia/images/4/4c/Dedsonrie.jpg/revision/latest?cb=20200225204711&path-prefix=es",
+                        "UPC San Isidro",
+                        "Mexico",
+                        "Ded"
+                    )
+                )
                 return list
             }
         }
