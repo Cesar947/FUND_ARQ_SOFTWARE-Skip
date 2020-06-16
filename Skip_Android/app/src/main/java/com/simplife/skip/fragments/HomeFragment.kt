@@ -35,8 +35,8 @@ class HomeFragment : Fragment() {
 
         recyclerView = vista.findViewById(R.id.recycler_viaje_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        val topSpacingDecoration = TopSpacingItemDecoration(30)
-        recyclerView.addItemDecoration(topSpacingDecoration)
+        //val topSpacingDecoration = TopSpacingItemDecoration(30)
+        //recyclerView.addItemDecoration(topSpacingDecoration)
         viajeAdapter = ViajeRecyclerAdapter()
         recyclerView.adapter = viajeAdapter
         val data = com.simplife.skip.util.DataSource.createDataSet()

@@ -17,7 +17,8 @@ class DataSource {
                         "Sebastian Pinillos",
                         "11:00 am",
                         "09:00 am",
-                        "8 Nov"
+                        "8 Nov",
+                        4.5
                     )
                 )
                 list.add(
@@ -30,7 +31,8 @@ class DataSource {
                         "Cesar Pizarro",
                         "01:00 pm",
                         "10:00 am",
-                        "8 Nov"
+                        "8 Nov",
+                        5.0
                     )
                 )
                 list.add(
@@ -43,7 +45,8 @@ class DataSource {
                         "Ded Reviil",
                         "11:00 am",
                         "8:00 am",
-                        "9 Nov"
+                        "9 Nov",
+                        4.0
                     )
                 )
                 list.add(
@@ -56,7 +59,8 @@ class DataSource {
                         "Optimus Prime",
                         "11:00 am",
                         "8:00 am",
-                        "9 Nov"
+                        "9 Nov",
+                        4.6
                     )
                 )
                 list.add(
@@ -69,7 +73,8 @@ class DataSource {
                         "Hayasaka Shiro",
                         "11:00 am",
                         "8:00 am",
-                        "9 Nov"
+                        "9 Nov",
+                        4.8
                     )
                 )
                 return list

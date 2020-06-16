@@ -1,5 +1,7 @@
 package com.simplife.skip.adapter
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.simplife.skip.R
+import com.simplife.skip.activities.ViajeDetail
 import com.simplife.skip.models.Viaje
 import kotlinx.android.synthetic.main.viaje_list_item.view.*
 
@@ -39,6 +42,7 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     class ViajeViewHolder constructor(
         itemView: View
     ): RecyclerView.ViewHolder(itemView){
+
         val userImage = itemView.viaje_image
         val viajeTitle = itemView.viaje_title
         val author = itemView.viaje_author
@@ -65,6 +69,10 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                 .applyDefaultRequestOptions(requestOptions)
                 .load(viaje.image)
                 .into(userImage)
+
+            itemView.setOnClickListener{
+                itemView.context.startActivity(Intent(itemView.context, ViajeDetail::class.java).putExtra("via", viaje))
+            }
         }
     }
 

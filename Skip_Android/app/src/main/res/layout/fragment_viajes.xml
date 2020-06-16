@@ -21,7 +21,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_misviajes_view"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="75dp">
     </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>
