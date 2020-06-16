@@ -40,7 +40,7 @@ class DataSource {
                         "https://vignette.wikia.nocookie.net/youtubepedia/images/4/4c/Dedsonrie.jpg/revision/latest?cb=20200225204711&path-prefix=es",
                         "UPC San Isidro",
                         "Mexico",
-                        "Ded",
+                        "Ded Reviil",
                         "11:00 am",
                         "8:00 am",
                         "9 Nov"
@@ -66,7 +66,7 @@ class DataSource {
                         "https://i.ytimg.com/vi/XWRD8FD9V1w/maxresdefault.jpg",
                         "UPC San Isidro",
                         "Academia",
-                        "Hayasaka",
+                        "Hayasaka Shiro",
                         "11:00 am",
                         "8:00 am",
                         "9 Nov"

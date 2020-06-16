@@ -8,15 +8,15 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.simplife.skip.R
 import com.simplife.skip.models.Viaje
-import kotlinx.android.synthetic.main.viaje_list_item.view.*
+import kotlinx.android.synthetic.main.myviaje_list_item.view.*
 
-class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MisViajesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private var items : List<Viaje> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ViajeViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.viaje_list_item, parent, false)
+        return MiViajeViewHolder(
+            LayoutInflater.from(parent.context).inflate(R.layout.myviaje_list_item, parent, false)
         )
     }
 
@@ -26,7 +26,7 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
-            is ViajeViewHolder->{
+            is MiViajeViewHolder->{
                 holder.bind(items.get(position))
             }
         }
@@ -36,26 +36,24 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         items = viajeList
     }
 
-    class ViajeViewHolder constructor(
+    class MiViajeViewHolder constructor(
         itemView: View
     ): RecyclerView.ViewHolder(itemView){
-        val userImage = itemView.viaje_image
-        val viajeTitle = itemView.viaje_title
-        val author = itemView.viaje_author
-        val viajeText = itemView.viaje_text
-        val viajeSource = itemView.viaje_origen
-        val viajeDestiny = itemView.viaje_destino
-        val viajeHoraOrigen = itemView.viaje_hora_origen
-        val viajeHoraDestino = itemView.viaje_hora_destino
+        val miuserImage = itemView.miviaje_image
+        val miviajeTitle = itemView.miviaje_title
+        val miauthor = itemView.miviaje_author
+        val miviajeSource = itemView.miviaje_origen
+        val miviajeDestiny = itemView.miviaje_destino
+        val miviajeHoraOrigen = itemView.miviaje_horaorigen
+        val miviajeHoraDestino = itemView.miviaje_horadestino
 
         fun bind(viaje: Viaje){
-            viajeTitle.setText(viaje.publish)
-            author.setText(viaje.username)
-            viajeText.setText(viaje.body)
-            viajeSource.setText(viaje.source)
-            viajeDestiny.setText(viaje.destiny)
-            viajeHoraDestino.setText(viaje.horaDestino)
-            viajeHoraOrigen.setText(viaje.horaSalida)
+            miviajeTitle.setText(viaje.publish)
+            miauthor.setText(viaje.username)
+            miviajeSource.setText(viaje.source)
+            miviajeDestiny.setText(viaje.destiny)
+            miviajeHoraDestino.setText(viaje.horaDestino)
+            miviajeHoraOrigen.setText(viaje.horaSalida)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
@@ -64,8 +62,9 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
                 .load(viaje.image)
-                .into(userImage)
+                .into(miuserImage)
         }
     }
+
 
 }
