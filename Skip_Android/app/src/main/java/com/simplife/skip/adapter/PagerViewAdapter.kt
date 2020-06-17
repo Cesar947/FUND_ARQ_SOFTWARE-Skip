@@ -1,27 +1,39 @@
 package com.simplife.skip.adapter
 
+import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.simplife.skip.fragments.*
 
-internal class PagerViewAdapter(fm:FragmentManager?) : FragmentPagerAdapter(fm!!) {
+internal class PagerViewAdapter(fm:FragmentManager?, bundle: Bundle) : FragmentPagerAdapter(fm!!) {
+
+    private lateinit var fragment: Fragment
+
+    private var frbundle: Bundle = bundle
+
     override fun getItem(position: Int): Fragment {
         return when(position){
             0->{
-                HomeFragment()
+                fragment = HomeFragment()
+                fragment.arguments = frbundle
+                return fragment
             }
             1->{
-                SearchFragment()
+                fragment = SearchFragment()
+                return fragment
             }
             2->{
-                ViajesFragment()
+                fragment = ViajesFragment()
+                return fragment
             }
             3->{
-                NotificacionFragment()
+                fragment = NotificacionFragment()
+                return fragment
             }
             4->{
-                PerfilFragment()
+                fragment = PerfilFragment()
+                return fragment
             }
             else -> HomeFragment()
         }

@@ -1,12 +1,12 @@
-package com.simplife.skip
+package com.simplife.skip.activities
 
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.simplife.skip.R
 import com.simplife.skip.adapter.PagerViewAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import com.simplife.skip.models.Usuario
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,11 +20,18 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mViewPager: ViewPager
     private lateinit var mPagerViewAdapter: PagerViewAdapter
 
+    private lateinit var bundle: Bundle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val usuario = intent.getSerializableExtra("user") as Usuario
+
+        bundle = Bundle()
+        bundle.putSerializable("user", usuario)
 
         mViewPager = findViewById(R.id.viewPager)
 
@@ -61,8 +68,9 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        mPagerViewAdapter = PagerViewAdapter(supportFragmentManager)
+        mPagerViewAdapter = PagerViewAdapter(supportFragmentManager, bundle)
         mViewPager.adapter = mPagerViewAdapter
+        //mPagerViewAdapter.bundle
 
 
         mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
