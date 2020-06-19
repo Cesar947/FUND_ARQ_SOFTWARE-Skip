@@ -1,5 +1,6 @@
 package com.simplife.skip.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class Cuenta implements Serializable {
     @Column(name = "correo_upc")
     private String correoUPC;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @Column(name = "contrasena")
     private String contrasena;
 

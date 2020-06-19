@@ -32,4 +32,5 @@ public class Ruta implements Serializable {
     private boolean estadoTabla;
 
 
+
 }

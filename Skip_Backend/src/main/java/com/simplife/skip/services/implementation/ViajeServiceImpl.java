@@ -1,6 +1,8 @@
 package com.simplife.skip.services.implementation;
 
+import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.repositories.UsuarioRepository;
 import com.simplife.skip.repositories.ViajeRepository;
 import com.simplife.skip.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,16 +17,21 @@ import java.util.List;
 public class ViajeServiceImpl implements ViajeService {
 
     private ViajeRepository viajeRepository;
+    private UsuarioRepository usuarioRepository;
 
     @Autowired
-    public ViajeServiceImpl(ViajeRepository viajeRepository){
+    public ViajeServiceImpl(ViajeRepository viajeRepository, UsuarioRepository usuarioRepository){
         this.viajeRepository = viajeRepository;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @Override
-    public Viaje insertarViaje(Viaje viaje) throws Exception {
+    public Viaje insertarViaje(Viaje viaje, Long conductorId) throws Exception {
         Viaje nuevoViaje;
+        Usuario conductor;
         try{
+            conductor = this.usuarioRepository.findById(conductorId).get();
+            viaje.setConductor(conductor);
             nuevoViaje = this.viajeRepository.save(viaje);
         }catch(Exception e){
             throw e;

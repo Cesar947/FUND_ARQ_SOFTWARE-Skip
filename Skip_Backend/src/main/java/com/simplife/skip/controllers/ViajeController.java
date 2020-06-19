@@ -19,8 +19,8 @@ public class ViajeController {
     }
 
     @PostMapping("/publicacion")
-    public Viaje publicarViaje(@RequestBody Viaje viaje) throws Exception{
-        return this.viajeService.insertarViaje(viaje);
+    public Viaje publicarViaje(@RequestBody Viaje viaje, @RequestParam("conductorId") Long conductorId) throws Exception{
+        return this.viajeService.insertarViaje(viaje, conductorId);
     }
 
     @GetMapping

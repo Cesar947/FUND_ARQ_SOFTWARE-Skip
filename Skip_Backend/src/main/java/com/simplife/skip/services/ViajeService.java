@@ -8,7 +8,7 @@ import java.util.List;
 public interface ViajeService {
 
     //Métodos CRUD
-    Viaje insertarViaje(Viaje viaje) throws Exception;
+    Viaje insertarViaje(Viaje viaje, Long conductorId) throws Exception;
     List<Viaje> obtenerViajes() throws Exception;
         //usuarioConductorId es id de usuario de algún conductor
     List<Viaje> listarViajesPorConductor(Long usuarioConductorId) throws Exception;
