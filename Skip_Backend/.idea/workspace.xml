@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0d5ff286-b048-441c-8736-5318cb3ed642" name="Default Changelist" comment="">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
 =======
       <change afterPath="$PROJECT_DIR$/.idea/Skip_Backend.iml" afterDir="false" />
@@ -18,6 +19,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
 >>>>>>> ee5c1a9992c799b523595995650abe4e0c4da482
+=======
+>>>>>>> sebastian
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -467,13 +470,24 @@
   </component>
 =======
       <workItem from="1590166445620" duration="2749000" />
+      <workItem from="1590801813108" duration="598000" />
+      <workItem from="1590853089549" duration="369000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+<<<<<<< HEAD
 >>>>>>> ee5c1a9992c799b523595995650abe4e0c4da482
+=======
+  <component name="WindowStateProjectService">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590853435396">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590853435396" />
+  </component>
+>>>>>>> sebastian
   <component name="masterDetails">
     <states>
       <state key="ProjectJDKs.UI">

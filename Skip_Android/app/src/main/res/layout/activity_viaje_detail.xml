@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ViajeDetail">
+
+
+    <ImageButton
+        android:id="@+id/detback_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="360dp"
+        android:layout_marginBottom="695dp"
+        android:layout_marginLeft="40dp"
+        android:background="#00FFFFFF"
+        app2:srcCompat="@drawable/ic_arrow_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="546dp"
+        app:cardBackgroundColor="@color/colorSecondary"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="10dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="260dp"
+                android:layout_marginBottom="130dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/valoracion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Valoracion"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="8sp" />
+
+                <TextView
+                    android:id="@+id/viajedetail_val"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4.6"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="412dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/viajedetail_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="5dp"
+                        app2:civ_border_color="#FF000000"
+                        app2:civ_border_width="0dp" />
+
+                    <LinearLayout
+                        android:id="@+id/detailcontainer1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:id="@+id/viajedetail_author"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mitch Tabian"
+                            android:textColor="#FFFF"
+                            android:textSize="15sp" />
+
+                        <TextView
+                            android:id="@+id/viajedetail_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="The Title of a Blog"
+                            android:textColor="#FFFF"
+                            android:textSize="10sp" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/viajedetail_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:text="Nuevo Viaje"
+                        android:textColor="#FFFF" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/leftimagedetail"
+                            android:layout_width="56dp"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/left_w" />
+
+                        <LinearLayout
+                            android:layout_width="230dp"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/viajedetail_origen"
+                                    android:layout_width="135dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="Carabayllo"
+                                    android:textColor="#FFFF" />
+
+                                <TextView
+                                    android:id="@+id/viajedetail_hora_origen"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="09:00 am"
+                                    android:textColor="#FFFF" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/imageViewdetail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:srcCompat="@drawable/divider_w" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="30dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/viajedetail_destino"
+                                    android:layout_width="134dp"
+                                    android:layout_height="wrap_content"
+                                    android:text="UPC San Miguel"
+                                    android:textColor="#FFFF" />
+
+                                <TextView
+                                    android:id="@+id/viajedetail_hora_destino"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="11:00 am"
+                                    android:textColor="#FFFF" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:width="160dp"
+        android:background="@drawable/mybutton"
+        android:text="Solicitar"
+        android:layout_marginRight="30dp"
+        android:textColor="#FFFF"
+        android:layout_marginLeft="210dp"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_resenas_view"
+        android:layout_marginTop="600dp"
+        android:layout_marginBottom="10dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
