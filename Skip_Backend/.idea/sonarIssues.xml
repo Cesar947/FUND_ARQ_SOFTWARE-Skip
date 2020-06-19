@@ -33,6 +33,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ReporteController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/UsuarioController.java">
           <value>
             <set />
@@ -103,7 +108,17 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ReporteRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ViajeRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/ReporteService.java">
           <value>
             <set />
           </value>
@@ -114,6 +129,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/ViajeService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ReporteServiceImpl.java">
           <value>
             <set />
           </value>
