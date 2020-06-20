@@ -30,6 +30,7 @@ internal class PagerViewAdapter(fm:FragmentManager?, bundle: Bundle) : FragmentP
             }
             3->{
                 fragment = NotificacionFragment()
+                fragment.arguments = frbundle
                 return fragment
             }
             4->{
