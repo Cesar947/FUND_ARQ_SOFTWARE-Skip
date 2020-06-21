@@ -38,9 +38,6 @@ public class Solicitud implements Serializable {
     @Column(name = "horaSolicitud")
     private LocalTime horaSolicitud;
 
-    @Column(name = "distancia_total")
-    private float distanciaTotal;
-
     @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "pasajero_id", nullable = false)
     private Usuario pasajero;
@@ -48,10 +45,6 @@ public class Solicitud implements Serializable {
     @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "viaje_id", nullable = false)
     private Viaje viaje;
-
-    @ManyToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "parada_id", nullable = false)
-    private Parada parada;
 
     //En lista
     //En viaje

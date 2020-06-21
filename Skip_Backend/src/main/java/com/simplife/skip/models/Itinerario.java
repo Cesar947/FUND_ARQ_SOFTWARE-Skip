@@ -35,4 +35,10 @@ public class Itinerario {
 
     @Column(name = "estado_tabla")
     private boolean estadoTabla;
+
+    public Itinerario(Ruta ruta, Parada parada, int numOrden){
+        this.ruta = ruta;
+        this.parada = parada;
+        this.numOrden = numOrden;
+    }
 }

@@ -28,9 +28,18 @@ public class Ruta implements Serializable {
     @Column(name = "sentido")
     private boolean sentido;
 
+    @Column(name = "distancia")
+    private float distancia;
+
     @Column(name = "estado_tabla")
     private boolean estadoTabla;
 
 
+    public Ruta(String tiempoEstimado, boolean sentido, float distancia, boolean estadoTabla){
+        this.tiempoEstimado = tiempoEstimado;
+        this.sentido = sentido;
+        this.distancia = distancia;
+        this.estadoTabla = estadoTabla;
+    }
 
 }
