@@ -54,11 +54,22 @@ public class Viaje implements Serializable {
     @Column(name = "visualizacion_habilitada")
     private boolean visualizacionHabilitada;
 
-    //En curso - Finalizado
+    //Publicado - En curso - Finalizado
     @Column(name = "estado_viaje", length = 10)
     private String estadoViaje;
 
     @Column(name = "estado_tabla")
     private boolean estadoTabla;
+
+
+    public Viaje(Usuario conductor, String descripcion, LocalDate fechaViaje,
+                 LocalTime horaInicio, LocalTime horaLlegada){
+        this.conductor = conductor;
+        this.descripcion = descripcion;
+        this.fechaViaje = fechaViaje;
+        this.horaInicio = horaInicio;
+        this.horaLlegada = horaLlegada;
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package com.simplife.skip.services;
 
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.payload.requests.ViajeRequest;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
 public interface ViajeService {
 
     //Métodos CRUD
-    Viaje insertarViaje(Viaje viaje, Long conductorId) throws Exception;
+    Viaje insertarViaje(ViajeRequest viaje) throws Exception;
     List<Viaje> obtenerViajes() throws Exception;
         //usuarioConductorId es id de usuario de algún conductor
     List<Viaje> listarViajesPorConductor(Long usuarioConductorId) throws Exception;

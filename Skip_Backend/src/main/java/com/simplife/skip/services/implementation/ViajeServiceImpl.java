@@ -2,14 +2,15 @@ package com.simplife.skip.services.implementation;
 
 import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
-import com.simplife.skip.repositories.UsuarioRepository;
-import com.simplife.skip.repositories.ViajeRepository;
+import com.simplife.skip.payload.requests.ViajeRequest;
+import com.simplife.skip.repositories.*;
 import com.simplife.skip.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -18,6 +19,9 @@ public class ViajeServiceImpl implements ViajeService {
 
     private ViajeRepository viajeRepository;
     private UsuarioRepository usuarioRepository;
+    private RutaRepository rutaRepository;
+    private ItinerarioRepository itinerarioRepository;
+    private ParadaRepository paradaRepository;
 
     @Autowired
     public ViajeServiceImpl(ViajeRepository viajeRepository, UsuarioRepository usuarioRepository){
@@ -26,13 +30,26 @@ public class ViajeServiceImpl implements ViajeService {
     }
 
     @Override
-    public Viaje insertarViaje(Viaje viaje, Long conductorId) throws Exception {
+    public Viaje insertarViaje(ViajeRequest viaje) throws Exception {
         Viaje nuevoViaje;
         Usuario conductor;
+
         try{
-            conductor = this.usuarioRepository.findById(conductorId).get();
-            viaje.setConductor(conductor);
-            nuevoViaje = this.viajeRepository.save(viaje);
+            conductor = this.usuarioRepository.findById(viaje.getConductorId()).get();
+            DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+            LocalDate nuevaFechaViaje = LocalDate.parse(viaje.getFechaViaje(), dtfFecha);
+            DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime nuevaHoraInicio = LocalTime.parse(viaje.getHoraInicio(), dtfHora);
+            LocalTime nuevaHoraLlegada = LocalTime.parse(viaje.getHoraLlegada(), dtfHora);
+            nuevoViaje = new Viaje(conductor, viaje.getDescripcion(),
+                    nuevaFechaViaje, nuevaHoraInicio, nuevaHoraLlegada);
+            nuevoViaje.setFechaPublicacion(LocalDate.now());
+            nuevoViaje.setHoraPublicacion(LocalTime.now());
+            nuevoViaje.setVisualizacionHabilitada(true);
+            nuevoViaje.setEstadoViaje("PUBLICADO");
+            nuevoViaje.setEstadoTabla(true);
+
+            nuevoViaje = this.viajeRepository.save(nuevoViaje);
         }catch(Exception e){
             throw e;
         }

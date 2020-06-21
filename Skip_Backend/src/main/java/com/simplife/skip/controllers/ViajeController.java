@@ -1,6 +1,7 @@
 package com.simplife.skip.controllers;
 
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class ViajeController {
     }
 
     @PostMapping("/publicacion")
-    public Viaje publicarViaje(@RequestBody Viaje viaje, @RequestParam("conductorId") Long conductorId) throws Exception{
-        return this.viajeService.insertarViaje(viaje, conductorId);
+    public Viaje publicarViaje(@RequestBody ViajeRequest viaje, Long conductorId) throws Exception{
+        return null; //this.viajeService.insertarViaje(viaje);
     }
 
     @GetMapping

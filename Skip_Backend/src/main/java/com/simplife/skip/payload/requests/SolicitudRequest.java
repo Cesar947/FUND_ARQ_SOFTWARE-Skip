@@ -1,5 +1,8 @@
 package com.simplife.skip.payload.requests;
 
+import lombok.Data;
+
+@Data
 public class SolicitudRequest {
 
     //Mensaje al conductor
