@@ -9,9 +9,13 @@ import java.util.List;
 public class ViajeRequest {
 
     private Long conductorId;
-    private String sentidoRuta;
-    private List<Parada> paradas;
+    //True - hacia la universidad
+    //False - desde la universidad
+    private boolean sentidoRuta;
+    private Parada partida;
+    private Parada destino;
     private String tiempoEstimado;
+    private float distancia;
     private String descripcion;
     private String fechaViaje;
     private String horaInicio;

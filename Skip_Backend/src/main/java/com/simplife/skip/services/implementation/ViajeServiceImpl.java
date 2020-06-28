@@ -1,7 +1,6 @@
 package com.simplife.skip.services.implementation;
 
-import com.simplife.skip.models.Usuario;
-import com.simplife.skip.models.Viaje;
+import com.simplife.skip.models.*;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.repositories.*;
 import com.simplife.skip.services.ViajeService;
@@ -33,8 +32,24 @@ public class ViajeServiceImpl implements ViajeService {
     public Viaje insertarViaje(ViajeRequest viaje) throws Exception {
         Viaje nuevoViaje;
         Usuario conductor;
-
+        Parada partida = viaje.getPartida();
+        Parada destino = viaje.getDestino();
+        Itinerario itinerario1;
+        Itinerario itinerario2;
         try{
+            if (this.paradaRepository.buscarPorLatYLong(partida.getLatitud(), partida.getLongitud()) == null){
+                partida = this.paradaRepository.save(partida);
+            }
+            if (this.paradaRepository.buscarPorLatYLong(destino.getLatitud(), destino.getLongitud()) == null){
+                destino = this.paradaRepository.save(destino);
+            }
+
+            Ruta ruta = new Ruta(viaje.getTiempoEstimado(), viaje.isSentidoRuta(), viaje.getDistancia(), true);
+            itinerario1 = new Itinerario(ruta, partida, 1);
+            itinerario2 = new Itinerario(ruta, destino, 2);
+            this.itinerarioRepository.save(itinerario1);
+            this.itinerarioRepository.save(itinerario2);
+
             conductor = this.usuarioRepository.findById(viaje.getConductorId()).get();
             DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/mm/yyyy");
             LocalDate nuevaFechaViaje = LocalDate.parse(viaje.getFechaViaje(), dtfFecha);
@@ -48,7 +63,7 @@ public class ViajeServiceImpl implements ViajeService {
             nuevoViaje.setVisualizacionHabilitada(true);
             nuevoViaje.setEstadoViaje("PUBLICADO");
             nuevoViaje.setEstadoTabla(true);
-
+            nuevoViaje.setRuta(ruta);
             nuevoViaje = this.viajeRepository.save(nuevoViaje);
         }catch(Exception e){
             throw e;
