@@ -1,10 +1,13 @@
 package com.simplife.skip.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.simplife.skip.R
+import com.simplife.skip.activities.StartViajeActivity
+import com.simplife.skip.activities.ViajeDetail
 import com.simplife.skip.models.Viaje
 import kotlinx.android.synthetic.main.myviaje_conductor_list_item.view.*
 
@@ -49,7 +52,12 @@ class MisViajeCondRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder
             miviajeHoraDestino.setText(viaje.horaDestino)
             miviajeHoraOrigen.setText(viaje.horaSalida)
 
+            itemView.setOnClickListener{
+                itemView.context.startActivity(Intent(itemView.context, StartViajeActivity::class.java).putExtra("via", viaje))
+            }
+
         }
+
     }
 
 
