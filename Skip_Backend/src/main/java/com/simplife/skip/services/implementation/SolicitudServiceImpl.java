@@ -1,3 +1,5 @@
+package com.simplife.skip.services.implementation;
+
 import com.simplife.skip.models.Parada;
 import com.simplife.skip.models.Solicitud;
 import com.simplife.skip.models.Usuario;
@@ -5,7 +7,7 @@ import com.simplife.skip.repositories.ParadaRepository;
 import com.simplife.skip.repositories.SolicitudRepository;
 import com.simplife.skip.repositories.UsuarioRepository;
 import com.simplife.skip.repositories.ViajeRepository;
-import com.simplife.skip.services.SolicitiudService;
+import com.simplife.skip.services.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.simplife.skip.payload.requests.SolicitudRequest;
@@ -17,7 +19,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 @Service
-class SolicitudServiceImpl implements SolicitiudService {
+class SolicitudServiceImpl implements SolicitudService {
 
     private SolicitudRepository solicitudRepository;
     private ParadaRepository paradaRepository;
@@ -51,9 +53,9 @@ class SolicitudServiceImpl implements SolicitiudService {
             solicitudNueva = new Solicitud(mensaje, pasajero, viaje, parada);
 
             DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/mm/yyyy");
-            LocalDate fechaSolicitud = LocalDate.parse(LocalDate.now(), dtfFecha);
+            LocalDate fechaSolicitud = LocalDate.parse(LocalDate.now().toString(), dtfFecha);
             DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
-            LocalTime horaSolicitud = LocalTime.parse(LocalTime.now(), dtfHora);
+            LocalTime horaSolicitud = LocalTime.parse(LocalTime.now().toString(), dtfHora);
 
             solicitudNueva.setFechaSolicitud(fechaSolicitud);
             solicitudNueva.setHoraSolicitud(horaSolicitud);
@@ -68,7 +70,7 @@ class SolicitudServiceImpl implements SolicitiudService {
 
     @Transactional
     public int actualizarEstadoPasajero(Long solicitudId, Long pasajeroId, String estado) throws Exception{
-        return this.actualizarEstadoPasajero(estado, solicitudId, pasajeroId);
+        return this.actualizarEstadoPasajero(solicitudId, pasajeroId, estado);
     }
 
 

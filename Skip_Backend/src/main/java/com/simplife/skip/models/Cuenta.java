@@ -14,8 +14,8 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "cuenta")
 @Entity
+@Table(name = "cuenta")
 public class Cuenta implements Serializable {
 
     public  static final long serialVersionUID = 1L;
@@ -25,14 +25,14 @@ public class Cuenta implements Serializable {
     @Column(name = "cuenta_id")
     private Long Id;
 
-    @Column(name = "codigo_upc")
+    @Column(name = "codigo_upc", nullable = false)
     private String codigoUpc;
 
-    @Column(name = "correo_upc")
+    @Column(name = "correo_upc", nullable = false)
     private String correoUPC;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @Column(name = "contrasena")
+    @Column(name = "contrasena", nullable = false)
     private String contrasena;
 
     @Column(name = "estado_tabla")
@@ -45,5 +45,12 @@ public class Cuenta implements Serializable {
             inverseJoinColumns = @JoinColumn(name ="rol_id"))
     private Set<Rol> roles;
 
+    public Cuenta(String codigo, String email, String encode) {
+        this.codigoUpc = codigo;
+        this.correoUPC = email;
+        this.contrasena = encode;
+
+        this.estadoTabla = true;
+    }
 }
 

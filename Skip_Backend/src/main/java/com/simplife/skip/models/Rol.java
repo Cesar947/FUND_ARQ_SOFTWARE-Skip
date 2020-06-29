@@ -24,8 +24,9 @@ public class Rol implements Serializable {
     @Column(name = "rol_id")
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "nombre")
-    private String nombre;
+    private ERole nombre;
 
     @Column(name = "estado_tabla")
     private boolean estadoTabla;

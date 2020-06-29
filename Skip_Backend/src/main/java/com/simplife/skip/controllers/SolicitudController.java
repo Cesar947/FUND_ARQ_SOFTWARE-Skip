@@ -1,6 +1,7 @@
 package com.simplife.skip.controllers;
 
         import com.simplife.skip.models.Usuario;
+        import com.simplife.skip.services.SolicitudService;
         import com.simplife.skip.services.UsuarioService;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +14,8 @@ package com.simplife.skip.controllers;
 public class SolicitudController {
 
     private SolicitudService solicitudService;
+
+    private UsuarioService usuarioService;
 
     @Autowired
     public SolicitudController(UsuarioService usuarioService){

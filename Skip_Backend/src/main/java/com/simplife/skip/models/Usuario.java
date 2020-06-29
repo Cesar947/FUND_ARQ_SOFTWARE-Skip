@@ -12,8 +12,8 @@ import java.io.Serializable;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "usuario")
 @Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -23,16 +23,16 @@ public class Usuario implements Serializable {
     @Column(name = "usuario_id")
     private Long id;
 
-    @Column(name = "dni")
+    @Column(name = "dni", nullable = false)
     private String dni;
 
-    @Column(name = "nombres")
+    @Column(name = "nombres", nullable = false)
     private String nombres;
 
-    @Column(name = "apellidos")
+    @Column(name = "apellidos", nullable = false)
     private String apellidos;
 
-    @Column(name = "sede")
+    @Column(name = "sede", nullable = false)
     private String sede;
 
     @Column(name = "estado_tabla")
@@ -42,4 +42,13 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "cuenta_id", nullable = false)
     private Cuenta cuenta;
 
+    public Usuario(String dni, String nombres, String apellidos, String sede, Cuenta cuenta) {
+        this.dni = dni;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.sede = sede;
+        this.cuenta = cuenta;
+
+        this.estadoTabla = true;
+    }
 }
