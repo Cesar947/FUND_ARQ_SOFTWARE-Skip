@@ -19,4 +19,8 @@ public interface ViajeRepository extends JpaRepository<Viaje, Long> {
     @Query("UPDATE Viaje v SET v.fechaViaje = ?1 WHERE v.id = ?2")
     int actualizarFechaViaje(LocalDate fecha, Long viajeId);
 
+    @Modifying
+    @Query("UPDATE Viaje v SET v.estadoViaje = ?1 WHERE v.id = ?2")
+    int actualizarEstadoViaje(String estado, Long viajeId);
+
 }

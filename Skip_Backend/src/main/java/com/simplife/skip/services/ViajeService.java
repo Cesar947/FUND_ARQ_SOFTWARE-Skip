@@ -18,6 +18,8 @@ public interface ViajeService {
     @Transactional
     int actualizarFechaViaje(String fechaViaje, Long viajeId) throws Exception;
 
+    @Transactional
+    int actualizarEstadoViaje(String estado, Long viajeId) throws Exception;
 
 
 

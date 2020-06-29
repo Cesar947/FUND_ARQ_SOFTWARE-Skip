@@ -11,4 +11,5 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
     @Query("UPDATE Solicitud s SET s.estadoPasajero = ?1 where s.id = ?2 and s.pasajero.id = ?3")
     int actualizarEstadoPasajero(String estado, Long solicitudId, Long clienteId);
 
+
 }

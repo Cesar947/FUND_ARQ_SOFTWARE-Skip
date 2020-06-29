@@ -4,6 +4,7 @@ import com.simplife.skip.models.Viaje;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +39,12 @@ public class ViajeController {
     @GetMapping("/conductor/{conductorId}")
     public List<Viaje> listarViajesPorConductor(@PathVariable("conductorId") Long conductorId) throws Exception{
         return this.viajeService.listarViajesPorConductor(conductorId);
+    }
+
+    @Transactional
+    @PutMapping("/{viajeId}")
+    public int actualizarEstadoDeViaje(@PathVariable("viajeId") Long viajeId, @RequestParam("estado") String estado){
+        return 1;
     }
 
 }

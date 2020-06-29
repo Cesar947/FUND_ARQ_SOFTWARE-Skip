@@ -106,4 +106,12 @@ public class ViajeServiceImpl implements ViajeService {
         }
         return viajeActualizado;
     }
+
+    @Override
+    @Transactional
+    public int actualizarEstadoViaje(String estado, Long viajeId) throws Exception{
+        return this.viajeRepository.actualizarEstadoViaje(estado, viajeId);
+    }
+
+
 }
