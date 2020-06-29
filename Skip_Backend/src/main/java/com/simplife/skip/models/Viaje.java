@@ -54,6 +54,9 @@ public class Viaje implements Serializable {
     @Column(name = "visualizacion_habilitada")
     private boolean visualizacionHabilitada;
 
+    @Column(name = "numero_pasajeros")
+    private int numeroPasajeros;
+
     //Publicado - En curso - Finalizado
     @Column(name = "estado_viaje", length = 10)
     private String estadoViaje;

@@ -8,6 +8,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../DISEÑO_EXPERIMENTOS_SOFTWARE/Trabajo Final/EXPERIMENTOS_PROYECTO/EzDeal/API JAVA/src/main/java/com/myorg/ezdeal/service/implementation/SolicitudServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/.idea/workspace.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/build.gradle">
           <value>
             <set />
@@ -34,6 +44,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ReporteController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/SolicitudController.java">
           <value>
             <set />
           </value>
@@ -69,6 +84,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Parada.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Reporte.java">
           <value>
             <set />
           </value>
@@ -159,6 +179,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ReporteServiceImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java">
           <value>
             <set />
           </value>

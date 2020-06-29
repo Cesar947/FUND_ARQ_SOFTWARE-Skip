@@ -7,8 +7,6 @@ public class SolicitudRequest {
 
     //Mensaje al conductor
     private String mensaje;
-    //La distancia entre el punto de encuentro y el destino
-    private double distainciaTotal;
 
     private Long pasajeroId;
 
