@@ -1,10 +1,13 @@
 package com.simplife.skip.services.implementation;
 
 import com.simplife.skip.models.Usuario;
+import com.simplife.skip.models.Viaje;
 import com.simplife.skip.repositories.UsuarioRepository;
 import com.simplife.skip.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
@@ -14,6 +17,17 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     public UsuarioServiceImpl(UsuarioRepository usuarioRepository){
         this.usuarioRepository = usuarioRepository;
+    }
+
+    @Override
+    public List<Usuario> listarUsuarios() throws Exception{
+        List<Usuario> listaUsuarios;
+        try{
+            listaUsuarios = this.usuarioRepository.findAll();
+        }catch(Exception e){
+            throw e;
+        }
+        return listaUsuarios;
     }
 
     @Override

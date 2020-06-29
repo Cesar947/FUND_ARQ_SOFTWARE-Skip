@@ -1,15 +1,15 @@
 package com.simplife.skip.controllers;
 
 import com.simplife.skip.models.Usuario;
+import com.simplife.skip.models.Viaje;
 import com.simplife.skip.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("skip/usuarios")
+@RequestMapping("/api/auth/usuarios")
 public class UsuarioController {
 
     private UsuarioService usuarioService;
@@ -17,6 +17,11 @@ public class UsuarioController {
     @Autowired
     public UsuarioController(UsuarioService usuarioService){
         this.usuarioService = usuarioService;
+    }
+
+    @GetMapping
+    public List<Usuario> visualizarUsuarios() throws Exception{
+        return this.usuarioService.listarUsuarios();
     }
 
     @PostMapping("/registro")
