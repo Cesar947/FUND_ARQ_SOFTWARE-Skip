@@ -11,7 +11,7 @@ import org.springframework.jmx.support.RegistrationPolicy;
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class );
+        SpringApplication.run(Application.class);
     }
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application){

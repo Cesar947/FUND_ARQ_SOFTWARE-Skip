@@ -11,6 +11,9 @@
         <module name="com.myorg.upcride.Skip_Backend.main" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="com.myorg.upcride.Skip_Backend.main" target="1.8" />
+      <module name="com.myorg.upcride.Skip_Backend.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
