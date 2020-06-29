@@ -1,5 +1,8 @@
 package com.simplife.skip.services.implementation;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 738794a39229431e5c14ae5632d27d19cf56a183
 import com.simplife.skip.models.Parada;
 import com.simplife.skip.models.Solicitud;
 import com.simplife.skip.models.Usuario;
@@ -37,6 +40,7 @@ class SolicitudServiceImpl implements SolicitudService {
         this.paradaRepository = paradaRepository;
     }
 
+    @Override
     public Solicitud procesarSolicitud(SolicitudRequest solicitud) throws Exception{
         String mensaje = solicitud.getMensaje();
         Long pasajeroId = solicitud.getPasajeroId();
@@ -53,9 +57,15 @@ class SolicitudServiceImpl implements SolicitudService {
             solicitudNueva = new Solicitud(mensaje, pasajero, viaje, parada);
 
             DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+<<<<<<< HEAD
             LocalDate fechaSolicitud = LocalDate.parse(LocalDate.now().toString(), dtfFecha);
             DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalTime horaSolicitud = LocalTime.parse(LocalTime.now().toString(), dtfHora);
+=======
+            LocalDate fechaSolicitud = LocalDate.parse(LocalDate.now().format(dtfFecha));
+            DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+            LocalTime horaSolicitud = LocalTime.parse(LocalTime.now().format(dtfHora));
+>>>>>>> 738794a39229431e5c14ae5632d27d19cf56a183
 
             solicitudNueva.setFechaSolicitud(fechaSolicitud);
             solicitudNueva.setHoraSolicitud(horaSolicitud);
@@ -65,12 +75,18 @@ class SolicitudServiceImpl implements SolicitudService {
         }catch(Exception e){
             throw e;
         }
+
+
         return solicitudNueva;
     }
 
     @Transactional
     public int actualizarEstadoPasajero(Long solicitudId, Long pasajeroId, String estado) throws Exception{
+<<<<<<< HEAD
         return this.actualizarEstadoPasajero(solicitudId, pasajeroId, estado);
+=======
+        return this.solicitudRepository.actualizarEstadoPasajero(estado, solicitudId, pasajeroId);
+>>>>>>> 738794a39229431e5c14ae5632d27d19cf56a183
     }
 
 

@@ -5,19 +5,22 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
-//apply plugin: 'war'
-//apply plugin: 'application'
+apply plugin: 'war'
+apply plugin: 'application'
 
 group = 'com.myorg.upcride'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
-//mainClassName="com.simplife.skip.Application"
+mainClassName="com.simplife.skip.Application"
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+    compile.exclude module: 'spring-boot-starter-tomcat'
+    compile.exclude group: 'org.apache.tomcat'
+
 }
 
 repositories {
@@ -30,9 +33,12 @@ dependencies {
     //implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.security:spring-security-test'
 
-    compile 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.0.16'
-
-
+    //compile 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.0.16'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: '2.3.1.RELEASE'
+    compile("org.springframework.boot:spring-boot-starter-websocket") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    providedCompile group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
     compile group: 'org.springframework', name: 'spring-context', version: '5.1.14.RELEASE'
     testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.6.2'
