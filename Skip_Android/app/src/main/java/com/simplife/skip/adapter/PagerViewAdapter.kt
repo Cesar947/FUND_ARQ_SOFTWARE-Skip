@@ -25,14 +25,17 @@ internal class PagerViewAdapter(fm:FragmentManager?, bundle: Bundle) : FragmentP
             }
             2->{
                 fragment = ViajesFragment()
+                fragment.arguments = frbundle
                 return fragment
             }
             3->{
                 fragment = NotificacionFragment()
+                fragment.arguments = frbundle
                 return fragment
             }
             4->{
                 fragment = PerfilFragment()
+                fragment.arguments = frbundle
                 return fragment
             }
             else -> HomeFragment()

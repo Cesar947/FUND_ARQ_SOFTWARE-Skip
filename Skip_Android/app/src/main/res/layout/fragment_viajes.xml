@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F3F3F3"
+    android:background="@drawable/gradient_background_blue"
     android:gravity="center"
     tools:context=".fragments.ViajesFragment">
 
@@ -15,13 +15,14 @@
         android:layout_marginTop="15dp"
         android:layout_marginLeft="20dp"
         android:text="Viajes"
+        android:textStyle="bold"
         android:textSize="40sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_misviajes_view"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="70dp"
         android:layout_marginBottom="75dp">
     </androidx.recyclerview.widget.RecyclerView>
 

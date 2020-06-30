@@ -7,7 +7,11 @@ class Usuario (
     var password: String,
     var rol: String,
     var email: String,
-    var username: String
+    var nombre: String,
+    var username: String,
+    var sede: String,
+    var facebook: String,
+    var ubicacion: String
 ): Serializable{
 
     override fun toString(): String {

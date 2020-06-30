@@ -9,11 +9,15 @@ class UserData {
             val list = ArrayList<Usuario>()
             list.add(
                 Usuario(
-                    "https://dicomania.com/wp-content/uploads/2019/05/maxresdefault-12.jpg",
+                    "https://i.ytimg.com/vi/YOYloOO80qk/maxresdefault.jpg",
                     "1234",
                     "conductor",
                     "cesar@gmail.com",
-                    "Cesar947"
+                    "Cesar Pizarro",
+                    "Cesar947",
+                    "UPC San Miguel",
+                    "/Cesar947",
+                    "Magdalena del Mar, Lima"
 
                 )
             )
@@ -23,7 +27,11 @@ class UserData {
                     "chino",
                     "pasajero",
                     "pepino@gmail.com",
-                    "Pepino"
+                   "Sebastian Pinillos",
+                    "Pepino",
+                   "UPC San Miguel",
+                   "/Sebastpz",
+                   "San Miguel, Lima"
 
                 )
             )
