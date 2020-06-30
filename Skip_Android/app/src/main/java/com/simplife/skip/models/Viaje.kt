@@ -13,6 +13,7 @@ data class Viaje (
     var horaSalida: String,
     var publish: String,
     var valoracion: Double
+
 ) : Serializable {
 
     override fun toString(): String {

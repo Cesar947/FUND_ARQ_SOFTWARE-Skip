@@ -24,6 +24,12 @@ public class UsuarioController {
         return this.usuarioService.listarUsuarios();
     }
 
+    @GetMapping("/{id}")
+    public Usuario verPerfil(final @PathVariable Long id) throws Exception{
+        return this.usuarioService.verPerfil(id);
+    }
+
+
     @PostMapping("/registro")
     public Usuario registrarUsuarioPrueba(@RequestBody Usuario usuario) throws Exception{
         return this.usuarioService.insertarUsuario(usuario);

@@ -52,7 +52,6 @@
                     android:layout_marginHorizontal="15dp"
                     android:ems="10"
                     android:hint="Correo UPC"
-                    android:inputType="textEmailAddress"
                     android:textSize="14sp" />
 
 

@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/auth/usuario")
 @Slf4j
 public class AuthController {
 
@@ -140,7 +140,7 @@ public class AuthController {
 
             cuentaRepository.save(cuenta);
 
-            Usuario usuario = new Usuario(signUpRequest.getDni(),signUpRequest.getNombres(), signUpRequest.getApellidos(), signUpRequest.getSede(), cuenta);
+            Usuario usuario = new Usuario(signUpRequest.getDni(),signUpRequest.getNombres(), signUpRequest.getApellidos(), signUpRequest.getSede(), cuenta, signUpRequest.getFacebook(), signUpRequest.getUbicacion(), signUpRequest.getImagen());
             usuarioRepository.save(usuario);
 
             return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"+cuenta.getRoles()));

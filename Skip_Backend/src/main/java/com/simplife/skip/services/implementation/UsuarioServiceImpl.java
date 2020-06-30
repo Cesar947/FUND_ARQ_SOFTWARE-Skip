@@ -40,4 +40,10 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
         return nuevoUsuario;
     }
+
+    @Override
+    public Usuario verPerfil(Long id) throws Exception{
+        return this.usuarioRepository.findById(id).get();
+    }
+
 }

@@ -1,12 +1,19 @@
 package com.simplife.skip.activities
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.simplife.skip.R
 import com.simplife.skip.adapter.PagerViewAdapter
+import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.Usuario
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,10 +35,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val usuario = intent.getSerializableExtra("user") as Usuario
-
-        bundle = Bundle()
-        bundle.putSerializable("user", usuario)
+        val usuarioid: Long = intent.getSerializableExtra("userid") as Long
 
         mViewPager = findViewById(R.id.viewPager)
 
@@ -67,8 +71,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
+        bundle = Bundle()
+        bundle.putSerializable("user", usuarioid)
         mPagerViewAdapter = PagerViewAdapter(supportFragmentManager, bundle)
+        Log.d("Pepino dice otravez", bundle.toString())
         mViewPager.adapter = mPagerViewAdapter
         //mPagerViewAdapter.bundle
 

@@ -11,6 +11,4 @@ data class Resena (
     override fun toString(): String {
         return "Resena(title='$body', image='$image', username='$username')"
     }
-
-
 }

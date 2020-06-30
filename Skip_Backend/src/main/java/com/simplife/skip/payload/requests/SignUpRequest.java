@@ -35,6 +35,15 @@ public class SignUpRequest {
     @NotBlank
     private String sede;
 
+    @NotBlank
+    private String facebook;
+
+    @NotBlank
+    private String ubicacion;
+
+    @NotBlank
+    private String imagen;
+
     private Set<String> role;
 
 }

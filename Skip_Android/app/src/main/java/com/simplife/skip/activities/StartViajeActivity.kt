@@ -34,8 +34,6 @@ class StartViajeActivity : AppCompatActivity() {
         //recyclerView.addItemDecoration(topSpacingDecoration)
         pasajeroAdapter = PasajerosRecyclerAdapter()
         recyclerView.adapter = pasajeroAdapter
-        val data = com.simplife.skip.util.UserData.createUsers()
-        pasajeroAdapter.submitList(data)
 
     }
 }

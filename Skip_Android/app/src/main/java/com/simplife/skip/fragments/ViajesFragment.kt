@@ -33,16 +33,13 @@ class ViajesFragment : Fragment() {
         val vista = inflater.inflate(R.layout.fragment_viajes, container, false)
 
         //Recibimos data de usuario
-        val usuario: Usuario = arguments?.get("user") as Usuario
+        val usuario: Usuario? = arguments?.get("user") as Usuario?
 
         recyclerView = vista.findViewById(R.id.recycler_misviajes_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        //val topSpacingDecoration = TopSpacingItemDecoration(30)
-        //recyclerView.addItemDecoration(topSpacingDecoration)
 
 
-
-        if(usuario.rol == "conductor"){
+        if(usuario?.id == 1 as Long){
            misviajesAdapterConductor = MisViajeCondRecyclerAdapter()
             recyclerView.adapter = misviajesAdapterConductor
             val data1 = com.simplife.skip.util.DataSource.createDataSet()

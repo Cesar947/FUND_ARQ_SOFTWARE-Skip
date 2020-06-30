@@ -45,7 +45,7 @@ class PasajerosRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         val pasajeroParada = itemView.pasajero_punto_encuentro
 
         fun bind(usuario: Usuario){
-            pasajeroName.setText(usuario.nombre)
+            pasajeroName.setText(usuario.nombres)
             pasajeroParada.setText(usuario.ubicacion)
 
             val requestOptions = RequestOptions()
@@ -54,7 +54,7 @@ class PasajerosRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(usuario.image)
+                .load(usuario.imagen)
                 .into(pasajeroImage)
 
         }

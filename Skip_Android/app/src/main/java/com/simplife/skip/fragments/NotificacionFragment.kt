@@ -28,7 +28,7 @@ class NotificacionFragment : Fragment() {
         // Inflate the layout for this fragment
         val vista = inflater.inflate(R.layout.fragment_notificacion, container, false)
 
-        val usuario: Usuario = arguments?.get("user") as Usuario
+        val usuarioid = arguments?.get("user") as Long
 
         recyclerView = vista.findViewById(R.id.recycler_notificaciones_view)
         recyclerView.layoutManager = LinearLayoutManager(context)

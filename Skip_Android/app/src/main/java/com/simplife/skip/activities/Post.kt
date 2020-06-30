@@ -8,9 +8,15 @@ import android.widget.ImageButton
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.simplife.skip.R
+import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.Usuario
 import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class Post : AppCompatActivity() {
 
@@ -22,11 +28,15 @@ class Post : AppCompatActivity() {
     private lateinit var origen_hora: EditText
     private lateinit var destino_hora: EditText
 
+    private lateinit var usuarioService: UsuarioApiService
+
+    var usuario: Usuario? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-        val usuario = intent.getSerializableExtra("user") as Usuario
+        val usuarioid = intent.getSerializableExtra("user") as Long
 
         postBtn = findViewById(R.id.post_btn)
         backbtn = findViewById(R.id.postback_button)
@@ -36,16 +46,33 @@ class Post : AppCompatActivity() {
         origen_hora = findViewById(R.id.post_hora_origen)
         destino_hora = findViewById(R.id.post_hora_destino)
 
-        post_author.setText(usuario.username)
-
         val requestOptions = RequestOptions()
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
 
-        Glide.with(applicationContext)
-            .applyDefaultRequestOptions(requestOptions)
-            .load(usuario.image)
-            .into(post_image)
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("http://192.168.1.6:6060/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        usuarioService = retrofit.create(UsuarioApiService::class.java)
+
+        usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
+                val respuesta = response?.body()
+                usuario = respuesta
+
+                post_author.setText(usuario?.nombres)
+
+                Glide.with(applicationContext)
+                    .applyDefaultRequestOptions(requestOptions)
+                    .load(usuario?.imagen)
+                    .into(post_image)
+            }
+            override fun onFailure(call: Call<Usuario>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+
 
 
         backbtn.setOnClickListener{

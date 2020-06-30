@@ -17,10 +17,17 @@ import com.bumptech.glide.request.RequestOptions
 
 import com.simplife.skip.R
 import com.simplife.skip.activities.Login
+import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.Usuario
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
 import kotlinx.android.synthetic.main.fragment_perfil.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.coroutines.coroutineContext
 
 /**
  * A simple [Fragment] subclass.
@@ -37,6 +44,10 @@ class PerfilFragment : Fragment() {
     private lateinit var opciones: CardView
 
     private lateinit var perfil_settings: ImageButton
+
+    private lateinit var usuarioService: UsuarioApiService
+
+    var usuario: Usuario? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +68,7 @@ class PerfilFragment : Fragment() {
         perfil_settings = vista.findViewById(R.id.perfil_settings)
 
         //Recibimos data de usuario
-        val usuario: Usuario = arguments?.get("user") as Usuario
+        val usuarioid = arguments?.get("user") as Long
 
         perfil_settings.setOnClickListener{
             if(opciones.visibility == View.GONE) {
@@ -72,20 +83,43 @@ class PerfilFragment : Fragment() {
             context?.startActivity(Intent(context, Login::class.java))
         }
 
-        perfil_nombre.setText(usuario.nombre)
-        perfil_ubicacion.setText(usuario.ubicacion)
-        perfil_sede.setText(usuario.sede)
-        perfil_fb.setText(usuario.facebook)
 
         val requestOptions = RequestOptions()
             .centerCrop()
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
 
-        Glide.with(this)
-            .applyDefaultRequestOptions(requestOptions)
-            .load(usuario.image)
-            .into(perfil_foto)
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("http://192.168.1.6:6060/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        usuarioService = retrofit.create(UsuarioApiService::class.java)
+
+        usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
+                val respuesta = response?.body()
+                usuario = respuesta
+
+                perfil_nombre.setText(usuario?.nombres)
+                perfil_ubicacion.setText(usuario?.ubicacion)
+                perfil_sede.setText(usuario?.sede)
+                perfil_fb.setText(usuario?.facebook)
+
+                context?.applicationContext?.let {
+                    Glide.with(it)
+                        .applyDefaultRequestOptions(requestOptions)
+                        .load(usuario?.imagen)
+                        .into(perfil_foto)
+                }
+
+
+            }
+            override fun onFailure(call: Call<Usuario>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+
+
 
 
         return vista

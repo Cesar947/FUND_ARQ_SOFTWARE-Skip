@@ -1,6 +1,7 @@
 package com.simplife.skip.adapter
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
@@ -17,6 +18,7 @@ internal class PagerViewAdapter(fm:FragmentManager?, bundle: Bundle) : FragmentP
             0->{
                 fragment = HomeFragment()
                 fragment.arguments = frbundle
+                Log.d("Pepino dice otravez", frbundle.toString())
                 return fragment
             }
             1->{

@@ -12,4 +12,6 @@ public interface UsuarioService {
 
     List<Usuario> listarUsuarios() throws Exception;
 
+    Usuario verPerfil(Long id) throws Exception;
+
 }

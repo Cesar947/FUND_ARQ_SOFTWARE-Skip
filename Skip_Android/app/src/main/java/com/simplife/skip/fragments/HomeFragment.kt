@@ -2,6 +2,7 @@ package com.simplife.skip.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -16,9 +17,15 @@ import com.simplife.skip.R
 import com.simplife.skip.activities.Post
 import com.simplife.skip.activities.ViajeDetail
 import com.simplife.skip.adapter.ViajeRecyclerAdapter
+import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.Usuario
 import com.simplife.skip.util.TopSpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.sql.DataSource
 
 /**
@@ -30,7 +37,6 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var addBtn: ImageButton
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,14 +47,16 @@ class HomeFragment : Fragment() {
         addBtn = vista.findViewById(R.id.add_btn)
 
         //Recibimos data de usuario
-        val usuario: Usuario = arguments?.get("user") as Usuario
+        val usuarioid = arguments?.get("user") as Long
 
-        if(usuario.rol == "conductor"){
+        val id: Long = 1
+
+        if(usuarioid == id){
             addBtn.visibility = View.VISIBLE
         }
 
         addBtn.setOnClickListener{
-            context?.startActivity(Intent(context, Post::class.java).putExtra("user", usuario))
+            context?.startActivity(Intent(context, Post::class.java).putExtra("user", usuarioid))
         }
 
         recyclerView = vista.findViewById(R.id.recycler_viaje_view)
