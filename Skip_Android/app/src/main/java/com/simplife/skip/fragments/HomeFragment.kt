@@ -39,6 +39,9 @@ class HomeFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var addBtn: ImageButton
     private lateinit var viajeService: ViajeApiService
+    private lateinit var usuarioService: UsuarioApiService
+
+    var usuario: Usuario? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,15 +57,28 @@ class HomeFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         viajeService = retrofit.create(ViajeApiService::class.java)
+        usuarioService = retrofit.create(UsuarioApiService::class.java)
 
         //Recibimos data de usuario
         val usuarioid = arguments?.get("user") as Long
 
-        val id: Long = 1
+        usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
+                val respuesta = response?.body()
+                usuario = respuesta
 
-        if(usuarioid == id){
-            addBtn.visibility = View.VISIBLE
-        }
+
+                if(usuario?.cuenta?.roles?.get(0)?.nombre == "ROL_CONDUCTOR"){
+                    addBtn.visibility = View.VISIBLE
+                }
+
+
+            }
+            override fun onFailure(call: Call<Usuario>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+
 
         addBtn.setOnClickListener{
             context?.startActivity(Intent(context, Post::class.java).putExtra("user", usuarioid))

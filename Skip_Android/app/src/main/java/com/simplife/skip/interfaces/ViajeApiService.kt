@@ -7,9 +7,12 @@ import retrofit2.http.Path
 
 interface ViajeApiService {
 
-    @GET("api/auth/viajes")
+    @GET("api/auth/skip/viajes")
     fun getViajes(): Call<List<Viaje>>
 
-    @GET("api/auth/viajes/{id}")
-    fun getViajeById(@Path("id") id: Int): Call<Viaje>
+    @GET("api/auth/skip/viajes/{id}")
+    fun getViajeById(@Path("id") id: Long): Call<Viaje>
+
+    @GET("api/auth/skip/viajes/conductor/{conductorid}")
+    fun getViajesDeConductor(@Path("conductorid") conductorid: Long): Call<List<Viaje>>
 }

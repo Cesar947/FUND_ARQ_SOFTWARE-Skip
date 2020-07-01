@@ -14,7 +14,7 @@ interface UsuarioApiService {
     @POST("api/auth/usuario/login")
     fun getAllUsers(@Body loginRequest: LoginRequest): Call<LoginEntity>
 
-    @GET("api/auth/usuarios/{id}")
+    @GET("api/auth/skip/usuarios/{id}")
     fun getUsuarioById(@Path("id") id: Long): Call<Usuario>
 
 }
