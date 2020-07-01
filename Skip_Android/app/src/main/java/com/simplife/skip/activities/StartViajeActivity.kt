@@ -23,10 +23,10 @@ class StartViajeActivity : AppCompatActivity() {
 
         val viaje = intent.getSerializableExtra("via") as Viaje
 
-        startviaje_origen.setText(viaje.source)
-        startviaje_horaorigen.setText(viaje.horaSalida)
-        startviaje_destino.setText(viaje.destiny)
-        startviaje_horadestino.setText(viaje.horaDestino)
+        startviaje_origen.setText(viaje.conductor.ubicacion)
+        startviaje_horaorigen.setText(viaje.horaInicio)
+        startviaje_destino.setText(viaje.conductor.sede)
+        startviaje_horadestino.setText(viaje.horaLlegada)
 
         recyclerView = findViewById(R.id.recycler_pasajeros)
         recyclerView.layoutManager = LinearLayoutManager(this)

@@ -8,7 +8,7 @@ class Cuenta (
     var correoUPC: String,
     var contrasena: String,
     var estadoTabla: Boolean,
-    var roles: Set<Rol>
+    var roles: List<Rol>
 ) :Serializable {
 
     override fun toString(): String {

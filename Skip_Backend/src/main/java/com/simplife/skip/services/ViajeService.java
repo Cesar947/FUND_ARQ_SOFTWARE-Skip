@@ -24,5 +24,7 @@ public interface ViajeService {
 
     List<Usuario> listarPasajerosPorViaje(Long viajeId) throws Exception;
 
+    Viaje listarViajePorId(Long viajeId) throws Exception;
+
 
 }

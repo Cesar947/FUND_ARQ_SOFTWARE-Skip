@@ -2,10 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b74e7c3-bab7-4b2f-a21a-12ae3bf4f8d6" name="Default Changelist" comment="">
+
+      <change beforePath="$PROJECT_DIR$/../QuerySkip.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../QuerySkip.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarIssues.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarIssues.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ReporteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ReporteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/SolicitudController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/SolicitudController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/UsuarioController.java" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ViajeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ViajeController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ItinerarioRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ItinerarioRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ViajeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ViajeRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java" afterDir="false" />
+
+
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -354,7 +379,8 @@
       <workItem from="1593477005996" duration="265000" />
       <workItem from="1593478839990" duration="10842000" />
       <workItem from="1593496836408" duration="828000" />
-      <workItem from="1593563248564" duration="9668000" />
+      <workItem from="1593563248564" duration="5566000" />
+
     </task>
     <servers />
   </component>
@@ -488,10 +514,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="405" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1593402794755" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593496851021">
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593564810955">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593496851021" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593564810955" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/build.gradle">
