@@ -1,15 +1,12 @@
 package com.simplife.skip.services.implementation;
 
-import com.simplife.skip.models.Parada;
-import com.simplife.skip.models.Solicitud;
-import com.simplife.skip.models.Usuario;
+import com.simplife.skip.models.*;
 import com.simplife.skip.repositories.*;
 import com.simplife.skip.services.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.simplife.skip.payload.requests.SolicitudRequest;
 import org.springframework.transaction.annotation.Transactional;
-import com.simplife.skip.models.Viaje;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -50,6 +47,8 @@ class SolicitudServiceImpl implements SolicitudService {
             if (parada == null){
                 parada = this.paradaRepository.save(parada);
             }
+
+
             Usuario pasajero = this.usuarioRepository.findById(pasajeroId).get();
             Viaje viaje = this.viajeRepository.findById(viajeId).get();
             solicitudNueva = new Solicitud(mensaje, pasajero, viaje, parada);
@@ -83,4 +82,6 @@ class SolicitudServiceImpl implements SolicitudService {
     public List<Solicitud> listarSolicitudesPorUsuario(Long usuarioId) throws Exception{
         return this.solicitudRepository.listarSolicitudesPorUsuario(usuarioId);
     }
+
+
 }

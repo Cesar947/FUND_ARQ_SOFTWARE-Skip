@@ -31,4 +31,7 @@ public interface ViajeRepository extends JpaRepository<Viaje, Long> {
     @Query("UPDATE Viaje v SET v.numeroPasajeros = v.numeroPasajeros + 1 WHERE v.id = ?1")
     int actualizarNumeroPasajeros(Long viajeId);
 
+   /* @Query("SELECT v FROM Viaje v JOIN Ruta r ON r.id = v.ruta.id "
+    + "JOIN Itinerario i ON i.ruta.id = r.id")*/
+
 }

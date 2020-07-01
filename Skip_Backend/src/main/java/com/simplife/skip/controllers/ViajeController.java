@@ -53,4 +53,13 @@ public class ViajeController {
         return this.viajeService.listarPasajerosPorViaje(viajeId);
     }
 
+
+    @GetMapping("/busqueda")
+    public List<Viaje> buscarViajes(@RequestParam(name = "puntoPartida", required = false) String puntoPartida,
+                                    @RequestParam(name = "puntoDestino", required = false) String puntoDestino,
+                                    @RequestParam(name = "horaPartida", required = false) String horaPartida,
+                                    @RequestParam(name = "horaDestino", required = false) String horaDestino){
+        return null;
+    }
+
 }
