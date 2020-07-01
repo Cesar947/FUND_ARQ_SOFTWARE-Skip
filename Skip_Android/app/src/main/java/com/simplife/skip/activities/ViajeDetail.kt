@@ -27,6 +27,8 @@ class ViajeDetail : AppCompatActivity() {
         val viaje = intent.getSerializableExtra("via") as Viaje
         back_btn = findViewById(R.id.detback_button)
 
+        
+
         viajedetail_author.setText(viaje.conductor.nombres)
         viajedetail_title.setText(viaje.fechaPublicacion)
         viajedetail_text.setText(viaje.descripcion)

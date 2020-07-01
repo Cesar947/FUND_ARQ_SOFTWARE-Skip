@@ -42,8 +42,13 @@ public class ViajeController {
         return this.viajeService.listarViajesPorConductor(conductorId);
     }
 
+    @GetMapping("/{id}")
+    public Viaje listarViajesPorId(@PathVariable("id") Long viajeId) throws Exception{
+        return this.viajeService.listarViajePorId(viajeId);
+    }
+
     @Transactional
-    @PutMapping("/{viajeId}")
+    @PutMapping("actualizar/{viajeId}")
     public int actualizarEstadoDeViaje(@PathVariable("viajeId") Long viajeId, @RequestParam("estado") String estado) throws Exception{
         return this.viajeService.actualizarEstadoViaje(estado,viajeId);
     }
