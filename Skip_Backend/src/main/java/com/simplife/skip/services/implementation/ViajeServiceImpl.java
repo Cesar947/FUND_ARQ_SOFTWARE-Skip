@@ -64,6 +64,9 @@ public class ViajeServiceImpl implements ViajeService {
             nuevoViaje.setEstadoViaje("PUBLICADO");
             nuevoViaje.setEstadoTabla(true);
             nuevoViaje.setRuta(ruta);
+            nuevoViaje.setNumeroPasajeros(0);
+
+
             nuevoViaje = this.viajeRepository.save(nuevoViaje);
         }catch(Exception e){
             throw e;
@@ -113,5 +116,8 @@ public class ViajeServiceImpl implements ViajeService {
         return this.viajeRepository.actualizarEstadoViaje(estado, viajeId);
     }
 
-
+    @Override
+    public List<Usuario> listarPasajerosPorViaje(Long viajeId) throws Exception{
+        return this.viajeRepository.listarPasajerosRegistradosDelViaje(viajeId);
+    }
 }

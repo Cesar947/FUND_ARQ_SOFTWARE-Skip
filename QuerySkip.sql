@@ -1,3 +1,4 @@
+USE skip_db;
 SELECT * FROM viaje;	
 
 /*Insertando roles*/
@@ -42,4 +43,47 @@ VALUES('Ùnete al lado oscuro', 1, 'Publicado', '2020-06-16', '2020-06-20', '09:
 '18:54:00', 1, 1, 1);
 SELECT * FROM Viaje;
 
+
+SELECT COUNT(r.reseña_id) FROM Reseña r where r.valoracion < 2.5 and r.servicio_id = 1;
+
+DELIMITER //
+CREATE FUNCTION contarResenas (i BIGINT(20))
+RETURNS INT
+BEGIN
+   DECLARE contador INT;
+
+   SET contador = (SELECT COUNT(r.reporte_id) FROM viaje v JOIN reseña r ON r.viaje_id = v.viaje_id WHERE v.viaje_id = i AND tipo_servicio="Reseña");
+
+   RETURN contador; 
+
+END//
+
+
+CREATE FUNCTION contarResenasNegativas (i BIGINT(20))
+RETURNS INT
+BEGIN
+   DECLARE contador INT;
+
+   SET contador = (SELECT COUNT(r.reporte_id) FROM viaje v JOIN reseña r ON r.viaje_id = v.viaje_id WHERE v.viaje_id = i AND tipo_servicio="Reseña" 
+   AND r.valoracion <= 2.5);
+
+   RETURN contador; 
+
+END//
+
+
+DELIMITER $$
+CREATE TRIGGER TR_INHABILITARVIAJE
+AFTER INSERT ON REPORTE
+FOR EACH ROW BEGIN
+	SET @viajeId = NEW.viaje_id;
+	SET @resenasTotales = contarResenas(@viajeId);
+    IF @resenasTotales >= 8 THEN
+		SET @resenasNegativas = contarResenasNegativas(@viajeId);
+		SET @porcentaje = (@resenasNegativas/@resenasTotales)*100; 
+		IF @porcentaje >= 75 THEN
+			UPDATE viaje v SET v.visualizacion_habilitada = 0 where s.viaje_id = @servicioId;
+		END IF;
+	END IF;
+END$$
 

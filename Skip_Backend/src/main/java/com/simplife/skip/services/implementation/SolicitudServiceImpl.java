@@ -3,10 +3,7 @@ package com.simplife.skip.services.implementation;
 import com.simplife.skip.models.Parada;
 import com.simplife.skip.models.Solicitud;
 import com.simplife.skip.models.Usuario;
-import com.simplife.skip.repositories.ParadaRepository;
-import com.simplife.skip.repositories.SolicitudRepository;
-import com.simplife.skip.repositories.UsuarioRepository;
-import com.simplife.skip.repositories.ViajeRepository;
+import com.simplife.skip.repositories.*;
 import com.simplife.skip.services.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +14,7 @@ import com.simplife.skip.models.Viaje;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @Service
 class SolicitudServiceImpl implements SolicitudService {
@@ -25,16 +23,19 @@ class SolicitudServiceImpl implements SolicitudService {
     private ParadaRepository paradaRepository;
     private UsuarioRepository usuarioRepository;
     private ViajeRepository viajeRepository;
+    private ItinerarioRepository itinerarioRepository;
 
     @Autowired
     public SolicitudServiceImpl(SolicitudRepository solicitudRepository,
                                 ParadaRepository paradaRepository,
                                 UsuarioRepository usuarioRepository,
-                                ViajeRepository viajeRepository){
+                                ViajeRepository viajeRepository,
+                                ItinerarioRepository itinerarioRepository){
         this.solicitudRepository = solicitudRepository;
         this.usuarioRepository = usuarioRepository;
         this.viajeRepository = viajeRepository;
         this.paradaRepository = paradaRepository;
+        this.itinerarioRepository = itinerarioRepository;
     }
 
     @Override
@@ -59,12 +60,12 @@ class SolicitudServiceImpl implements SolicitudService {
             DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalTime horaSolicitud = LocalTime.parse(LocalTime.now().toString(), dtfHora);
 
-
             solicitudNueva.setFechaSolicitud(fechaSolicitud);
             solicitudNueva.setHoraSolicitud(horaSolicitud);
             solicitudNueva.setEstadoPasajero("En lista");
 
             solicitudNueva = this.solicitudRepository.save(solicitudNueva);
+            this.viajeRepository.actualizarNumeroPasajeros(solicitudNueva.getViaje().getId());
         }catch(Exception e){
             throw e;
         }
@@ -75,10 +76,11 @@ class SolicitudServiceImpl implements SolicitudService {
 
     @Transactional
     public int actualizarEstadoPasajero(Long solicitudId, Long pasajeroId, String estado) throws Exception{
-
         return this.actualizarEstadoPasajero(solicitudId, pasajeroId, estado);
-
     }
 
-
+    @Override
+    public List<Solicitud> listarSolicitudesPorUsuario(Long usuarioId) throws Exception{
+        return this.solicitudRepository.listarSolicitudesPorUsuario(usuarioId);
+    }
 }

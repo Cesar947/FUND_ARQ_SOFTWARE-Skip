@@ -138,6 +138,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ItinerarioRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ParadaRepository.java">
           <value>
             <set />

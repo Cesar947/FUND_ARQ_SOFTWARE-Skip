@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("skip/reportes")
+@RequestMapping("api/auth/skip/reportes")
 public class ReporteController {
 
     private ReporteService reporteService;
