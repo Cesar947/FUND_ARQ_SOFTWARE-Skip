@@ -1,5 +1,6 @@
 package com.simplife.skip.controllers;
 
+import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.services.ViajeService;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/auth/viajes")
+@RequestMapping("api/auth/skip/viajes")
 public class ViajeController {
 
     private ViajeService viajeService;
@@ -21,8 +22,8 @@ public class ViajeController {
     }
 
     @PostMapping("/publicacion")
-    public Viaje publicarViaje(@RequestBody ViajeRequest viaje, Long conductorId) throws Exception{
-        return null; //this.viajeService.insertarViaje(viaje);
+    public Viaje publicarViaje(@RequestBody ViajeRequest viaje) throws Exception{
+        return this.viajeService.insertarViaje(viaje);
     }
 
     @GetMapping
@@ -43,8 +44,13 @@ public class ViajeController {
 
     @Transactional
     @PutMapping("/{viajeId}")
-    public int actualizarEstadoDeViaje(@PathVariable("viajeId") Long viajeId, @RequestParam("estado") String estado){
-        return 1;
+    public int actualizarEstadoDeViaje(@PathVariable("viajeId") Long viajeId, @RequestParam("estado") String estado) throws Exception{
+        return this.viajeService.actualizarEstadoViaje(estado,viajeId);
+    }
+
+    @GetMapping("/{id}/pasajeros")
+    public List<Usuario> listarPasajerosRegistradosDeViaje(@PathVariable("id") Long viajeId) throws Exception{
+        return this.viajeService.listarPasajerosPorViaje(viajeId);
     }
 
 }

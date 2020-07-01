@@ -1,5 +1,6 @@
 package com.simplife.skip.services;
 
+import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ public interface ViajeService {
     @Transactional
     int actualizarEstadoViaje(String estado, Long viajeId) throws Exception;
 
+    List<Usuario> listarPasajerosPorViaje(Long viajeId) throws Exception;
 
 
 }

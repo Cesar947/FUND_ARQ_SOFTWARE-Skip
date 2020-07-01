@@ -1,5 +1,6 @@
 package com.simplife.skip.repositories;
 
+import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -22,5 +23,12 @@ public interface ViajeRepository extends JpaRepository<Viaje, Long> {
     @Modifying
     @Query("UPDATE Viaje v SET v.estadoViaje = ?1 WHERE v.id = ?2")
     int actualizarEstadoViaje(String estado, Long viajeId);
+
+    @Query("SELECT u FROM Usuario u JOIN Solicitud s ON s.pasajero.id = u.id " +
+            "JOIN Viaje v ON v.id = s.viaje.id WHERE v.id = ?1")
+    List<Usuario> listarPasajerosRegistradosDelViaje(Long viajeId);
+
+    @Query("UPDATE Viaje v SET v.numeroPasajeros = v.numeroPasajeros + 1 WHERE v.id = ?1")
+    int actualizarNumeroPasajeros(Long viajeId);
 
 }

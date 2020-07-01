@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/auth/usuarios")
+@RequestMapping("/api/auth/skip/usuarios")
 public class UsuarioController {
 
     private UsuarioService usuarioService;

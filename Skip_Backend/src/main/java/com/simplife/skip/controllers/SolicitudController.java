@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
-@RequestMapping("api/auth/solicitudes")
+@RequestMapping("api/auth/skip/solicitudes")
 public class SolicitudController {
 
     private SolicitudService solicitudService;
@@ -37,5 +39,9 @@ public class SolicitudController {
         return this.solicitudService.actualizarEstadoPasajero(solicitudId,pasajeroId,estado);
     }
 
+    @GetMapping("/usuario/{id}")
+    public List<Solicitud> mostrarSolicitudesPorUsuario(@PathVariable("id") Long usuarioId) throws Exception{
+        return this.solicitudService.listarSolicitudesPorUsuario(usuarioId);
+    }
 
 }

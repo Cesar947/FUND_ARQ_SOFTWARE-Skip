@@ -24,13 +24,13 @@
     <facet type="web" name="Web Gradle : Skip_Backend-0.0.1-SNAPSHOT.war">
       <configuration>
         <webroots>
-          <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
+          <root url="file://D:\7MO CICLO\FUNDAMENTOS_ARQUITECTURA_SOFTWARE\Trabajo Final\Aplicación\ARQUITECTURA-REPO-V2\FUND_ARQ_SOFTWARE-Skip\Skip_Backend\src\main\webapp" relative="/" />
         </webroots>
       </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
-    <output url="file://$MODULE_DIR$/../../build/classes/java/main" />
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../src/main">
       <sourceFolder url="file://$MODULE_DIR$/../../src/main/java" isTestSource="false" />
