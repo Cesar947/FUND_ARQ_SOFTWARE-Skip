@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("skip/solicitudes")
+@RequestMapping("api/auth/solicitudes")
 public class SolicitudController {
 
     private SolicitudService solicitudService;

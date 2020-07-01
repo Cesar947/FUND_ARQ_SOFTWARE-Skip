@@ -18,7 +18,9 @@ import com.simplife.skip.activities.Post
 import com.simplife.skip.activities.ViajeDetail
 import com.simplife.skip.adapter.ViajeRecyclerAdapter
 import com.simplife.skip.interfaces.UsuarioApiService
+import com.simplife.skip.interfaces.ViajeApiService
 import com.simplife.skip.models.Usuario
+import com.simplife.skip.models.Viaje
 import com.simplife.skip.util.TopSpacingItemDecoration
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
@@ -36,6 +38,7 @@ class HomeFragment : Fragment() {
     private  lateinit var viajeAdapter: ViajeRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var addBtn: ImageButton
+    private lateinit var viajeService: ViajeApiService
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +48,12 @@ class HomeFragment : Fragment() {
 
         val vista = inflater.inflate(R.layout.fragment_home, container, false)
         addBtn = vista.findViewById(R.id.add_btn)
+
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl("http://192.168.1.6:6060/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        viajeService = retrofit.create(ViajeApiService::class.java)
 
         //Recibimos data de usuario
         val usuarioid = arguments?.get("user") as Long
@@ -61,12 +70,25 @@ class HomeFragment : Fragment() {
 
         recyclerView = vista.findViewById(R.id.recycler_viaje_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
-        //val topSpacingDecoration = TopSpacingItemDecoration(30)
-        //recyclerView.addItemDecoration(topSpacingDecoration)
-        viajeAdapter = ViajeRecyclerAdapter()
-        recyclerView.adapter = viajeAdapter
-        val data = com.simplife.skip.util.DataSource.createDataSet()
-        viajeAdapter.submitList(data)
+
+        viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
+            override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
+                val viajesaux = response.body()
+
+                var sorted = viajesaux!!.sortedWith(compareByDescending ({it.id}))
+
+                viajeAdapter = ViajeRecyclerAdapter()
+                recyclerView.adapter = viajeAdapter
+                viajeAdapter.submitList(viajesaux)
+
+
+            }
+            override fun onFailure(call: Call<List<Viaje>>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+
+
 
 
         return vista

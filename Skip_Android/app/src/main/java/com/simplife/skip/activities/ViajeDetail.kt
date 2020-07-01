@@ -27,14 +27,14 @@ class ViajeDetail : AppCompatActivity() {
         val viaje = intent.getSerializableExtra("via") as Viaje
         back_btn = findViewById(R.id.detback_button)
 
-        viajedetail_author.setText(viaje.username)
-        viajedetail_title.setText(viaje.publish)
-        viajedetail_text.setText(viaje.body)
-        viajedetail_destino.setText(viaje.destiny)
-        viajedetail_origen.setText(viaje.source)
-        viajedetail_hora_destino.setText(viaje.horaDestino)
-        viajedetail_hora_origen.setText(viaje.horaSalida)
-        viajedetail_val.setText(viaje.valoracion.toString())
+        viajedetail_author.setText(viaje.conductor.nombres)
+        viajedetail_title.setText(viaje.fechaPublicacion)
+        viajedetail_text.setText(viaje.descripcion)
+        viajedetail_destino.setText(viaje.conductor.sede)
+        viajedetail_origen.setText(viaje.conductor.ubicacion)
+        viajedetail_hora_destino.setText(viaje.horaLlegada)
+        viajedetail_hora_origen.setText(viaje.horaInicio)
+        viajedetail_val.setText(viaje.numeroPasajeros)
 
         //Lista de Resenas
         recyclerView = findViewById(R.id.recycler_resenas_view)
@@ -58,7 +58,7 @@ class ViajeDetail : AppCompatActivity() {
 
         Glide.with(applicationContext)
             .applyDefaultRequestOptions(requestOptions)
-            .load(viaje.image)
+            .load(viaje.conductor.imagen)
             .into(viajedetail_image)
 
     }

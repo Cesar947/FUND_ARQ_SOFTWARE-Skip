@@ -39,7 +39,7 @@ class ViajesFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
 
-        if(usuario?.id == 1 as Long){
+        /*if(usuario?.id == 1 as Long){
            misviajesAdapterConductor = MisViajeCondRecyclerAdapter()
             recyclerView.adapter = misviajesAdapterConductor
             val data1 = com.simplife.skip.util.DataSource.createDataSet()
@@ -50,7 +50,7 @@ class ViajesFragment : Fragment() {
             recyclerView.adapter = misviajesAdapterPasajero
             val data2 = com.simplife.skip.util.DataSource.createDataSet()
             misviajesAdapterPasajero.submitList(data2)
-        }
+        }*/
 
         return vista
     }

@@ -47,10 +47,10 @@ class MisViajeCondRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder
         val miviajeHoraDestino = itemView.miviajecond_horadestino
 
         fun bind(viaje: Viaje){
-            miviajeSource.setText(viaje.source)
-            miviajeDestiny.setText(viaje.destiny)
-            miviajeHoraDestino.setText(viaje.horaDestino)
-            miviajeHoraOrigen.setText(viaje.horaSalida)
+            miviajeSource.setText(viaje.conductor.ubicacion)
+            miviajeDestiny.setText(viaje.conductor.sede)
+            miviajeHoraDestino.setText(viaje.horaLlegada)
+            miviajeHoraOrigen.setText(viaje.horaInicio)
 
             itemView.setOnClickListener{
                 itemView.context.startActivity(Intent(itemView.context, StartViajeActivity::class.java).putExtra("via", viaje))

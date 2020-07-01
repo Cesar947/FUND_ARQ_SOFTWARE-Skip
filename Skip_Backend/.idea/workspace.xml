@@ -2,29 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b74e7c3-bab7-4b2f-a21a-12ae3bf4f8d6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/CuentaApiService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/UsuarioApiService.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Cuenta.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/LoginEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/LoginRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Rol.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Login.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Post.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Post.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/ViajeApiService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Ruta.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/StartViajeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/StartViajeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PagerViewAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PagerViewAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PasajerosRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PasajerosRecyclerAdapter.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/NotificacionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/NotificacionFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PerfilFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PerfilFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/ViajesFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/ViajesFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Resena.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Resena.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Usuario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Usuario.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Viaje.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Viaje.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/UserData.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/DataSource.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
@@ -32,14 +17,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/UsuarioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/UsuarioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/payload/requests/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/payload/requests/SignUpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/UsuarioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/UsuarioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/UsuarioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/UsuarioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ReporteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ReporteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/SolicitudController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/SolicitudController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ViajeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/ViajeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +118,7 @@
       <workItem from="1593477005996" duration="265000" />
       <workItem from="1593478839990" duration="10842000" />
       <workItem from="1593496836408" duration="828000" />
+      <workItem from="1593564630378" duration="4021000" />
     </task>
     <servers />
   </component>
@@ -202,10 +183,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="405" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1593402794755" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593496851021">
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593564810955">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593496851021" />
+    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593564810955" />
   </component>
   <component name="masterDetails">
     <states>

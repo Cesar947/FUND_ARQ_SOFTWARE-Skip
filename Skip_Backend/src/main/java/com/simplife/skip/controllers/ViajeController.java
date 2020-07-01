@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("skip/viajes")
+@RequestMapping("api/auth/viajes")
 public class ViajeController {
 
     private ViajeService viajeService;
