@@ -18,8 +18,8 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
-    compile.exclude module: 'spring-boot-starter-tomcat'
-    compile.exclude group: 'org.apache.tomcat'
+    //compile.exclude module: 'spring-boot-starter-tomcat'
+    //compile.exclude group: 'org.apache.tomcat'
 }
 
 repositories {

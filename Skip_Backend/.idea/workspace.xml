@@ -2,27 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b70093b8-5c55-4b0a-92d6-5a55e43fff33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Parada.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/ViajeRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Post.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Post.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/ViajeApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/ViajeApiService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_2_3_1_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_messaging_5_1_7_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_spring_websocket_5_1_7_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_tomcat_embed_tomcat_embed_el_9_0_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_tomcat_2_1_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_boot_spring_boot_starter_websocket_2_1_5_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bootScripts/Skip_Backend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bootScripts/Skip_Backend.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/Skip_Backend-0.0.1-SNAPSHOT.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/Skip_Backend-boot-0.0.1-SNAPSHOT.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/Skip_Backend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/Skip_Backend.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/bootWar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/RutaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/RutaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +108,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1b74e7c3-bab7-4b2f-a21a-12ae3bf4f8d6" name="Default Changelist" comment="" />
+      <changelist id="b70093b8-5c55-4b0a-92d6-5a55e43fff33" name="Default Changelist" comment="" />
       <created>1593310961933</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -122,6 +125,8 @@
       <workItem from="1593478839990" duration="10842000" />
       <workItem from="1593496836408" duration="828000" />
       <workItem from="1593563248564" duration="5566000" />
+      <workItem from="1593612690461" duration="3850000" />
+      <workItem from="1593626258089" duration="1772000" />
     </task>
     <servers />
   </component>
@@ -168,42 +173,58 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="864" y="305" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1593394322776" />
-    <state width="1493" height="179" key="GridCell.Tab.0.bottom" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.0.bottom" timestamp="1593616615774">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.0.center" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.0.center" timestamp="1593616615773">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.0.left" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1593616615773" />
+    <state width="1493" height="265" key="GridCell.Tab.0.left" timestamp="1593616615773">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.0.right" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1593616615773" />
+    <state width="1493" height="265" key="GridCell.Tab.0.right" timestamp="1593616615773">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.1.bottom" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1593616615773" />
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1593616615774">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.1.center" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1593616615774">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.1.left" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1593616615774">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state width="1493" height="179" key="GridCell.Tab.1.right" timestamp="1593586047623">
+    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1593616615774">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="179" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1593586047623" />
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog" timestamp="1593564810955">
+    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.2.bottom" timestamp="1593616615774">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="0" y="0" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593564810955" />
+    <state width="1493" height="265" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.2.center" timestamp="1593616615774">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.2.left" timestamp="1593616615774">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state width="1493" height="265" key="GridCell.Tab.2.right" timestamp="1593616615774">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="265" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
+    <state x="500" y="446" key="com.intellij.ide.util.TipDialog" timestamp="1593626281172">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="500" y="446" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593626281172" />
   </component>
   <component name="masterDetails">
     <states>

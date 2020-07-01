@@ -23,9 +23,13 @@ public class ViajeServiceImpl implements ViajeService {
     private ParadaRepository paradaRepository;
 
     @Autowired
-    public ViajeServiceImpl(ViajeRepository viajeRepository, UsuarioRepository usuarioRepository){
+    public ViajeServiceImpl(ViajeRepository viajeRepository, UsuarioRepository usuarioRepository,
+                            ParadaRepository paradaRepository,ItinerarioRepository itinerarioRepository, RutaRepository rutaRepository){
         this.viajeRepository = viajeRepository;
         this.usuarioRepository = usuarioRepository;
+        this.paradaRepository = paradaRepository;
+        this.rutaRepository = rutaRepository;
+        this.itinerarioRepository = itinerarioRepository;
     }
 
     @Override
@@ -51,7 +55,7 @@ public class ViajeServiceImpl implements ViajeService {
             this.itinerarioRepository.save(itinerario2);
 
             conductor = this.usuarioRepository.findById(viaje.getConductorId()).get();
-            DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+            DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate nuevaFechaViaje = LocalDate.parse(viaje.getFechaViaje(), dtfFecha);
             DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalTime nuevaHoraInicio = LocalTime.parse(viaje.getHoraInicio(), dtfHora);

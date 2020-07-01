@@ -100,10 +100,10 @@ class Post : AppCompatActivity() {
     }
 
     fun publicarViaje(usuarioid: Long){
-        val random1 =  ThreadLocalRandom.current().nextInt(0, 10000).toFloat()
-        val random2 =  ThreadLocalRandom.current().nextInt(0, 10000).toFloat()
-        val random3 =  ThreadLocalRandom.current().nextInt(0, 10000).toFloat()
-        val random4 =  ThreadLocalRandom.current().nextInt(0, 10000).toFloat()
+        val random1 =  ThreadLocalRandom.current().nextInt(0, 10000000).toFloat()
+        val random2 =  ThreadLocalRandom.current().nextInt(0, 10000000).toFloat()
+        val random3 =  ThreadLocalRandom.current().nextInt(0, 10000000).toFloat()
+        val random4 =  ThreadLocalRandom.current().nextInt(0, 10000000).toFloat()
 
         val distancia: Int = 20000
 
