@@ -48,12 +48,12 @@ class MisViajesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         val miviajeHoraDestino = itemView.miviaje_horadestino
 
         fun bind(viaje: Viaje){
-            miviajeTitle.setText(viaje.publish)
-            miauthor.setText(viaje.username)
-            miviajeSource.setText(viaje.source)
-            miviajeDestiny.setText(viaje.destiny)
-            miviajeHoraDestino.setText(viaje.horaDestino)
-            miviajeHoraOrigen.setText(viaje.horaSalida)
+            miviajeTitle.setText(viaje.fechaPublicacion)
+            miauthor.setText(viaje.conductor.nombres)
+            miviajeSource.setText(viaje.conductor.ubicacion)
+            miviajeDestiny.setText(viaje.conductor.sede)
+            miviajeHoraDestino.setText(viaje.horaLlegada)
+            miviajeHoraOrigen.setText(viaje.horaInicio)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
@@ -61,7 +61,7 @@ class MisViajesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(viaje.image)
+                .load(viaje.conductor.imagen)
                 .into(miuserImage)
         }
     }

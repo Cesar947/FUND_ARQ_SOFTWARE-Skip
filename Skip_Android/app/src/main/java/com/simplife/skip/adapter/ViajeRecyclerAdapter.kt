@@ -53,13 +53,13 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         val viajeHoraDestino = itemView.viaje_hora_destino
 
         fun bind(viaje: Viaje){
-            viajeTitle.setText(viaje.publish)
-            author.setText(viaje.username)
-            viajeText.setText(viaje.body)
-            viajeSource.setText(viaje.source)
-            viajeDestiny.setText(viaje.destiny)
-            viajeHoraDestino.setText(viaje.horaDestino)
-            viajeHoraOrigen.setText(viaje.horaSalida)
+            viajeTitle.setText(viaje.fechaPublicacion)
+            author.setText(viaje.conductor.nombres)
+            viajeText.setText(viaje.descripcion)
+            viajeSource.setText(viaje.conductor.ubicacion)
+            viajeDestiny.setText(viaje.conductor.sede)
+            viajeHoraDestino.setText(viaje.horaLlegada)
+            viajeHoraOrigen.setText(viaje.horaInicio)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
@@ -67,13 +67,12 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(viaje.image)
+                .load(viaje.conductor.imagen)
                 .into(userImage)
 
             itemView.setOnClickListener{
-                itemView.context.startActivity(Intent(itemView.context, ViajeDetail::class.java).putExtra("via", viaje))
+                itemView.context.startActivity(Intent(itemView.context, ViajeDetail::class.java).putExtra("via", viaje.id))
             }
         }
     }
-
 }

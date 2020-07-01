@@ -3,21 +3,24 @@ package com.simplife.skip.models
 import java.io.Serializable
 
 data class Viaje (
-    var title: String,
-    var body: String,
-    var image: String,
-    var destiny: String,
-    var source: String,
-    var username: String,
-    var horaDestino: String,
-    var horaSalida: String,
-    var publish: String,
-    var valoracion: Double
+    var id: Long,
+    var conductor: Usuario,
+    var ruta: Ruta,
+    var descripcion: String,
+    var fechaPublicacion: String,
+    var fechaViaje: String,
+    var horaInicio: String,
+    var horaLlegada: String,
+    var visualizacionHabilitada: Boolean,
+    var numeroPasajeros: Int,
+    var estadoViaje: String,
+    var horaPublicacion: String,
+    var estadoTabla: Boolean
 
 ) : Serializable {
 
     override fun toString(): String {
-        return "BlogPost(title='$title', image='$image', username='$username')"
+        return "BlogPost(title='$fechaViaje', image='$fechaPublicacion', username='$horaPublicacion')"
     }
 
 

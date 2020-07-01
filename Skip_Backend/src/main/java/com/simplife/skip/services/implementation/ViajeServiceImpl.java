@@ -120,4 +120,9 @@ public class ViajeServiceImpl implements ViajeService {
     public List<Usuario> listarPasajerosPorViaje(Long viajeId) throws Exception{
         return this.viajeRepository.listarPasajerosRegistradosDelViaje(viajeId);
     }
+
+    @Override
+    public Viaje listarViajePorId(Long viajeId) throws Exception{
+        return viajeRepository.findById(viajeId).get();
+    }
 }
