@@ -2,19 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b70093b8-5c55-4b0a-92d6-5a55e43fff33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/debug/res/values/google_maps_api.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/googlemap.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_googlemap.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/release/res/values/google_maps_api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_core_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_schema_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_spi_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_spring_web_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_swagger2_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_springfox_springfox_swagger_common_2_9_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_mapstruct_mapstruct_1_2_0_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_failureaccess_1_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_guava_failureaccess_1_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/security/SpringSecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/security/SpringSecurityConfiguration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +77,7 @@
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -80,6 +94,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RunManager">
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -116,6 +131,7 @@
       <workItem from="1593563248564" duration="5566000" />
       <workItem from="1593612690461" duration="3850000" />
       <workItem from="1593626258089" duration="2753000" />
+      <workItem from="1599934323113" duration="2556000" />
     </task>
     <servers />
   </component>
@@ -162,58 +178,87 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="864" y="305" width="403" height="236" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.834@0.0.1536.834" timestamp="1593394322776" />
-    <state width="1493" height="265" key="GridCell.Tab.0.bottom" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.0.center" timestamp="1593616615773">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1593616615773" />
-    <state width="1493" height="265" key="GridCell.Tab.0.left" timestamp="1593616615773">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1593616615773" />
-    <state width="1493" height="265" key="GridCell.Tab.0.right" timestamp="1593616615773">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1593616615773" />
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.1.bottom" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.1.center" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.1.left" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="179" key="GridCell.Tab.1.right" timestamp="1599936705937">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="179" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1599936705937" />
     <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.2.bottom" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="184" key="GridCell.Tab.2.bottom" timestamp="1599936180997">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="184" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1599936180997" />
     <state width="1493" height="265" key="GridCell.Tab.2.bottom/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.2.center" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="184" key="GridCell.Tab.2.center" timestamp="1599936180996">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="184" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1599936180996" />
     <state width="1493" height="265" key="GridCell.Tab.2.center/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.2.left" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="184" key="GridCell.Tab.2.left" timestamp="1599936180996">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="184" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1599936180996" />
     <state width="1493" height="265" key="GridCell.Tab.2.left/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state width="1493" height="265" key="GridCell.Tab.2.right" timestamp="1593616615774">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state width="1323" height="184" key="GridCell.Tab.2.right" timestamp="1599936180997">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state width="1323" height="184" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1599936180997" />
     <state width="1493" height="265" key="GridCell.Tab.2.right/0.0.1536.834@0.0.1536.834" timestamp="1593616615774" />
-    <state x="500" y="446" key="com.intellij.ide.util.TipDialog" timestamp="1593626281172">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="445" y="376" key="com.intellij.ide.util.TipDialog" timestamp="1599934336536">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="445" y="376" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1599934336536" />
     <state x="500" y="446" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1593626281172" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>
