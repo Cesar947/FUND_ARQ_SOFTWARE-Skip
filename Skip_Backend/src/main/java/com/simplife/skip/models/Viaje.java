@@ -14,8 +14,8 @@ import java.time.LocalTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "viaje")
 @Entity
+@Table(name = "viaje")
 public class Viaje implements Serializable {
 
     private static final long serialVersionUID = 1L;
