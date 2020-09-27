@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -40,11 +43,11 @@ public class ViajeServiceImpl implements ViajeService {
         Parada destino = viaje.getDestino();
         Itinerario itinerario1;
         Itinerario itinerario2;
-        try{
-            if (this.paradaRepository.buscarPorLatYLong(partida.getLatitud(), partida.getLongitud()) == null){
+        try {
+            if (this.paradaRepository.buscarPorLatYLong(partida.getLatitud(), partida.getLongitud()) == null) {
                 partida = this.paradaRepository.save(partida);
             }
-            if (this.paradaRepository.buscarPorLatYLong(destino.getLatitud(), destino.getLongitud()) == null){
+            if (this.paradaRepository.buscarPorLatYLong(destino.getLatitud(), destino.getLongitud()) == null) {
                 destino = this.paradaRepository.save(destino);
             }
 
@@ -55,14 +58,24 @@ public class ViajeServiceImpl implements ViajeService {
             this.itinerarioRepository.save(itinerario2);
 
             conductor = this.usuarioRepository.findById(viaje.getConductorId()).get();
+
+            //Revisar esta cosa
+            DateTimeFormatter dtfFechaEntrada = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate fechaViaje = LocalDate.parse(viaje.getFechaViaje(), dtfFechaEntrada);
+            String fechaViajeString = fechaViaje.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+
             DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate nuevaFechaViaje = LocalDate.parse(viaje.getFechaViaje(), dtfFecha);
+            LocalDate nuevaFechaViaje = LocalDate.parse(fechaViajeString, dtfFecha);
+
+
             DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalTime nuevaHoraInicio = LocalTime.parse(viaje.getHoraInicio(), dtfHora);
             LocalTime nuevaHoraLlegada = LocalTime.parse(viaje.getHoraLlegada(), dtfHora);
+
             nuevoViaje = new Viaje(conductor, viaje.getDescripcion(),
                     nuevaFechaViaje, nuevaHoraInicio, nuevaHoraLlegada);
             nuevoViaje.setFechaPublicacion(LocalDate.now());
+
             nuevoViaje.setHoraPublicacion(LocalTime.now());
             nuevoViaje.setVisualizacionHabilitada(true);
             nuevoViaje.setEstadoViaje("PUBLICADO");

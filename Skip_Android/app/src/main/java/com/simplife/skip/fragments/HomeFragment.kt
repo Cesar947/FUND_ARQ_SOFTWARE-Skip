@@ -1,6 +1,9 @@
 package com.simplife.skip.fragments
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,6 +25,7 @@ import com.simplife.skip.interfaces.ViajeApiService
 import com.simplife.skip.models.Usuario
 import com.simplife.skip.models.Viaje
 import com.simplife.skip.util.TopSpacingItemDecoration
+import com.simplife.skip.util.URL_API
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,51 +47,51 @@ class HomeFragment : Fragment() {
 
     var usuario: Usuario? = null
 
+
+    var rol = ""
+
+    private lateinit var prefs : SharedPreferences
+    private lateinit var edit: SharedPreferences.Editor
+
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         val vista = inflater.inflate(R.layout.fragment_home, container, false)
         addBtn = vista.findViewById(R.id.add_btn)
 
+        prefs = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
+        edit= prefs.edit()
+
+        rol = prefs.getString("rol","")!!
+
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.6:6060/")
+            .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         viajeService = retrofit.create(ViajeApiService::class.java)
         usuarioService = retrofit.create(UsuarioApiService::class.java)
 
         //Recibimos data de usuario
-        val usuarioid = arguments?.get("user") as Long
+        val usuarioid = prefs.getLong("idusuario",0)
 
-        usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
-            override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
-                val respuesta = response?.body()
-                usuario = respuesta
-
-
-                if(usuario?.cuenta?.roles?.get(0)?.nombre == "ROL_CONDUCTOR"){
-                    addBtn.visibility = View.VISIBLE
-                }
-
-
-            }
-            override fun onFailure(call: Call<Usuario>?, t: Throwable?) {
-                t?.printStackTrace()
-            }
-        })
+        if(rol == "ROL_CONDUCTOR"){
+            addBtn.visibility = View.VISIBLE
+        }
 
 
         addBtn.setOnClickListener{
-            context?.startActivity(Intent(context, Post::class.java).putExtra("user", usuarioid))
+            context?.startActivity(Intent(context, Post::class.java))
         }
 
         recyclerView = vista.findViewById(R.id.recycler_viaje_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
 
-        viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
+
+
+       /* viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
             override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
                 val viajesaux = response.body()
 
@@ -106,7 +110,7 @@ class HomeFragment : Fragment() {
 
 
 
-
+*/
         return vista
     }
 

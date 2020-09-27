@@ -11,6 +11,7 @@ public interface ViajeService {
 
     //Métodos CRUD
     Viaje insertarViaje(ViajeRequest viaje) throws Exception;
+
     List<Viaje> obtenerViajes() throws Exception;
         //usuarioConductorId es id de usuario de algún conductor
     List<Viaje> listarViajesPorConductor(Long usuarioConductorId) throws Exception;

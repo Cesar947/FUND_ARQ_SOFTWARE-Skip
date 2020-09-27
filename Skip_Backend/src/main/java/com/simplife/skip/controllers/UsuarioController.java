@@ -32,9 +32,9 @@ public class UsuarioController {
     }
 
 
-    @PostMapping("/registro")
+    /*@PostMapping("/registro")
     public Usuario registrarUsuarioPrueba(@RequestBody Usuario usuario) throws Exception{
         return this.usuarioService.insertarUsuario(usuario);
-    }
+    }*/
 
 }

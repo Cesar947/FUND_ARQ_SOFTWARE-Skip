@@ -16,4 +16,7 @@ class ViajeRequest (
     var horaInicio: String,
     var horaLlegada: String
 ) : Serializable {
+    override fun toString(): String {
+        return "ViajeRequest(conductorId=$conductorId, sentidoRuta=$sentidoRuta, partida=$partida, destino=$destino, tiempoEstimado='$tiempoEstimado', distancia=$distancia, descripcion='$descripcion', fechaViaje='$fechaViaje', horaInicio='$horaInicio', horaLlegada='$horaLlegada')"
+    }
 }

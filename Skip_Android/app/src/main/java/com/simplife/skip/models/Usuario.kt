@@ -15,8 +15,7 @@ class Usuario (
     var cuenta: Cuenta
 
 ): Serializable{
-
     override fun toString(): String {
-        return "Usuario(user='$nombres', image='$imagen', rol='$ubicacion')"
+        return "Usuario(id=$id, dni='$dni', nombres='$nombres', apellidos='$apellidos', sede='$sede', facebook='$facebook', ubicacion='$ubicacion', imagen='$imagen', estadoTabla=$estadoTabla, cuenta=$cuenta)"
     }
 }

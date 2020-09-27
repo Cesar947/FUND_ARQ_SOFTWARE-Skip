@@ -7,8 +7,7 @@ class LoginRequest (
     val codigo: String,
     val contrasena: String
 ) : Serializable {
-
     override fun toString(): String {
-        return "Usuario(user='$codigo', ,pass='$contrasena')"
+        return "LoginRequest(codigo='$codigo', contrasena='$contrasena')"
     }
 }

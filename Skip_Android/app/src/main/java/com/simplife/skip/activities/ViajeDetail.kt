@@ -12,6 +12,7 @@ import com.simplife.skip.adapter.ResenasRecyclerAdapter
 import com.simplife.skip.interfaces.ViajeApiService
 import com.simplife.skip.models.Viaje
 import com.simplife.skip.util.Resenas_Data
+import com.simplife.skip.util.URL_API
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
 import kotlinx.android.synthetic.main.viaje_list_item.view.*
 import retrofit2.Call
@@ -37,7 +38,7 @@ class ViajeDetail : AppCompatActivity() {
         back_btn = findViewById(R.id.detback_button)
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.6:6060/")
+            .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         viajeService = retrofit.create(ViajeApiService::class.java)

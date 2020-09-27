@@ -16,8 +16,10 @@ interface ViajeApiService {
     @GET("api/auth/skip/viajes/{id}")
     fun getViajeById(@Path("id") id: Long): Call<Viaje>
 
+
     @POST("api/auth/skip/viajes/publicacion")
     fun publicarViaje(@Body viajeRequest: ViajeRequest): Call<Viaje>
+
 
     @GET("api/auth/skip/viajes/conductor/{conductorid}")
     fun getViajesDeConductor(@Path("conductorid") conductorid: Long): Call<List<Viaje>>

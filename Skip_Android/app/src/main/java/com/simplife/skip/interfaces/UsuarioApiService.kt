@@ -12,7 +12,7 @@ import retrofit2.http.Path
 interface UsuarioApiService {
 
     @POST("api/auth/usuario/login")
-    fun getAllUsers(@Body loginRequest: LoginRequest): Call<LoginEntity>
+    fun login(@Body loginRequest: LoginRequest): Call<LoginEntity>
 
     @GET("api/auth/skip/usuarios/{id}")
     fun getUsuarioById(@Path("id") id: Long): Call<Usuario>

@@ -1,6 +1,8 @@
 package com.simplife.skip.activities
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +15,7 @@ import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.LoginEntity
 import com.simplife.skip.models.LoginRequest
 import com.simplife.skip.models.Usuario
+import com.simplife.skip.util.URL_API
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,19 +29,24 @@ class Login : AppCompatActivity() {
     private lateinit var userPass: EditText
     private lateinit var userService: UsuarioApiService
     private lateinit var homeP : Intent
-    var id: Long = 0
-    var rol = "pasajero"
+    private val TAG = "Bryan"
+
+    private lateinit var prefs :SharedPreferences
+    private lateinit var edit:SharedPreferences.Editor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
+        edit= prefs.edit()
+
 
         loginBtn = findViewById(R.id.login_button)
         userEmail = findViewById(R.id.user_email)
         userPass = findViewById(R.id.user_pass)
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.6:6060/")
+            .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -48,19 +56,24 @@ class Login : AppCompatActivity() {
 
         loginBtn.setOnClickListener{
             val loginRequest = LoginRequest(userEmail.text.toString(), userPass.text.toString())
+            Log.i("Usuario", loginRequest.toString())
 
-            var token = userEmail.text.toString() + userPass.text.toString()
-
-            userService.getAllUsers(loginRequest).enqueue(object : Callback<LoginEntity> {
+            userService.login(loginRequest).enqueue(object : Callback<LoginEntity> {
                 override fun onResponse(call: Call<LoginEntity>?, response: Response<LoginEntity>?) {
 
                     var usuario = response?.body()
-
+                    Log.i("Usuario", usuario.toString())
                     if (usuario != null) {
-                        id = usuario.usuarioId
-                        rol = usuario.roles[0]
+                        edit.putString("token",usuario.token)
+                        edit.putLong("idcuenta",usuario.cuentaid)
+                        edit.putLong("idusuario",usuario.usuarioId)
+                        edit.putString("codigo", userEmail.text.toString())
+                        edit.putString("contrasena", userPass.text.toString())
+                        edit.putString("rol", usuario.roles[0].toString())
+                        edit.commit()
+                        Log.i("Viajes",usuario.toString())
 
-                        homeP = Intent(applicationContext, MainActivity::class.java).putExtra("userid", id)
+                        homeP = Intent(applicationContext, MainActivity::class.java)
                         startActivity(homeP)
                         finish()
                     }
@@ -73,8 +86,6 @@ class Login : AppCompatActivity() {
                 }
             })
 
-
-
         }
 
     }
@@ -83,7 +94,32 @@ class Login : AppCompatActivity() {
     //Logica Reciclable de login
     fun login(email: String, pass: String){
 
+        val loginRequest = LoginRequest(userEmail.text.toString(), userPass.text.toString())
+        userService.login(loginRequest).enqueue(object : Callback<LoginEntity> {
+            override fun onResponse(call: Call<LoginEntity>?, response: Response<LoginEntity>?) {
 
-        //Se reemplazaria por metodo de getusuario de bakcken
+                var usuario = response?.body()
+                Log.i("Usuario", usuario.toString())
+                if (usuario != null) {
+                    edit.putString("token",usuario.token)
+                    edit.putLong("idcuenta",usuario.cuentaid)
+                    edit.putLong("idusuario",usuario.usuarioId)
+                    edit.putString("codigo",usuario.codigo)
+                    edit.commit()
+
+
+                    homeP = Intent(applicationContext, MainActivity::class.java)
+                    startActivity(homeP)
+                    finish()
+                }
+                else{
+                    Toast.makeText(this@Login,"Ingrese un correo y contraseña existente",Toast.LENGTH_SHORT).show();}
+            }
+
+            override fun onFailure(call: Call<LoginEntity>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
+
     }
 }

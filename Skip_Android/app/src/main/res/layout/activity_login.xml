@@ -54,6 +54,7 @@
                     android:layout_marginHorizontal="15dp"
                     android:ems="10"
                     android:hint="Codigo UPC"
+                    android:inputType="text"
                     android:textSize="14sp" />
 
 
@@ -72,7 +73,12 @@
                 app:cardCornerRadius="30dp"
                 app:cardElevation="5dp"
                 app:cardPreventCornerOverlap="false">
-
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:hintEnabled="false"
+                    app:boxBackgroundMode="none"
+                    app:passwordToggleEnabled="true">
                 <EditText
                     android:id="@+id/user_pass"
                     style="@style/Base.Widget.MaterialComponents.TextInputEditText"
@@ -83,6 +89,7 @@
                     android:hint="Contraseña"
                     android:inputType="textPassword"
                     android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
 
             </androidx.cardview.widget.CardView>

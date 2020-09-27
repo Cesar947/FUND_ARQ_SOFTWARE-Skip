@@ -1,7 +1,9 @@
 package com.simplife.skip.fragments
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,6 +21,7 @@ import com.simplife.skip.R
 import com.simplife.skip.activities.Login
 import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.Usuario
+import com.simplife.skip.util.URL_API
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
 import kotlinx.android.synthetic.main.fragment_perfil.*
@@ -49,12 +52,25 @@ class PerfilFragment : Fragment() {
 
     var usuario: Usuario? = null
 
+
+    private lateinit var prefs : SharedPreferences
+    private lateinit var edit: SharedPreferences.Editor
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         val vista = inflater.inflate(R.layout.fragment_perfil, container, false)
+
+
+        prefs = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
+        edit= prefs.edit()
 
         perfil_nombre = vista.findViewById(R.id.perfil_username)
         perfil_fb = vista.findViewById(R.id.perfil_fb)
@@ -68,7 +84,7 @@ class PerfilFragment : Fragment() {
         perfil_settings = vista.findViewById(R.id.perfil_settings)
 
         //Recibimos data de usuario
-        val usuarioid = arguments?.get("user") as Long
+        val usuarioid = prefs.getLong("idusuario",0)
 
         perfil_settings.setOnClickListener{
             if(opciones.visibility == View.GONE) {
@@ -79,6 +95,7 @@ class PerfilFragment : Fragment() {
         }
 
         cerrar_sesion.setOnClickListener{
+            edit.clear().commit()
             this.activity?.finish()
             context?.startActivity(Intent(context, Login::class.java))
         }
@@ -90,7 +107,7 @@ class PerfilFragment : Fragment() {
             .error(R.drawable.ic_launcher_background)
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.6:6060/")
+            .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         usuarioService = retrofit.create(UsuarioApiService::class.java)

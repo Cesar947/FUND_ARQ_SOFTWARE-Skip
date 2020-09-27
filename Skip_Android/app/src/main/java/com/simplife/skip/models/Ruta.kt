@@ -12,6 +12,7 @@ class Ruta(
 
 
 ): Serializable {
-
-
+    override fun toString(): String {
+        return "Ruta(id=$id, tiempoEstimado='$tiempoEstimado', sentido=$sentido, distancia=$distancia, estadoTabla=$estadoTabla)"
+    }
 }

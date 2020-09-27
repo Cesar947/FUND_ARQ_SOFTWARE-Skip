@@ -1,5 +1,6 @@
 package com.simplife.skip.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageButton
@@ -35,7 +36,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val usuarioid: Long = intent.getSerializableExtra("userid") as Long
+        val prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
+        val edit= prefs.edit()
+
+        val usuarioid = prefs.getLong("idusuario",0)
 
         mViewPager = findViewById(R.id.viewPager)
 
@@ -74,7 +78,7 @@ class MainActivity : AppCompatActivity() {
         bundle = Bundle()
         bundle.putSerializable("user", usuarioid)
         mPagerViewAdapter = PagerViewAdapter(supportFragmentManager, bundle)
-        Log.d("Pepino dice otravez", bundle.toString())
+
         mViewPager.adapter = mPagerViewAdapter
         //mPagerViewAdapter.bundle
 
@@ -100,8 +104,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeTabs(position: Int) {
-
-
         if (position == 0) {
             homebtn.setImageResource(R.drawable.ic_home_selected)
             buscarbtn.setImageResource(R.drawable.ic_search)
@@ -137,9 +139,7 @@ class MainActivity : AppCompatActivity() {
             notifbtn.setImageResource(R.drawable.ic_notifications)
             perfilbtn.setImageResource(R.drawable.ic_account_selected)
         }
-
     }
-
 }
 
 

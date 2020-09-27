@@ -23,6 +23,7 @@ public class ViajeController {
 
     @PostMapping("/publicacion")
     public Viaje publicarViaje(@RequestBody ViajeRequest viaje) throws Exception{
+        System.out.println("ENTROOOO");
         return this.viajeService.insertarViaje(viaje);
     }
 

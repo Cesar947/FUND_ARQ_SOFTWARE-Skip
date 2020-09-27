@@ -1,5 +1,8 @@
 package com.simplife.skip.fragments
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,6 +25,11 @@ class SearchFragment : Fragment() {
     private lateinit var filtros: CardView
     private lateinit var buscarbtn: ImageButton
 
+
+    private lateinit var prefs : SharedPreferences
+    private lateinit var edit: SharedPreferences.Editor
+
+    @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +37,10 @@ class SearchFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val vista = inflater.inflate(R.layout.fragment_search, container, false)
+
+        prefs = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
+        edit= prefs.edit()
+
 
         buscador = vista.findViewById(R.id.etBuscador)
         filtros = vista.findViewById(R.id.filtrar)
@@ -41,9 +53,10 @@ class SearchFragment : Fragment() {
         buscarbtn.setOnClickListener {
             filtros.visibility = View.GONE
         }
-
         return vista
     }
+
+
 
 
 

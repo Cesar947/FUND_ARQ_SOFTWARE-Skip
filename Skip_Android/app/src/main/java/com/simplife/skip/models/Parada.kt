@@ -8,8 +8,7 @@ class Parada (
     var longitud: Float
 
 ) :Serializable {
-
     override fun toString(): String {
-        return "Resena(title='$ubicacion', image='$latitud', username='$longitud')"
+        return "Parada(ubicacion='$ubicacion', latitud=$latitud, longitud=$longitud)"
     }
 }

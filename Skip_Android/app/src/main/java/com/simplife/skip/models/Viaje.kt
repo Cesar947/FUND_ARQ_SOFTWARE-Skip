@@ -11,18 +11,15 @@ data class Viaje (
     var fechaViaje: String,
     var horaInicio: String,
     var horaLlegada: String,
+    var horaPublicacion: String,
     var visualizacionHabilitada: Boolean,
     var numeroPasajeros: Int,
     var estadoViaje: String,
-    var horaPublicacion: String,
     var estadoTabla: Boolean
 
 ) : Serializable {
-
     override fun toString(): String {
-        return "BlogPost(title='$fechaViaje', image='$fechaPublicacion', username='$horaPublicacion')"
+        return "Viaje(id=$id, conductor=$conductor, ruta=$ruta, descripcion='$descripcion', fechaPublicacion='$fechaPublicacion', fechaViaje='$fechaViaje', horaInicio='$horaInicio', horaLlegada='$horaLlegada', horaPublicacion='$horaPublicacion', visualizacionHabilitada=$visualizacionHabilitada, numeroPasajeros=$numeroPasajeros, estadoViaje='$estadoViaje', estadoTabla=$estadoTabla)"
     }
-
-
 }
 

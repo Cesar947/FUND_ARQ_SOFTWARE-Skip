@@ -11,8 +11,7 @@ class LoginEntity (
     var email: String,
     var roles: List<String>
 ) : Serializable {
-
     override fun toString(): String {
-        return "Usuario(user='$codigo', image='$email', rol='$usuarioId')"
+        return "LoginEntity(token='$token', cuentaid=$cuentaid, usuarioId=$usuarioId, codigo='$codigo', email='$email', roles=$roles)"
     }
 }

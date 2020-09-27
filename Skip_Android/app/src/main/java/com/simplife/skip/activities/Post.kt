@@ -1,13 +1,25 @@
 package com.simplife.skip.activities
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Looper
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
+import com.google.android.gms.location.LocationResult
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
 import com.simplife.skip.R
 import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.interfaces.ViajeApiService
@@ -15,6 +27,7 @@ import com.simplife.skip.models.Parada
 import com.simplife.skip.models.Usuario
 import com.simplife.skip.models.Viaje
 import com.simplife.skip.models.ViajeRequest
+import com.simplife.skip.util.URL_API
 import kotlinx.android.synthetic.main.activity_post.*
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
 import retrofit2.Call
@@ -44,11 +57,61 @@ class Post : AppCompatActivity() {
 
     var usuario: Usuario? = null
 
+    private  lateinit var mylocation : LatLng
+
+    private lateinit var locationRequest  : LocationRequest
+    private lateinit var locationCallback  : LocationCallback
+    private lateinit var mFusedLocationClient  : FusedLocationProviderClient
+
+    private lateinit var prefs : SharedPreferences
+    private lateinit var edit: SharedPreferences.Editor
+
+
+    @SuppressLint("MissingPermission")
+    private val mapCallback = OnMapReadyCallback{ googleMap ->
+        //googleMap.isMyLocationEnabled = true
+        //googleMap.uiSettings.isMyLocationButtonEnabled = true
+        //googleMap.uiSettings.isMapToolbarEnabled = true
+
+        val Lima = LatLng(-12.0554671, -77.0431111)
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Lima, 11.0f))
+    }
+
+
+    @SuppressLint("MissingPermission")
+    private fun traerUbicacion(){
+
+        locationRequest = LocationRequest.create()
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+        locationRequest.setInterval(20 * 1000)
+        locationCallback = object : LocationCallback() {
+
+            override fun onLocationResult(locationResult: LocationResult?) {
+                if (locationResult == null) {
+                    return;
+                }
+                for (location in locationResult.getLocations()) {
+                    if (location != null) {
+                        mylocation = LatLng(location.latitude, location.longitude)
+                    }
+                }
+                super.onLocationResult(locationResult)
+            }
+        }
+        mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.getMainLooper())
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
 
-        val usuarioid = intent.getSerializableExtra("user") as Long
+        prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
+        edit= prefs.edit()
+
+        val usuarioid = prefs.getLong("idusuario",0)
+
+
 
         postBtn = findViewById(R.id.post_btn)
         backbtn = findViewById(R.id.postback_button)
@@ -59,14 +122,22 @@ class Post : AppCompatActivity() {
         destino_hora = findViewById(R.id.post_hora_destino)
         fecha_viaje = findViewById(R.id.fechaProgrmada)
 
+
+
+
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapPostViaje) as SupportMapFragment
+        mapFragment?.getMapAsync(mapCallback)
+
+
         val requestOptions = RequestOptions()
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("http://192.168.1.6:6060/")
+            .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         usuarioService = retrofit.create(UsuarioApiService::class.java)
         viajeService = retrofit.create(ViajeApiService::class.java)
 

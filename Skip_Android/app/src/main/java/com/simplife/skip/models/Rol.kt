@@ -8,4 +8,7 @@ class Rol(
     var nombre: String,
     var estadoTabla: Boolean
 ) : Serializable {
+    override fun toString(): String {
+        return "Rol(id=$id, nombre='$nombre', estadoTabla=$estadoTabla)"
+    }
 }
