@@ -1,13 +1,20 @@
 package com.simplife.skip.activities
 
 import android.content.Context
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
+import com.emmanuelkehinde.shutdown.Shutdown
 import com.simplife.skip.R
 import com.simplife.skip.adapter.PagerViewAdapter
+import com.simplife.skip.fragments.*
 import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.models.Usuario
 import retrofit2.Call
@@ -28,7 +35,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mViewPager: ViewPager
     private lateinit var mPagerViewAdapter: PagerViewAdapter
 
-    private lateinit var bundle: Bundle
+
+    private lateinit var fragmentList : MutableList<Fragment>
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
@@ -41,6 +50,13 @@ class MainActivity : AppCompatActivity() {
 
         val usuarioid = prefs.getLong("idusuario",0)
 
+        fragmentList = arrayListOf()
+        fragmentList.add(HomeFragment.newInstance())
+        fragmentList.add(SearchFragment.newInstance())
+        fragmentList.add(ViajesFragment.newInstance())
+        fragmentList.add(NotificacionFragment.newInstance())
+        fragmentList.add(PerfilFragment.newInstance())
+
         mViewPager = findViewById(R.id.viewPager)
 
         homebtn = findViewById(R.id.homebtn)
@@ -49,14 +65,14 @@ class MainActivity : AppCompatActivity() {
         perfilbtn = findViewById(R.id.profilebtn)
         buscarbtn = findViewById(R.id.searchbtn)
 
+        requestPermissionAndContinue()
+
         homebtn.setOnClickListener {
             mViewPager.currentItem = 0
-
         }
 
         buscarbtn.setOnClickListener {
             mViewPager.currentItem = 1
-
         }
 
         viajesbtn.setOnClickListener {
@@ -75,32 +91,26 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        bundle = Bundle()
-        bundle.putSerializable("user", usuarioid)
-        mPagerViewAdapter = PagerViewAdapter(supportFragmentManager, bundle)
 
+
+
+        mPagerViewAdapter = PagerViewAdapter(supportFragmentManager,fragmentList)
         mViewPager.adapter = mPagerViewAdapter
-        //mPagerViewAdapter.bundle
-
+        mViewPager.offscreenPageLimit = 4
 
         mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-            override fun onPageScrolled(
-                position: Int,
-                positionOffset: Float,
-                positionOffsetPixels: Int
-            ) {
-            }
 
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            }
             override fun onPageSelected(position: Int) {
                 changeTabs(position)
+                Log.i("Posicion",position.toString())
             }
-
             override fun onPageScrollStateChanged(state: Int) {}
         })
 
-        mViewPager.currentItem = 0
-        homebtn.setImageResource(R.drawable.ic_home_selected)
-
+        //mViewPager.currentItem = 0
+        //homebtn.setImageResource(R.drawable.ic_home_selected)
     }
 
     private fun changeTabs(position: Int) {
@@ -140,7 +150,49 @@ class MainActivity : AppCompatActivity() {
             perfilbtn.setImageResource(R.drawable.ic_account_selected)
         }
     }
+
+    override fun onBackPressed() {
+        Shutdown.now(this, "Presione de nuevo para salir")
+    }
+
+
+    private fun requestPermissionAndContinue() {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+                Log.e("Error", "permission denied, show dialog")
+                //mostrarDialogoPermisos()
+            } else {
+                ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 1)
+            }
+        } else {
+            mViewPager.currentItem = 0
+            homebtn.setImageResource(R.drawable.ic_home_selected)
+        }
+        this
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when(requestCode)
+        {
+            -1 -> {}
+            1 -> {
+                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mViewPager.currentItem = 0
+                    homebtn.setImageResource(R.drawable.ic_home_selected)
+                    this
+                }  else {
+                    requestPermissionAndContinue()
+                    this
+                }
+            }
+        }
+
+    }
+
+
+
 }
+
 
 
 

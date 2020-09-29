@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,6 +28,11 @@ class NotificacionFragment : Fragment() {
 
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("FragmentNotifcaciones","Creado")
+    }
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -53,4 +59,8 @@ class NotificacionFragment : Fragment() {
         return vista
     }
 
+    companion object {
+        @JvmStatic
+        fun newInstance() = NotificacionFragment()
+    }
 }

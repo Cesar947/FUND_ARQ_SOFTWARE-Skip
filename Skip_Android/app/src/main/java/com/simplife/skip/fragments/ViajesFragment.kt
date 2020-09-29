@@ -46,6 +46,11 @@ class ViajesFragment : Fragment() {
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("FragmentViajes","Creado")
+    }
+
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +64,7 @@ class ViajesFragment : Fragment() {
         edit= prefs.edit()
 
         rol = prefs.getString("rol","Nada")!!
-        Log.i("Rol",rol)
+        //Log.i("Rol",rol)
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
@@ -112,37 +117,16 @@ class ViajesFragment : Fragment() {
                 Log.e("Viajes","Error al obtener viajes")
             }
         })
-
-        /*viajeService!!.getViajesDeConductor(usuarioid).enqueue(object: Callback<List<Viaje>> {
-            override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
-                val viajesaux = response.body()
-                Log.i("ViajesAAAAAAAAAAAAA",response.body().toString())
-                if(validacion == "Conductor"){
-                    if (viajesaux != null) {
-                        misviajesAdapterConductor.submitList(viajesaux)
-                    }
-                }
-                else{
-                    if (viajesaux != null) {
-                        misviajesAdapterPasajero = MisViajesRecyclerAdapter()
-                        recyclerView.adapter = misviajesAdapterPasajero
-                        misviajesAdapterPasajero.submitList(viajesaux)
-                    }
-
-                }
-
-
-            }
-            override fun onFailure(call: Call<List<Viaje>>?, t: Throwable?) {
-                t?.printStackTrace()
-            }
-        })*/
-
         return vista
     }
 
     private fun addDataSet(){
 
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = ViajesFragment()
     }
 
 }

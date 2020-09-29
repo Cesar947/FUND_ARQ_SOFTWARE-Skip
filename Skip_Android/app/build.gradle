@@ -55,9 +55,12 @@ dependencies {
     implementation 'com.google.android.libraries.places:places:2.3.0'
 
 
-    implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.2.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.2.2'
+
+    //Shutdown
+    implementation 'com.emmanuelkehinde:shutdown:1.0.1'
+
 
     // Card View
     implementation "androidx.cardview:cardview:1.0.0"

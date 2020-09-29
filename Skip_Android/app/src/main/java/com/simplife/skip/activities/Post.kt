@@ -7,9 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
+import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -20,6 +18,8 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
+import com.google.android.gms.maps.model.MarkerOptions
 import com.simplife.skip.R
 import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.interfaces.ViajeApiService
@@ -43,12 +43,14 @@ class Post : AppCompatActivity() {
 
     private lateinit var backbtn: ImageButton
     private lateinit var postBtn: Button
-    private lateinit var text: EditText
+    private lateinit var description: EditText
     private lateinit var origen: EditText
     private lateinit var destino: EditText
     private lateinit var origen_hora: EditText
     private lateinit var destino_hora: EditText
     private lateinit var fecha_viaje: EditText
+
+    private lateinit var origenSpinner:Spinner
 
     private lateinit var usuarioService: UsuarioApiService
     lateinit var viajeService: ViajeApiService
@@ -59,22 +61,52 @@ class Post : AppCompatActivity() {
 
     private  lateinit var mylocation : LatLng
 
+
     private lateinit var locationRequest  : LocationRequest
     private lateinit var locationCallback  : LocationCallback
     private lateinit var mFusedLocationClient  : FusedLocationProviderClient
+
 
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
 
 
+    private var markerOrigen : Marker? = null
+    private var markerDestino : Marker? = null
+
+
     @SuppressLint("MissingPermission")
     private val mapCallback = OnMapReadyCallback{ googleMap ->
-        //googleMap.isMyLocationEnabled = true
-        //googleMap.uiSettings.isMyLocationButtonEnabled = true
-        //googleMap.uiSettings.isMapToolbarEnabled = true
+        googleMap.isMyLocationEnabled = true
+        googleMap.uiSettings.isMyLocationButtonEnabled = true
+        googleMap.uiSettings.isMapToolbarEnabled = true
 
         val Lima = LatLng(-12.0554671, -77.0431111)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Lima, 11.0f))
+
+        //-12.077252,-77.0934926 - UPC San Miguel
+
+        googleMap.setOnMapClickListener {
+            if (markerOrigen!= null &&  markerDestino != null)
+            {
+                return@setOnMapClickListener
+            }
+            val markerOptions = MarkerOptions().position(it).anchor(0.5f,0.5f).flat(false).draggable(true)
+
+            if (markerOrigen == null)
+            {
+                markerOptions.title("Origen")
+                markerOrigen = googleMap.addMarker(markerOptions)
+                //origen.setText(markerOrigen!!.position.toString())
+            }
+            else
+            {
+                markerOptions.title("Destino")
+                markerDestino = googleMap.addMarker(markerOptions)
+                destino.setText(markerDestino!!.position.toString())
+
+            }
+        }
     }
 
 
@@ -115,14 +147,20 @@ class Post : AppCompatActivity() {
 
         postBtn = findViewById(R.id.post_btn)
         backbtn = findViewById(R.id.postback_button)
-        text = findViewById(R.id.post_text)
-        origen = findViewById(R.id.post_origen)
+        description = findViewById(R.id.post_description)
+        //origen = findViewById(R.id.post_origen)
+        origenSpinner = findViewById(R.id.origen_spinner)
         destino = findViewById(R.id.post_destino)
         origen_hora = findViewById(R.id.post_hora_origen)
         destino_hora = findViewById(R.id.post_hora_destino)
         fecha_viaje = findViewById(R.id.fechaProgrmada)
 
 
+
+        val array = arrayListOf("San Miguel","San Isidro","Moterrico")
+        val adapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,array)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        origenSpinner.adapter = adapter
 
 
         val mapFragment = supportFragmentManager.findFragmentById(R.id.mapPostViaje) as SupportMapFragment
@@ -184,7 +222,7 @@ class Post : AppCompatActivity() {
         Log.i("Pepino dice lo que se envia: ", inicio.toString())
 
         var viajeRequest: ViajeRequest = ViajeRequest(usuarioid, true, inicio, fin, "2 horas",
-            distancia.toFloat() , text.text.toString(), fecha_viaje.text.toString(), origen_hora.text.toString(), destino_hora.text.toString())
+            distancia.toFloat() , description.text.toString(), fecha_viaje.text.toString(), origen_hora.text.toString(), destino_hora.text.toString())
 
         Log.i("Pepino dice lo que se envia: ", viajeRequest.toString())
 

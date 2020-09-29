@@ -67,7 +67,6 @@ public class ViajeServiceImpl implements ViajeService {
             DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/MM/yyyy");
             LocalDate nuevaFechaViaje = LocalDate.parse(fechaViajeString, dtfFecha);
 
-
             DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
             LocalTime nuevaHoraInicio = LocalTime.parse(viaje.getHoraInicio(), dtfHora);
             LocalTime nuevaHoraLlegada = LocalTime.parse(viaje.getHoraLlegada(), dtfHora);

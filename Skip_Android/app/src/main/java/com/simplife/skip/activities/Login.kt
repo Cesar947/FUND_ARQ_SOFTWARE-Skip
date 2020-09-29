@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.emmanuelkehinde.shutdown.Shutdown
 import com.google.gson.Gson
 import com.simplife.skip.*
 import com.simplife.skip.interfaces.UsuarioApiService
@@ -122,4 +123,9 @@ class Login : AppCompatActivity() {
         })
 
     }
+
+    override fun onBackPressed() {
+        Shutdown.now(this, "Presione de nuevo para salir")
+    }
+
 }

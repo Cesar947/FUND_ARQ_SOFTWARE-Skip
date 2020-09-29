@@ -45,8 +45,6 @@ class Splash_screen : AppCompatActivity() {
 
         userService = retrofit.create(UsuarioApiService::class.java)
 
-
-
         iv_note.alpha =0f
 
         iv_note.animate().setDuration(700).alpha(1f).withEndAction(){
@@ -66,6 +64,8 @@ class Splash_screen : AppCompatActivity() {
         }
     }
 
+
+
     fun login(email: String, pass: String){
 
         val loginRequest = LoginRequest(email,pass)
@@ -79,9 +79,8 @@ class Splash_screen : AppCompatActivity() {
                     edit.putString("token",usuario.token)
                     edit.putLong("idcuenta",usuario.cuentaid)
                     edit.putLong("idusuario",usuario.usuarioId)
-                    edit.putString("codigo",usuario.codigo)
+                    edit.putString("rol", usuario.roles[0].toString())
                     edit.commit()
-
 
                     val i = Intent(applicationContext, MainActivity::class.java)
                     startActivity(i)

@@ -47,11 +47,18 @@ class HomeFragment : Fragment() {
 
     var usuario: Usuario? = null
 
-
     var rol = ""
+
+
 
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("FragmentHome","Creado")
+    }
+
 
     @SuppressLint("UseRequireInsteadOfGet")
     override fun onCreateView(
@@ -74,13 +81,13 @@ class HomeFragment : Fragment() {
         viajeService = retrofit.create(ViajeApiService::class.java)
         usuarioService = retrofit.create(UsuarioApiService::class.java)
 
+
         //Recibimos data de usuario
         val usuarioid = prefs.getLong("idusuario",0)
 
         if(rol == "ROL_CONDUCTOR"){
             addBtn.visibility = View.VISIBLE
         }
-
 
         addBtn.setOnClickListener{
             context?.startActivity(Intent(context, Post::class.java))
@@ -91,7 +98,7 @@ class HomeFragment : Fragment() {
 
 
 
-       /* viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
+       viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
             override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
                 val viajesaux = response.body()
 
@@ -100,17 +107,11 @@ class HomeFragment : Fragment() {
                 viajeAdapter = ViajeRecyclerAdapter()
                 recyclerView.adapter = viajeAdapter
                 viajeAdapter.submitList(viajesaux)
-
-
             }
             override fun onFailure(call: Call<List<Viaje>>?, t: Throwable?) {
                 t?.printStackTrace()
             }
         })
-
-
-
-*/
         return vista
     }
 
@@ -118,6 +119,10 @@ class HomeFragment : Fragment() {
 
     }
 
+    companion object {
+        @JvmStatic
+        fun newInstance() = HomeFragment()
+    }
 
 }
 

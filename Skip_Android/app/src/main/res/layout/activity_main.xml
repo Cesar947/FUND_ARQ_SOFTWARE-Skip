@@ -20,9 +20,11 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/bottom_navbar"
         android:elevation="5dp"
+        android:visibility="visible"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="5dp">
+
 
 
         <ImageButton
@@ -92,6 +94,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
+
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
