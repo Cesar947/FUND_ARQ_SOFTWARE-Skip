@@ -26,13 +26,22 @@ public class Parada {
     private String ubicacion;
 
     @Column(name = "latitud")
-    private float latitud;
+    private double latitud;
 
     @Column(name = "longitud")
-    private float longitud;
+    private double longitud;
 
     @Column(name = "estado_tabla")
     private boolean estadoTabla;
 
-
+    @Override
+    public String toString() {
+        return "Parada{" +
+                "id=" + id +
+                ", ubicacion='" + ubicacion + '\'' +
+                ", latitud=" + latitud +
+                ", longitud=" + longitud +
+                ", estadoTabla=" + estadoTabla +
+                '}';
+    }
 }

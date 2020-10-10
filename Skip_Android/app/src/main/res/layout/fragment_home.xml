@@ -20,14 +20,19 @@
         android:textSize="40sp"
         android:textStyle="bold" />
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayoutHome"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp">
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_viaje_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp"
         android:paddingBottom="80dp"
         android:clipToPadding="false"></androidx.recyclerview.widget.RecyclerView>
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     <ImageButton
         android:id="@+id/add_btn"
         android:layout_width="60dp"

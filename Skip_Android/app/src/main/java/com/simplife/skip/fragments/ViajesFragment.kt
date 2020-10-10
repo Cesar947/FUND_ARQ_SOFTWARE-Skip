@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.simplife.skip.R
 import com.simplife.skip.adapter.MisViajeCondRecyclerAdapter
@@ -33,15 +34,18 @@ import retrofit2.converter.gson.GsonConverterFactory
  */
 class ViajesFragment : Fragment() {
 
+
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+
     private  lateinit var misviajesAdapterPasajero: MisViajesRecyclerAdapter
     private lateinit var misviajesAdapterConductor: MisViajeCondRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var viajeService: ViajeApiService
     private lateinit var usuarioService: UsuarioApiService
 
-    var usuario: Usuario? = null
     var rol = ""
 
+    var usuarioid : Long = 0
 
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
@@ -63,16 +67,17 @@ class ViajesFragment : Fragment() {
         prefs = activity!!.getSharedPreferences("user", Context.MODE_PRIVATE)
         edit= prefs.edit()
 
+        swipeRefreshLayout = vista.findViewById(R.id.swipeRefreshLayoutMisViajes)
+
         rol = prefs.getString("rol","Nada")!!
-        //Log.i("Rol",rol)
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
 
-        //Recibimos data de usuario
-        var usuarioid = prefs.getLong("idusuario",0)
+         usuarioid = prefs.getLong("idusuario",0)
 
 
         viajeService = retrofit.create(ViajeApiService::class.java)
@@ -90,8 +95,16 @@ class ViajesFragment : Fragment() {
             misviajesAdapterPasajero = MisViajesRecyclerAdapter()
             recyclerView.adapter = misviajesAdapterPasajero
         }
+        addDataSet()
 
+        swipeRefreshLayout.setOnRefreshListener {
+            addDataSet()
+        }
 
+        return vista
+    }
+
+    private fun addDataSet(){
         viajeService.getViajesDeConductor(usuarioid).enqueue(object :Callback<List<Viaje>>{
             override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
                 val viajes = response.body()
@@ -111,17 +124,13 @@ class ViajesFragment : Fragment() {
                         misviajesAdapterPasajero.submitList(viajes)
                         Log.i("Viajes","Es pasajero")
                     }
+                    swipeRefreshLayout.isRefreshing = false
                 }
             }
             override fun onFailure(call: Call<List<Viaje>>, t: Throwable) {
                 Log.e("Viajes","Error al obtener viajes")
             }
         })
-        return vista
-    }
-
-    private fun addDataSet(){
-
     }
 
     companion object {

@@ -3,10 +3,12 @@ package com.simplife.skip.activities
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
+import android.location.Geocoder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.*
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -15,6 +17,7 @@ import com.google.android.gms.location.LocationCallback
 import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationResult
 import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -41,38 +44,46 @@ import kotlin.random.Random.Default.nextInt
 
 class Post : AppCompatActivity() {
 
+    //Layout
     private lateinit var backbtn: ImageButton
     private lateinit var postBtn: Button
     private lateinit var description: EditText
     private lateinit var origen: EditText
-    private lateinit var destino: EditText
+    private lateinit var destino: TextView
     private lateinit var origen_hora: EditText
     private lateinit var destino_hora: EditText
     private lateinit var fecha_viaje: EditText
 
     private lateinit var origenSpinner:Spinner
 
+
     private lateinit var usuarioService: UsuarioApiService
     lateinit var viajeService: ViajeApiService
 
-    var viaje: Viaje? = null
 
     var usuario: Usuario? = null
 
+
     private  lateinit var mylocation : LatLng
 
-
+    //Api de Google Maps
     private lateinit var locationRequest  : LocationRequest
     private lateinit var locationCallback  : LocationCallback
     private lateinit var mFusedLocationClient  : FusedLocationProviderClient
+    private lateinit var geocoder: Geocoder
 
+    private var markerOrigen : Marker? = null
+    private var markerDestino : Marker? = null
 
+    private lateinit var mapFragment :SupportMapFragment
+
+    //SharedPreferences
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
 
 
-    private var markerOrigen : Marker? = null
-    private var markerDestino : Marker? = null
+
+
 
 
     @SuppressLint("MissingPermission")
@@ -84,7 +95,7 @@ class Post : AppCompatActivity() {
         val Lima = LatLng(-12.0554671, -77.0431111)
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Lima, 11.0f))
 
-        //-12.077252,-77.0934926 - UPC San Miguel
+
 
         googleMap.setOnMapClickListener {
             if (markerOrigen!= null &&  markerDestino != null)
@@ -101,12 +112,35 @@ class Post : AppCompatActivity() {
             }
             else
             {
+
                 markerOptions.title("Destino")
                 markerDestino = googleMap.addMarker(markerOptions)
-                destino.setText(markerDestino!!.position.toString())
-
+                if(!geocoder.getFromLocation(it.latitude,it.longitude,1).isEmpty())
+                {
+                    val addres = geocoder.getFromLocation(it.latitude,it.longitude,1).get(0)!!.getAddressLine(0)!!.toString()
+                    destino.setText(addres)
+                }
+                //destino.setText(markerDestino!!.position.toString())
             }
         }
+
+        googleMap.setOnMarkerDragListener(object :GoogleMap.OnMarkerDragListener{
+            override fun onMarkerDragEnd(p0: Marker?) {
+                if (p0 == markerDestino)
+                {
+                    if (!geocoder.getFromLocation(p0!!.position.latitude,p0!!.position.longitude,1).isEmpty())
+                    {
+                        val addres = geocoder.getFromLocation(p0!!.position.latitude,p0!!.position.longitude,1).get(0)!!.getAddressLine(0)!!.toString()
+                        destino.setText(addres)
+                    }
+                }
+            }
+            override fun onMarkerDragStart(p0: Marker?) {
+            }
+
+            override fun onMarkerDrag(p0: Marker?) {
+            }
+        })
     }
 
 
@@ -143,7 +177,18 @@ class Post : AppCompatActivity() {
 
         val usuarioid = prefs.getLong("idusuario",0)
 
+        val requestOptions = RequestOptions()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
 
+        val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(URL_API)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val array = arrayListOf("Sede:","Moterrico","San Isidro","San Miguel","Villa","Personalizado")
+        val arrayLatLng = arrayListOf(null,LatLng(-12.1040839,-76.9630173),LatLng(-12.0874592,-77.0500584), LatLng(-12.077252,-77.0934926),
+            LatLng(-12.1978174,-77.0086914))
 
         postBtn = findViewById(R.id.post_btn)
         backbtn = findViewById(R.id.postback_button)
@@ -155,29 +200,46 @@ class Post : AppCompatActivity() {
         destino_hora = findViewById(R.id.post_hora_destino)
         fecha_viaje = findViewById(R.id.fechaProgrmada)
 
+        geocoder = Geocoder(this, Locale.getDefault())
 
 
-        val array = arrayListOf("San Miguel","San Isidro","Moterrico")
-        val adapter = ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,array)
+        val adapter = ArrayAdapter<String>(this,R.layout.custom_spinner_layout,array)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         origenSpinner.adapter = adapter
 
 
-        val mapFragment = supportFragmentManager.findFragmentById(R.id.mapPostViaje) as SupportMapFragment
+        origenSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View, position: Int, id: Long) {
+                if (position == 0) { if( markerOrigen!= null){markerOrigen!!.remove(); markerOrigen = null}; return}
+                else
+                {
+                    if(position==5)
+                    {
+                        return
+                    }
+                    mapFragment.getMapAsync { googleMap ->
+                        if (markerOrigen == null)
+                        {
+                            markerOrigen = googleMap.addMarker(MarkerOptions().position(arrayLatLng[position]!!).title("Origen").flat(false).draggable(false))
+                        }
+                        else
+                        {
+                            markerOrigen!!.position = arrayLatLng[position]
+                        }
+                    }
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        mapFragment = supportFragmentManager.findFragmentById(R.id.mapPostViaje) as SupportMapFragment
         mapFragment?.getMapAsync(mapCallback)
 
 
-        val requestOptions = RequestOptions()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_background)
-
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(URL_API)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
         usuarioService = retrofit.create(UsuarioApiService::class.java)
         viajeService = retrofit.create(ViajeApiService::class.java)
+
 
         usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
@@ -196,13 +258,14 @@ class Post : AppCompatActivity() {
             }
         })
 
+
         backbtn.setOnClickListener{
             finish()
         }
 
         postBtn.setOnClickListener {
             publicarViaje(usuarioid)
-            finish()
+            //
         }
 
 
@@ -216,22 +279,19 @@ class Post : AppCompatActivity() {
 
         val distancia: Int = 20000
 
-        var inicio: Parada = Parada(origen.text.toString(), random1, random2)
-        var fin: Parada = Parada(destino.text.toString(), random3,random4)
 
-        Log.i("Pepino dice lo que se envia: ", inicio.toString())
+        var inicio: Parada = Parada(origenSpinner.selectedItem.toString(), markerOrigen!!.position.latitude, markerDestino!!.position.longitude)
+        var fin: Parada = Parada(destino.text.toString(), markerDestino!!.position.latitude,markerDestino!!.position.longitude)
+
 
         var viajeRequest: ViajeRequest = ViajeRequest(usuarioid, true, inicio, fin, "2 horas",
             distancia.toFloat() , description.text.toString(), fecha_viaje.text.toString(), origen_hora.text.toString(), destino_hora.text.toString())
 
-        Log.i("Pepino dice lo que se envia: ", viajeRequest.toString())
-
         viajeService.publicarViaje(viajeRequest).enqueue(object : Callback<Viaje> {
             override fun onResponse(call: Call<Viaje>?, response: Response<Viaje>?) {
-                viaje = response?.body()
-
+                val viaje = response?.body()
                 Log.i("Pepino dice: ", viaje.toString())
-
+                finish()
             }
             override fun onFailure(call: Call<Viaje>?, t: Throwable?) {
                 t?.printStackTrace()
@@ -239,3 +299,4 @@ class Post : AppCompatActivity() {
 
     }
 }
+

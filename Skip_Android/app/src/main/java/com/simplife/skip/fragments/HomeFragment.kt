@@ -15,6 +15,7 @@ import android.widget.LinearLayout
 import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.simplife.skip.R
 import com.simplife.skip.activities.Post
@@ -38,6 +39,8 @@ import javax.sql.DataSource
  * A simple [Fragment] subclass.
  */
 class HomeFragment : Fragment() {
+
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     private  lateinit var viajeAdapter: ViajeRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
@@ -74,16 +77,23 @@ class HomeFragment : Fragment() {
 
         rol = prefs.getString("rol","")!!
 
+
+        val usuarioid = prefs.getLong("idusuario",0)
+
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         viajeService = retrofit.create(ViajeApiService::class.java)
         usuarioService = retrofit.create(UsuarioApiService::class.java)
 
 
-        //Recibimos data de usuario
-        val usuarioid = prefs.getLong("idusuario",0)
+        swipeRefreshLayout = vista.findViewById(R.id.swipeRefreshLayoutHome)
+
+
+
+
 
         if(rol == "ROL_CONDUCTOR"){
             addBtn.visibility = View.VISIBLE
@@ -97,8 +107,15 @@ class HomeFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
 
 
+        addDataSet()
+        swipeRefreshLayout.setOnRefreshListener {
+            addDataSet()
+        }
+        return vista
+    }
 
-       viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
+    private fun addDataSet(){
+        viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
             override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
                 val viajesaux = response.body()
 
@@ -107,22 +124,19 @@ class HomeFragment : Fragment() {
                 viajeAdapter = ViajeRecyclerAdapter()
                 recyclerView.adapter = viajeAdapter
                 viajeAdapter.submitList(viajesaux)
+                swipeRefreshLayout.isRefreshing = false
             }
             override fun onFailure(call: Call<List<Viaje>>?, t: Throwable?) {
                 t?.printStackTrace()
             }
         })
-        return vista
-    }
-
-    private fun addDataSet(){
-
     }
 
     companion object {
         @JvmStatic
         fun newInstance() = HomeFragment()
     }
+
 
 }
 

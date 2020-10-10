@@ -43,6 +43,8 @@ public class ViajeServiceImpl implements ViajeService {
         Parada destino = viaje.getDestino();
         Itinerario itinerario1;
         Itinerario itinerario2;
+
+        System.out.println(viaje.getPartida().toString());
         try {
             if (this.paradaRepository.buscarPorLatYLong(partida.getLatitud(), partida.getLongitud()) == null) {
                 partida = this.paradaRepository.save(partida);

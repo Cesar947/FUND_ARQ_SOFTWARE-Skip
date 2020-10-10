@@ -4,8 +4,8 @@ import java.io.Serializable
 
 class Parada (
     var ubicacion: String,
-    var latitud: Float,
-    var longitud: Float
+    var latitud: Double,
+    var longitud: Double
 
 ) :Serializable {
     override fun toString(): String {
