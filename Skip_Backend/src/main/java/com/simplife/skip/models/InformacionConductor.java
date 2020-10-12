@@ -32,17 +32,20 @@ public class InformacionConductor implements Serializable {
     @Column(name = "licencia_conducir")
     private String licenciaConductir;
 
-    @Column(name = "direccion")
+    /*@Column(name = "direccion")
     private String direccion;
 
     @Column(name = "latitud")
     private double latitud;
 
     @Column(name = "longitud")
-    private double longitud;
+    private double longitud;*/
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="usuario_id", nullable = true)
+    @JoinColumn(name="usuario_id", nullable = false)
     private Usuario usuario;
+
+    @Column(name = "estado_tabla")
+    private boolean estadoTabla;
 
 }

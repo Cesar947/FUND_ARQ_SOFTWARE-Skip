@@ -30,6 +30,7 @@ class Login : AppCompatActivity() {
     private lateinit var userPass: EditText
     private lateinit var userService: UsuarioApiService
     private lateinit var homeP : Intent
+    private lateinit var registerBtn: Button
     private val TAG = "Bryan"
 
     private lateinit var prefs :SharedPreferences
@@ -45,6 +46,7 @@ class Login : AppCompatActivity() {
         loginBtn = findViewById(R.id.login_button)
         userEmail = findViewById(R.id.user_email)
         userPass = findViewById(R.id.user_pass)
+        registerBtn = findViewById(R.id.register_button)
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(URL_API)
@@ -53,7 +55,10 @@ class Login : AppCompatActivity() {
 
         userService = retrofit.create(UsuarioApiService::class.java)
 
-
+        registerBtn.setOnClickListener {
+            val intent = Intent(this, UserRegister::class.java)
+            startActivity(intent)
+        }
 
         loginBtn.setOnClickListener{
             val loginRequest = LoginRequest(userEmail.text.toString(), userPass.text.toString())

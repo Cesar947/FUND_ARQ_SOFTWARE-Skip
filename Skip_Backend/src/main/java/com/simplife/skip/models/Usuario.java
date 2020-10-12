@@ -36,11 +36,14 @@ public class Usuario implements Serializable {
     @Column(name = "sede", nullable = false)
     private String sede;
 
-    @Column(name = "facebook", nullable = false)
-    private String facebook;
+    @Column(name = "distrito", nullable = false)
+    private String distrito;
 
-    @Column(name = "ubicacion", nullable = false)
-    private String ubicacion;
+    /*@Column(name = "facebook", nullable = false)
+    private String facebook;*/
+
+    /*@Column(name = "ubicacion", nullable = false)
+    private String ubicacion;*/
 
     @Column(name = "imagen", nullable = false)
     private String imagen;
@@ -52,13 +55,13 @@ public class Usuario implements Serializable {
     @JoinColumn(name = "cuenta_id", nullable = false)
     private Cuenta cuenta;
 
-    public Usuario(String dni, String nombres, String apellidos, String sede, Cuenta cuenta, String facebook, String ubicacion, String imagen) {
+    public Usuario(String dni, String nombres, String apellidos, String sede, Cuenta cuenta, /*String facebook, String ubicacion,*/ String imagen) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.sede = sede;
-        this.facebook = facebook;
-        this.ubicacion = ubicacion;
+        //this.facebook = facebook;
+        //this.ubicacion = ubicacion;
         this.cuenta = cuenta;
         this.imagen = imagen;
 

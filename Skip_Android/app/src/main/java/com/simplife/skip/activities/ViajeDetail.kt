@@ -56,7 +56,7 @@ class ViajeDetail : AppCompatActivity() {
                 viajedetail_title.setText(viaje?.fechaPublicacion)
                 viajedetail_text.setText(viaje?.descripcion)
                 viajedetail_destino.setText(viaje?.conductor?.sede)
-                viajedetail_origen.setText(viaje?.conductor?.ubicacion)
+                //viajedetail_origen.setText(viaje?.conductor?.ubicacion)
                 viajedetail_hora_destino.setText(viaje?.horaLlegada)
                 viajedetail_hora_origen.setText(viaje?.horaInicio)
 

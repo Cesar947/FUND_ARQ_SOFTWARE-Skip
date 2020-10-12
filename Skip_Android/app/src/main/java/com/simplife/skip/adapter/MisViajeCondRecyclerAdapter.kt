@@ -47,7 +47,7 @@ class MisViajeCondRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder
         val miviajeHoraDestino = itemView.miviajecond_horadestino
 
         fun bind(viaje: Viaje){
-            miviajeSource.setText(viaje.conductor.ubicacion)
+            //miviajeSource.setText(viaje.conductor.ubicacion)
             miviajeDestiny.setText(viaje.conductor.sede)
             miviajeHoraDestino.setText(viaje.horaLlegada)
             miviajeHoraOrigen.setText(viaje.horaInicio)

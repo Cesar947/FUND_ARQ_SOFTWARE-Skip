@@ -50,7 +50,7 @@ class MisViajesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         fun bind(viaje: Viaje){
             miviajeTitle.setText(viaje.fechaPublicacion)
             miauthor.setText(viaje.conductor.nombres)
-            miviajeSource.setText(viaje.conductor.ubicacion)
+            //miviajeSource.setText(viaje.conductor.ubicacion)
             miviajeDestiny.setText(viaje.conductor.sede)
             miviajeHoraDestino.setText(viaje.horaLlegada)
             miviajeHoraOrigen.setText(viaje.horaInicio)

@@ -46,7 +46,7 @@ class PasajerosRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
         fun bind(usuario: Usuario){
             pasajeroName.setText(usuario.nombres)
-            pasajeroParada.setText(usuario.ubicacion)
+            //pasajeroParada.setText(usuario.ubicacion)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)

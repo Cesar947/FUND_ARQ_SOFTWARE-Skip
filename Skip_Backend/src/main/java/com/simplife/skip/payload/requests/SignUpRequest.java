@@ -1,5 +1,7 @@
 package com.simplife.skip.payload.requests;
 
+import com.simplife.skip.models.Auto;
+import com.simplife.skip.models.InformacionConductor;
 import lombok.Data;
 
 import javax.validation.constraints.Email;
@@ -13,11 +15,6 @@ public class SignUpRequest {
     @NotBlank
     @Size(min=5, max=25)
     private String codigo;
-
-    @NotBlank
-    @Size(min=8, max=50)
-    @Email
-    private String email;
 
     @NotBlank
     @Size(min=6, max=25)
@@ -35,15 +32,20 @@ public class SignUpRequest {
     @NotBlank
     private String sede;
 
-    @NotBlank
-    private String facebook;
+    /*@NotBlank
+    private String facebook;*/
 
-    @NotBlank
-    private String ubicacion;
+    /*@NotBlank
+    private String ubicacion;*/
 
     @NotBlank
     private String imagen;
 
+    @NotBlank
     private Set<String> role;
+
+    private InformacionConductor infoConductor;
+
+    private Auto auto;
 
 }

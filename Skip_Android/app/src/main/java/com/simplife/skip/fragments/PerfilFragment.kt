@@ -76,9 +76,9 @@ class PerfilFragment : Fragment() {
         edit= prefs.edit()
 
         perfil_nombre = vista.findViewById(R.id.perfil_username)
-        perfil_fb = vista.findViewById(R.id.perfil_fb)
+        //perfil_fb = vista.findViewById(R.id.perfil_fb)
         perfil_sede = vista.findViewById(R.id.perfil_sede)
-        perfil_ubicacion = vista.findViewById(R.id.perfil_ubicacion)
+        //perfil_ubicacion = vista.findViewById(R.id.perfil_ubicacion)
         perfil_foto = vista.findViewById(R.id.perfil_photo)
         cerrar_sesion = vista.findViewById(R.id.cerrar_sesion)
         editar_perfil = vista.findViewById(R.id.editar_perfil)
@@ -121,9 +121,9 @@ class PerfilFragment : Fragment() {
                 usuario = respuesta
 
                 perfil_nombre.setText(usuario?.nombres)
-                perfil_ubicacion.setText(usuario?.ubicacion)
+               // perfil_ubicacion.setText(usuario?.ubicacion)
                 perfil_sede.setText(usuario?.sede)
-                perfil_fb.setText(usuario?.facebook)
+               // perfil_fb.setText(usuario?.facebook)
 
                 context?.applicationContext?.let {
                     Glide.with(it)

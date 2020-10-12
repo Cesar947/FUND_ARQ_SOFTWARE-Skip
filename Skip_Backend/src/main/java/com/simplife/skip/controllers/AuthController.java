@@ -5,10 +5,9 @@ import com.simplife.skip.payload.requests.JwtResponse;
 import com.simplife.skip.payload.requests.LoginRequest;
 import com.simplife.skip.payload.requests.MessageResponse;
 import com.simplife.skip.payload.requests.SignUpRequest;
-import com.simplife.skip.repositories.CuentaRepository;
-import com.simplife.skip.repositories.RolRepository;
-import com.simplife.skip.repositories.UsuarioRepository;
+import com.simplife.skip.repositories.*;
 import com.simplife.skip.security.jwt.JwtUtils;
+import com.simplife.skip.utils.Conversor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +43,12 @@ public class AuthController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @Autowired
+    private InformacionConductorRepository informacionConductorRepository;
+
+    @Autowired
+    private AutoRepository autoRepository;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -87,24 +92,25 @@ public class AuthController {
         log.info("***********************************");
         log.info(signUpRequest.toString());
         log.info("***********************************");
-
+        String correo = Conversor.convertirACorreo(signUpRequest.getCodigo());
         if(cuentaRepository.existsByCodigoUpc(signUpRequest.getCodigo())){
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Este nombre de usuario ya esta tomado!"));
         }
-        else if(cuentaRepository.existsByCorreoUPC(signUpRequest.getEmail())){
+        else if(cuentaRepository.existsByCorreoUPC(correo)){
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: Este Email ya esta en uso!"));
         }
         else{
 
-            Cuenta cuenta = new Cuenta(signUpRequest.getCodigo(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getContrasena()));
+            Cuenta cuenta = new Cuenta(signUpRequest.getCodigo(), correo, encoder.encode(signUpRequest.getContrasena()));
 
             Set<String> strRoles = signUpRequest.getRole();
             Set<Rol> roles = new HashSet<>();
             InformacionConductor info = null;
+
             String runTimeExceptionMessage = "Error: Role is not found.";
             if (strRoles == null) {
                 Rol userRole = rolRepository.findByNombre(ERole.ROL_PASAJERO)
@@ -129,19 +135,28 @@ public class AuthController {
                 });
             }
 
-            /*for(Rol rol: roles){
-                if(rol.getNombre() == ERole.ROL_CONDUCTOR){
-                    InformacionConductor aux = signUpRequest.getInfoAnunciante();
-                    info = anuncianteService.guardarDatosAnunciante(aux);
 
-                }
-            }*/
             cuenta.setRoles(roles);
 
             cuentaRepository.save(cuenta);
 
-            Usuario usuario = new Usuario(signUpRequest.getDni(),signUpRequest.getNombres(), signUpRequest.getApellidos(), signUpRequest.getSede(), cuenta, signUpRequest.getFacebook(), signUpRequest.getUbicacion(), signUpRequest.getImagen());
-            usuarioRepository.save(usuario);
+            Usuario usuario = new Usuario(signUpRequest.getDni(),signUpRequest.getNombres(), signUpRequest.getApellidos(), signUpRequest.getSede(), cuenta, signUpRequest.getImagen());
+            Usuario auxUsuario = usuarioRepository.save(usuario);
+
+            for(Rol rol: roles){
+                if(rol.getNombre() == ERole.ROL_CONDUCTOR && signUpRequest.getInfoConductor() != null
+                    && signUpRequest.getAuto() != null){
+                    InformacionConductor auxInfo = signUpRequest.getInfoConductor();
+                    auxInfo.setEstadoTabla(true);
+                    auxInfo.setUsuario(auxUsuario);
+                    info = informacionConductorRepository.save(auxInfo);
+                    Auto auxAuto = signUpRequest.getAuto();
+                    auxAuto.setEstadoTabla(true);
+                    auxAuto.setInfoConductor(info);
+                    autoRepository.save(auxAuto);
+
+                }
+            }
 
             return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"+cuenta.getRoles()));
 
