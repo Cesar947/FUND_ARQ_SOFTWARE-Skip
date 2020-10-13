@@ -46,7 +46,7 @@ class SolicitudesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         fun bind(solicitud: Solicitud){
 
-            solisAuthor.setText(solicitud.viaje.conductor.nombres +" "+ solicitud.viaje.conductor.apellidos)
+            solisAuthor.setText(solicitud.pasajero.nombres +" "+ solicitud.pasajero.apellidos)
             solisMessage.setText(solicitud.mensaje)
             solisTime.setText(solicitud.horaSolicitud)
 
@@ -56,7 +56,7 @@ class SolicitudesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(solicitud.viaje.conductor.imagen)
+                .load(solicitud.pasajero.imagen)
                 .into(soliUserImage)
         }
     }

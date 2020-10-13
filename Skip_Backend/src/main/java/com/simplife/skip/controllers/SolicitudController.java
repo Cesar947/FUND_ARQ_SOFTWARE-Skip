@@ -44,4 +44,9 @@ public class SolicitudController {
         return this.solicitudService.listarSolicitudesPorUsuario(usuarioId);
     }
 
+    @GetMapping("/conductor/{id}")
+    public List<Solicitud> mostrarSolicitudesPorConductor(@PathVariable("id") Long conductorId) throws Exception{
+        return this.solicitudService.listarSolicitudesPorConductor(conductorId);
+    }
+
 }

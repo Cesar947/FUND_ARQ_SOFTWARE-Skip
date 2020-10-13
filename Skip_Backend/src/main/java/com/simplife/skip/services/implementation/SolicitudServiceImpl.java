@@ -85,11 +85,9 @@ class SolicitudServiceImpl implements SolicitudService {
 
     @Override
     public List<Solicitud> listarSolicitudesPorConductor(Long conductorId) throws Exception{
-        return this.solicitudRepository.listarSolicitudesPorUsuario(conductorId);
+        return this.solicitudRepository.listarSolicitudesPorConductor(conductorId);
     }
 
-    @Override
-    public List<Solicitud> listarSolicitudesPorViaje(Long viajeId) throws Exception{
-        return this.solicitudRepository.listarSolicitudesPorUsuario(viajeId);
-    }
+
+
 }

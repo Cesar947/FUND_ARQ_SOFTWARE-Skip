@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -92,15 +93,14 @@ class HomeFragment : Fragment() {
         swipeRefreshLayout = vista.findViewById(R.id.swipeRefreshLayoutHome)
 
 
-
-
-
         if(rol == "ROL_CONDUCTOR"){
             addBtn.visibility = View.VISIBLE
         }
 
         addBtn.setOnClickListener{
-            context?.startActivity(Intent(context, Post::class.java))
+            val i = Intent(context, Post::class.java)
+            activity!!.startActivityForResult(i,1)
+            //context?.startActivity(Intent(context, Post::class.java))
         }
 
         recyclerView = vista.findViewById(R.id.recycler_viaje_view)
@@ -128,6 +128,8 @@ class HomeFragment : Fragment() {
             }
             override fun onFailure(call: Call<List<Viaje>>?, t: Throwable?) {
                 t?.printStackTrace()
+                swipeRefreshLayout.isRefreshing = false
+                Toast.makeText(context,"Ha ocurrido un error",Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -137,6 +139,13 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1)
+        {
+            addDataSet()
+        }
+        super.onActivityResult(requestCode, resultCode, data)
+    }
 
 }
 

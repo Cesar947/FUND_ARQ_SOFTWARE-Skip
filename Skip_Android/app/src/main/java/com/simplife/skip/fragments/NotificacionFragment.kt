@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.simplife.skip.R
 import com.simplife.skip.activities.MainActivity
@@ -39,6 +40,9 @@ class NotificacionFragment : Fragment() {
     private  lateinit var solicitudesAdapter: SolicitudesRecyclerAdapter
     private  lateinit var solicitudesPasajeroAdapter: SolicitudesPasajeroRecyclerAdapter
     private lateinit var recyclerView: RecyclerView
+
+
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
 
     private lateinit var prefs : SharedPreferences
@@ -80,18 +84,26 @@ class NotificacionFragment : Fragment() {
 
         if(rol == "ROL_CONDUCTOR")
         {
-            solicitudesAdapter = SolicitudesRecyclerAdapter()
-            recyclerView.adapter = solicitudesAdapter
             getSolicitudesConductor()
         }
         else
         {
-            solicitudesPasajeroAdapter = SolicitudesPasajeroRecyclerAdapter()
-            recyclerView.adapter = solicitudesPasajeroAdapter
             getSolicitudesPasajero()
         }
 
+        swipeRefreshLayout = vista.findViewById(R.id.swipeRefreshLayoutNotifications)
 
+        swipeRefreshLayout.setOnRefreshListener {
+            if(rol == "ROL_CONDUCTOR")
+            {
+                getSolicitudesConductor()
+            }
+            else
+            {
+
+                getSolicitudesPasajero()
+            }
+        }
 
         //val data1 = SolisData.createResenas()
         //solicitudesAdapter.submitList(data1)
@@ -104,11 +116,13 @@ class NotificacionFragment : Fragment() {
         solicitudService.getSolicitudesPorUsuario(usuarioid).enqueue(object : Callback<List<Solicitud>> {
             override fun onResponse(call: Call<List<Solicitud>>?, response: Response<List<Solicitud>>?) {
                 val solicitudes = response!!.body()
+                solicitudesPasajeroAdapter = SolicitudesPasajeroRecyclerAdapter()
+                recyclerView.adapter = solicitudesPasajeroAdapter
                 solicitudesPasajeroAdapter.submitList(solicitudes!!)
+                swipeRefreshLayout.isRefreshing = false
 
-                Log.i("Solicitudes", solicitudes.toString())
+                Log.i("Solicitudes Pasajero", solicitudes.toString())
             }
-
             override fun onFailure(call: Call<List<Solicitud>>?, t: Throwable?) {
                 t?.printStackTrace()
             }
@@ -118,16 +132,22 @@ class NotificacionFragment : Fragment() {
 
     fun getSolicitudesConductor()
     {
-        solicitudService.getSolicitudesPorUsuario(usuarioid).enqueue(object : Callback<List<Solicitud>> {
+        solicitudService.getSolicitudesPorConductor(usuarioid).enqueue(object : Callback<List<Solicitud>> {
             override fun onResponse(call: Call<List<Solicitud>>?, response: Response<List<Solicitud>>?) {
                 val solicitudes = response!!.body()
+                solicitudesAdapter = SolicitudesRecyclerAdapter()
+                recyclerView.adapter = solicitudesAdapter
                 solicitudesAdapter.submitList(solicitudes!!)
+                swipeRefreshLayout.isRefreshing = false
 
-                Log.i("Solicitudes", solicitudes.toString())
+                Log.i("Solicitudes Conductor", solicitudes.toString())
+                Log.i("Solicitudes Conductor", response.body().toString())
             }
 
             override fun onFailure(call: Call<List<Solicitud>>?, t: Throwable?) {
                 t?.printStackTrace()
+                swipeRefreshLayout.isRefreshing = false
+                Toast.makeText(context,"Ha ocurrido un error",Toast.LENGTH_SHORT).show()
             }
         })
     }

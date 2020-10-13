@@ -159,7 +159,7 @@ public class AuthController {
             }
             if (info != null)
             {
-                return ResponseEntity.ok(auxUsuario.toString() + info.toString());
+                return ResponseEntity.ok(auxUsuario.toString() +","+ info.toString());
             }
             else
             {

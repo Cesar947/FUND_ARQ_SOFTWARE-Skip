@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -129,6 +130,8 @@ class ViajesFragment : Fragment() {
             }
             override fun onFailure(call: Call<List<Viaje>>, t: Throwable) {
                 Log.e("Viajes","Error al obtener viajes")
+                swipeRefreshLayout.isRefreshing = false
+                Toast.makeText(context,"Ha ocurrido un error", Toast.LENGTH_SHORT).show()
             }
         })
     }

@@ -16,7 +16,10 @@ interface SolicitudApiService {
     fun getSolicitudesPorUsuario(@Path("id") id: Long): Call<List<Solicitud>>
 
 
+    @GET("api/auth/skip/solicitudes/conductor/{id}")
+    fun getSolicitudesPorConductor(@Path("id") id: Long): Call<List<Solicitud>>
+
     @POST("api/auth/skip/solicitudes")
-    fun solicitarViaje(@Body solicitudRequest: SolicitudRequest): Call<Viaje>
+    fun solicitarViaje(@Body solicitudRequest: SolicitudRequest): Call<Solicitud>
 
 }

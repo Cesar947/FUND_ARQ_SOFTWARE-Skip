@@ -1,6 +1,7 @@
 package com.simplife.skip.activities
 
 import android.annotation.SuppressLint
+import android.app.TimePickerDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.location.Geocoder
@@ -186,6 +187,10 @@ class Post : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+
+        usuarioService = retrofit.create(UsuarioApiService::class.java)
+        viajeService = retrofit.create(ViajeApiService::class.java)
+
         val array = arrayListOf("Sede:","Moterrico","San Isidro","San Miguel","Villa","Personalizado")
         val arrayLatLng = arrayListOf(null,LatLng(-12.1040839,-76.9630173),LatLng(-12.0874592,-77.0500584), LatLng(-12.077252,-77.0934926),
             LatLng(-12.1978174,-77.0086914))
@@ -235,12 +240,12 @@ class Post : AppCompatActivity() {
         mapFragment = supportFragmentManager.findFragmentById(R.id.mapPostViaje) as SupportMapFragment
         mapFragment?.getMapAsync(mapCallback)
 
-
-
-        usuarioService = retrofit.create(UsuarioApiService::class.java)
-        viajeService = retrofit.create(ViajeApiService::class.java)
-
-
+        origen_hora.setOnClickListener {
+            timePickerOrigen()
+        }
+        destino_hora.setOnClickListener {
+            timePickerDestino()
+        }
         usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
                 val respuesta = response?.body()
@@ -297,6 +302,52 @@ class Post : AppCompatActivity() {
                 t?.printStackTrace()
             } })
 
+    }
+
+    fun timePickerOrigen()
+    {
+
+        val c = Calendar.getInstance()
+        var mHora = c.get(Calendar.HOUR_OF_DAY)
+        var mMin = c.get(Calendar.MINUTE)
+
+        val timePicker = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
+            val h = timePicker.hour
+            val m = timePicker.minute
+            var hora = ""
+            var minuto = ""
+            if (h <10) hora = "0$h"
+            else hora = h.toString()
+            if (m <10) minuto = "0$m"
+            else minuto = m.toString()
+
+            origen_hora.setText("$hora:$minuto:00")
+        },mHora,mMin,true)
+
+        timePicker.show()
+    }
+
+    fun timePickerDestino()
+    {
+
+        val c = Calendar.getInstance()
+        var mHora = c.get(Calendar.HOUR_OF_DAY)
+        var mMin = c.get(Calendar.MINUTE)
+
+        val timePicker = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
+            val h = timePicker.hour
+            val m = timePicker.minute
+            var hora = ""
+            var minuto = ""
+            if (h <10) hora = "0$h"
+            else hora = h.toString()
+            if (m <10) minuto = "0$m"
+            else minuto = m.toString()
+
+            destino_hora.setText("$hora:$minuto:00")
+        },mHora,mMin,true)
+
+        timePicker.show()
     }
 }
 

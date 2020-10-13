@@ -4,8 +4,8 @@ import java.io.Serializable
 
 data class SolicitudRequest (
     var mensaje: String,
-    var pasajeroId: Int,
-    var viajeId: Int,
+    var pasajeroId: Long,
+    var viajeId: Long,
     var paradaEncuentroId: Long
 
     ): Serializable{

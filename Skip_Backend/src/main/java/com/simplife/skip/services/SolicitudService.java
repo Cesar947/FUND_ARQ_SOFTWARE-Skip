@@ -18,7 +18,4 @@ public interface SolicitudService {
 
     public List<Solicitud> listarSolicitudesPorConductor(Long conductorId) throws Exception;
 
-    public List<Solicitud> listarSolicitudesPorViaje(Long viajeId) throws Exception;
-
-
 }

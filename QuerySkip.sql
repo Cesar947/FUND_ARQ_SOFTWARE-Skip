@@ -39,5 +39,29 @@ fecha_viaje,hora_inicio,hora_llegada,hora_publicacion,visualizacion_habilitada,
 conductor_id,ruta_id)
 VALUES('Ùnete al lado oscuro', 1, 'Publicado', '2020-06-16', '2020-06-20', '09:00:00', '10:00:00', 
 '18:54:00', 1, 1, 1);
-account
-select * from viaje
+select * from viaje;
+
+SELECT u.id FROM Usuario u JOIN Cuenta c ON u.cuenta.Id = c.Id WHERE c.Id = 1;
+
+Select * from usuario u join cuenta c on u.cuenta_id = c.cuenta_id;
+
+select * from cuenta;
+select * from informacion_conductor;
+select * from usuario;
+select * from solicitud;
+select * from parada;
+select * from viaje;
+INSERT INTO `skip_db`.`solicitud`
+(`solicitud_id`,
+`estado_pasajero`,
+`estado_tabla`,
+`fecha_solicitud`,
+`hora_solicitud`,
+`mensaje`,
+`parada_id`,
+`pasajero_id`,
+`viaje_id`)
+VALUES(0,'RECOGIDO',1,'2020-06-16','01:00:00',"Llevame plox",10,2,3);
+
+SELECT * FROM Solicitud s JOIN Viaje v ON s.viaje_id = v.viaje WHERE s.viaje = 1;
+SELECT ic.facebook FROM Usuario u JOIN Cuenta c ON u.cuenta_id = c.cuenta_id  JOIN informacion_conductor ic on u.usuario_id = ic.usuario_id  WHERE c.cuenta_id = 1;

@@ -67,4 +67,18 @@ public class Usuario implements Serializable {
 
         this.estadoTabla = true;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "id=" + id +
+                ", dni='" + dni + '\'' +
+                ", nombres='" + nombres + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", sede='" + sede + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", estadoTabla=" + estadoTabla +
+                ", cuenta=" + cuenta +
+                '}';
+    }
 }
