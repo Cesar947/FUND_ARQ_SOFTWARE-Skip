@@ -5,39 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70093b8-5c55-4b0a-92d6-5a55e43fff33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PasajerosEnViajeRecyclerAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/PasajeroEnViaje.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/RegisterEntity.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SolicitudRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/StartViajeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/StartViajeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/EnViajeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/EnViajeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PassengerListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PassengerListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterDriverInformationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterDriverInformationFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterFormGeneralFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterFormGeneralFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RolSelectionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RolSelectionFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/VehicleInformationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/VehicleInformationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/UsuarioApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/UsuarioApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/InformacionConductor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/InformacionConductor.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SignUpRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SignUpRequest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/Constantes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/Constantes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_user_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_user_register.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_en_viaje.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_en_viaje.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_driver_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_driver_information.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_form_general.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_form_general.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_rol_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_rol_selection.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_vehicle_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_vehicle_information.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/passenger_on_trip_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/passenger_on_trip_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/payload/requests/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/payload/requests/SignUpRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,7 +120,8 @@
       <workItem from="1602300049234" duration="2001000" />
       <workItem from="1602302333719" duration="2491000" />
       <workItem from="1602345650224" duration="8764000" />
-      <workItem from="1602526641130" duration="10257000" />
+      <workItem from="1602526641130" duration="12390000" />
+      <workItem from="1602566457019" duration="284000" />
     </task>
     <servers />
   </component>
@@ -197,65 +168,65 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="409" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1602528163236" />
-    <state width="1323" height="244" key="GridCell.Tab.0.bottom" timestamp="1602546748912">
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom" timestamp="1602551333146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602551333146" />
     <state width="1877" height="408" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="244" key="GridCell.Tab.0.center" timestamp="1602546748911">
+    <state width="1323" height="244" key="GridCell.Tab.0.center" timestamp="1602551333146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602546748911" />
+    <state width="1323" height="244" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602551333146" />
     <state width="1877" height="408" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497610" />
-    <state width="1323" height="244" key="GridCell.Tab.0.left" timestamp="1602546748911">
+    <state width="1323" height="244" key="GridCell.Tab.0.left" timestamp="1602551333146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602546748911" />
+    <state width="1323" height="244" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602551333146" />
     <state width="1877" height="408" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497610" />
-    <state width="1323" height="244" key="GridCell.Tab.0.right" timestamp="1602546748911">
+    <state width="1323" height="244" key="GridCell.Tab.0.right" timestamp="1602551333146">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602546748911" />
+    <state width="1323" height="244" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602551333146" />
     <state width="1877" height="408" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497610" />
-    <state width="1323" height="244" key="GridCell.Tab.1.bottom" timestamp="1602546748912">
+    <state width="1323" height="244" key="GridCell.Tab.1.bottom" timestamp="1602551333148">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
+    <state width="1323" height="244" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602551333148" />
     <state width="1877" height="408" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="244" key="GridCell.Tab.1.center" timestamp="1602546748912">
+    <state width="1323" height="244" key="GridCell.Tab.1.center" timestamp="1602551333147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
+    <state width="1323" height="244" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602551333147" />
     <state width="1877" height="408" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="244" key="GridCell.Tab.1.left" timestamp="1602546748912">
+    <state width="1323" height="244" key="GridCell.Tab.1.left" timestamp="1602551333147">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
+    <state width="1323" height="244" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602551333147" />
     <state width="1877" height="408" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="244" key="GridCell.Tab.1.right" timestamp="1602546748912">
+    <state width="1323" height="244" key="GridCell.Tab.1.right" timestamp="1602551333148">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="244" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
+    <state width="1323" height="244" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602551333148" />
     <state width="1877" height="408" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="249" key="GridCell.Tab.2.bottom" timestamp="1602543936044">
+    <state width="1323" height="249" key="GridCell.Tab.2.bottom" timestamp="1602551333134">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
+    <state width="1323" height="249" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602551333134" />
     <state width="1877" height="337" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state width="1323" height="249" key="GridCell.Tab.2.center" timestamp="1602543936044">
+    <state width="1323" height="249" key="GridCell.Tab.2.center" timestamp="1602551333133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
+    <state width="1323" height="249" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602551333133" />
     <state width="1877" height="337" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state width="1323" height="249" key="GridCell.Tab.2.left" timestamp="1602543936044">
+    <state width="1323" height="249" key="GridCell.Tab.2.left" timestamp="1602551333133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
+    <state width="1323" height="249" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602551333133" />
     <state width="1877" height="337" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state width="1323" height="249" key="GridCell.Tab.2.right" timestamp="1602543936044">
+    <state width="1323" height="249" key="GridCell.Tab.2.right" timestamp="1602551333133">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="249" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
+    <state width="1323" height="249" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602551333133" />
     <state width="1877" height="337" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1602527693541">
       <screen x="0" y="0" width="1366" height="728" />
@@ -265,10 +236,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1602528100834" />
-    <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1602527106901">
+    <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1602566462139">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602527106901" />
+    <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602566462139" />
     <state x="983" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599937947189">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
