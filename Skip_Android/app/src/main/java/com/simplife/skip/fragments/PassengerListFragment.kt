@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import com.simplife.skip.R
 
 class PassengerListFragment : Fragment() {
@@ -15,7 +16,25 @@ class PassengerListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_passenger_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_passenger_list, container, false)
+
+        val startViajeButton = view.findViewById<Button>(R.id.startviaje_btn)
+
+        startViajeButton.setOnClickListener {
+            loadFragment(EnViajeFragment())
+        }
+
+
+        return view
+    }
+
+    fun loadFragment(fragment: Fragment){
+        requireActivity().supportFragmentManager.beginTransaction().also{
+                fragmentTransaction ->
+            fragmentTransaction.replace(R.id.fragment_container_register, fragment)
+            fragmentTransaction.addToBackStack(null)
+            fragmentTransaction.commit()
+        }
     }
 
 

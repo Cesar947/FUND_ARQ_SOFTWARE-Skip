@@ -41,7 +41,7 @@ public class SignUpRequest {
     @NotBlank
     private String imagen;
 
-    @NotBlank
+    //@NotBlank
     private Set<String> role;
 
     private InformacionConductor infoConductor;

@@ -36,8 +36,8 @@ public class Usuario implements Serializable {
     @Column(name = "sede", nullable = false)
     private String sede;
 
-    @Column(name = "distrito", nullable = false)
-    private String distrito;
+    /*@Column(name = "distrito", nullable = false)
+    private String distrito;*/
 
     /*@Column(name = "facebook", nullable = false)
     private String facebook;*/

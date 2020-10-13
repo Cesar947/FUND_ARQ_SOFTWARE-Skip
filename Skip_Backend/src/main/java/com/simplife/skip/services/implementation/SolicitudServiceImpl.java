@@ -53,10 +53,10 @@ class SolicitudServiceImpl implements SolicitudService {
             Viaje viaje = this.viajeRepository.findById(viajeId).get();
             solicitudNueva = new Solicitud(mensaje, pasajero, viaje, parada);
 
-            DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+            DateTimeFormatter dtfFecha = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             LocalDate fechaSolicitud = LocalDate.parse(LocalDate.now().toString(), dtfFecha);
-            DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss");
+            DateTimeFormatter dtfHora = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
             LocalTime horaSolicitud = LocalTime.parse(LocalTime.now().toString(), dtfHora);
 
             solicitudNueva.setFechaSolicitud(fechaSolicitud);
@@ -64,7 +64,7 @@ class SolicitudServiceImpl implements SolicitudService {
             solicitudNueva.setEstadoPasajero("En lista");
 
             solicitudNueva = this.solicitudRepository.save(solicitudNueva);
-            this.viajeRepository.actualizarNumeroPasajeros(solicitudNueva.getViaje().getId());
+            //this.viajeRepository.actualizarNumeroPasajeros(solicitudNueva.getViaje().getId());
         }catch(Exception e){
             throw e;
         }

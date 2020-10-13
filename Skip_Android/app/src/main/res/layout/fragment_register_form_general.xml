@@ -12,9 +12,6 @@
         android:layout_height="wrap_content"
         android:text="Información general"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="10dp"
         android:layout_marginBottom="4dp"
         android:textSize="24sp"/>
 
@@ -181,7 +178,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_marginVertical="10dp">
         <Button
             android:id="@+id/back_button_general_register"
             android:layout_width="170dp"

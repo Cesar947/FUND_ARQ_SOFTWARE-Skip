@@ -13,10 +13,12 @@ data class SignUpRequest(
     var apellidos: String,
     var sede: String,
     var imagen: String,
-    var role: Set<String>
+    var role: Set<String>,
+    var infoConductor: InformacionConductor?,
+    var auto: Auto?
 
 ):Serializable{
-    constructor(codigo: String,
+    /*constructor(codigo: String,
                 contrasena: String,
                 dni: String,
                 nombres: String,
@@ -25,7 +27,8 @@ data class SignUpRequest(
                 imagen: String,
                 role: Set<String>,
                 infoConductor: InformacionConductor,
-                auto: Auto): this(codigo, contrasena, dni, nombres, apellidos, sede, imagen, role)
+                auto: Auto): this(codigo, contrasena, dni, nombres, apellidos, sede, imagen, role)*/
+
 
 
 }

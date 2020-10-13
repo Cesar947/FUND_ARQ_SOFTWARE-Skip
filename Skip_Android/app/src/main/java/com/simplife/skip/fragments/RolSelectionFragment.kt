@@ -13,8 +13,8 @@ import com.simplife.skip.R
 
 class RolSelectionFragment : Fragment() {
 
-    lateinit var btPasajero: ImageButton
-    lateinit var btConductor: ImageButton
+    lateinit var btPasajero: LinearLayout
+    lateinit var btConductor: LinearLayout
     val fragmentId = 1
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,15 +25,15 @@ class RolSelectionFragment : Fragment() {
 
 
 
-        btPasajero = view.findViewById(R.id.rol_pasajero_button)
-        btConductor = view.findViewById(R.id.rol_conductor_button)
+        btPasajero = view.findViewById(R.id.pasajero_container)
+        btConductor = view.findViewById(R.id.conductor_container)
 
         val generalInformationFragment = RegisterFormGeneralFragment()
 
 
         btPasajero.setOnClickListener{
             val bundle = Bundle()
-            bundle.putString("rol", "ROL_PASAJERO")
+            bundle.putString("rol", "pasajero")
 
             generalInformationFragment.arguments = bundle
             loadFragment(generalInformationFragment)
@@ -42,7 +42,7 @@ class RolSelectionFragment : Fragment() {
         btConductor.setOnClickListener{
             val bundle = Bundle()
 
-            bundle.putString("rol", "ROL_CONDUCTOR")
+            bundle.putString("rol", "conductor")
             generalInformationFragment.arguments = bundle
             loadFragment(generalInformationFragment)
         }

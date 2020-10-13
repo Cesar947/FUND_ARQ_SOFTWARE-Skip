@@ -1,9 +1,6 @@
 package com.simplife.skip.interfaces
 
-import com.simplife.skip.models.LoginEntity
-import com.simplife.skip.models.LoginRequest
-import com.simplife.skip.models.SignUpRequest
-import com.simplife.skip.models.Usuario
+import com.simplife.skip.models.*
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -19,6 +16,6 @@ interface UsuarioApiService {
     fun getUsuarioById(@Path("id") id: Long): Call<Usuario>
 
     @POST("api/auth/usuario/registro")
-    fun registroUsuario(@Body request: SignUpRequest): Call<String>
+    fun registroUsuario(@Body request: SignUpRequest): Call<RegisterEntity>
 
 }

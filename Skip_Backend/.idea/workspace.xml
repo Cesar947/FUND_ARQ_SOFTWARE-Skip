@@ -5,66 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70093b8-5c55-4b0a-92d6-5a55e43fff33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/EnViajeFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PassengerListFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterDriverInformationFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterFormGeneralFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RolSelectionFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/VehicleInformationFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Auto.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/InformacionConductor.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SignUpRequest.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/ApiClient.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/drawable/end_trip_viaje.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_en_viaje.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_passenger_list.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_driver_information.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_form_general.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_rol_selection.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_vehicle_information.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/passenger_on_trip_item.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/InformacionConductorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/utils/Conversor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Login.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/Login.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PasajerosEnViajeRecyclerAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/PasajeroEnViaje.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/RegisterEntity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SolicitudRequest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/StartViajeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/StartViajeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/UserRegister.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/UserRegister.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/ViajeDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/ViajeDetail.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/MisViajeCondRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/MisViajeCondRecyclerAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/MisViajesRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/MisViajesRecyclerAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PasajerosRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/PasajerosRecyclerAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/ViajeRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/ViajeRecyclerAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PerfilFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PerfilFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/EnViajeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/EnViajeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PassengerListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/PassengerListFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterDriverInformationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterDriverInformationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterFormGeneralFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RegisterFormGeneralFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RolSelectionFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/RolSelectionFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/VehicleInformationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/fragments/VehicleInformationFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/UsuarioApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/interfaces/UsuarioApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Usuario.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/Usuario.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/InformacionConductor.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/InformacionConductor.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SignUpRequest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/models/SignUpRequest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/Constantes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/Constantes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_start_viaje.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_start_viaje.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_user_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_user_register.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_en_viaje.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_en_viaje.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_driver_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_driver_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_form_general.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_register_form_general.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_rol_selection.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_rol_selection.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_vehicle_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/fragment_vehicle_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/passenger_on_trip_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/passenger_on_trip_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Gradle___com_myorg_upcride___Skip_Backend_0_0_1_SNAPSHOT_war__exploded_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_3_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_3_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/com.myorg.upcride.Skip_Backend.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bootScripts/Skip_Backend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/bootScripts/Skip_Backend.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/Skip_Backend-0.0.1-SNAPSHOT.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/Skip_Backend-boot-0.0.1-SNAPSHOT.tar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/Skip_Backend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/Skip_Backend.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/bootWar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/bootWar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/InformacionConductor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/InformacionConductor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/models/Usuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/payload/requests/SignUpRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/payload/requests/SignUpRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/SolicitudServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +103,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
@@ -177,6 +150,7 @@
       <workItem from="1602300049234" duration="2001000" />
       <workItem from="1602302333719" duration="2491000" />
       <workItem from="1602345650224" duration="8764000" />
+      <workItem from="1602526641130" duration="10257000" />
     </task>
     <servers />
   </component>
@@ -219,70 +193,82 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="722" y="221" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1601361966613" />
-    <state width="1323" height="320" key="GridCell.Tab.0.bottom" timestamp="1602311821908">
+    <state width="409" height="438" key="DebuggerActiveHint" timestamp="1602528163236">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="409" height="438" key="DebuggerActiveHint/0.0.1366.728@0.0.1366.728" timestamp="1602528163236" />
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom" timestamp="1602546748912">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="244" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
     <state width="1877" height="408" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="320" key="GridCell.Tab.0.center" timestamp="1602311821908">
+    <state width="1323" height="244" key="GridCell.Tab.0.center" timestamp="1602546748911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="1323" height="244" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1602546748911" />
     <state width="1877" height="408" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497610" />
-    <state width="1323" height="320" key="GridCell.Tab.0.left" timestamp="1602311821907">
+    <state width="1323" height="244" key="GridCell.Tab.0.left" timestamp="1602546748911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602311821907" />
+    <state width="1323" height="244" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1602546748911" />
     <state width="1877" height="408" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497610" />
-    <state width="1323" height="320" key="GridCell.Tab.0.right" timestamp="1602311821908">
+    <state width="1323" height="244" key="GridCell.Tab.0.right" timestamp="1602546748911">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="1323" height="244" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1602546748911" />
     <state width="1877" height="408" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497610" />
-    <state width="1323" height="320" key="GridCell.Tab.1.bottom" timestamp="1602311821908">
+    <state width="1323" height="244" key="GridCell.Tab.1.bottom" timestamp="1602546748912">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="1323" height="244" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
     <state width="1877" height="408" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="320" key="GridCell.Tab.1.center" timestamp="1602311821908">
+    <state width="1323" height="244" key="GridCell.Tab.1.center" timestamp="1602546748912">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="1323" height="244" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
     <state width="1877" height="408" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="320" key="GridCell.Tab.1.left" timestamp="1602311821908">
+    <state width="1323" height="244" key="GridCell.Tab.1.left" timestamp="1602546748912">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="1323" height="244" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
     <state width="1877" height="408" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="320" key="GridCell.Tab.1.right" timestamp="1602311821908">
+    <state width="1323" height="244" key="GridCell.Tab.1.right" timestamp="1602546748912">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="320" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602311821908" />
+    <state width="1323" height="244" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1602546748912" />
     <state width="1877" height="408" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601366497611" />
-    <state width="1323" height="184" key="GridCell.Tab.2.bottom" timestamp="1602311821894">
+    <state width="1323" height="249" key="GridCell.Tab.2.bottom" timestamp="1602543936044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602311821894" />
+    <state width="1323" height="249" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
     <state width="1877" height="337" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state width="1323" height="184" key="GridCell.Tab.2.center" timestamp="1602311821893">
+    <state width="1323" height="249" key="GridCell.Tab.2.center" timestamp="1602543936044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602311821893" />
+    <state width="1323" height="249" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
     <state width="1877" height="337" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state width="1323" height="184" key="GridCell.Tab.2.left" timestamp="1602311821893">
+    <state width="1323" height="249" key="GridCell.Tab.2.left" timestamp="1602543936044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602311821893" />
+    <state width="1323" height="249" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
     <state width="1877" height="337" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state width="1323" height="184" key="GridCell.Tab.2.right" timestamp="1602311821893">
+    <state width="1323" height="249" key="GridCell.Tab.2.right" timestamp="1602543936044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="184" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602311821893" />
+    <state width="1323" height="249" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1602543936044" />
     <state width="1877" height="337" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601194269878" />
-    <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1602345793779">
+    <state x="163" y="0" key="SettingsEditor" timestamp="1602527693541">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602345793779" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1602527693541" />
+    <state width="691" height="372" key="XDebugger.FullValuePopup" timestamp="1602528100834">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="691" height="372" key="XDebugger.FullValuePopup/0.0.1366.728@0.0.1366.728" timestamp="1602528100834" />
+    <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1602527106901">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1602527106901" />
     <state x="983" y="209" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599937947189">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
@@ -300,9 +286,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/simplife/skip/controllers/AuthController.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

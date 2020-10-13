@@ -8,7 +8,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto "
-        android:id="@+id/pasajero_image"
+        android:id="@+id/avatar_pasajero"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginLeft="10dp"
@@ -60,12 +60,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:buttonTint="#FFF"/>
+        />
    <TextView
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:text="En viaje"
-       android:textColor="#FFF"/>
+       />
    </LinearLayout>
 
 

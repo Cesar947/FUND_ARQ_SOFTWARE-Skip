@@ -1,16 +1,19 @@
 package com.simplife.skip.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.simplife.skip.R
+import com.simplife.skip.activities.Login
 import com.simplife.skip.interfaces.UsuarioApiService
+import com.simplife.skip.models.RegisterEntity
 import com.simplife.skip.models.SignUpRequest
 import com.simplife.skip.util.ApiClient
 import retrofit2.Call
@@ -58,7 +61,7 @@ class RegisterFormGeneralFragment : Fragment() {
         val etSede = view.findViewById<EditText>(R.id.etCampus)
 
 
-        if(rol.equals("ROL_PASAJERO")){
+        if(rol.equals("pasajero")){
             botonConfirmar.visibility = View.VISIBLE
             botonSiguiente.visibility = View.GONE
             botonConfirmar.setOnClickListener {
@@ -70,13 +73,13 @@ class RegisterFormGeneralFragment : Fragment() {
                 etLastName.text.toString(),
                 etSede.text.toString(),
                 "https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png",
-                listOf("ROL_PASAJERO").toSet())
+                listOf("pasajero").toSet(), null, null)
 
                 registrarUsuarioPasajero(request)
             }
 
 
-        } else if(rol.equals("ROL_CONDUCTOR")){
+        } else if(rol.equals("conductor")){
 
             botonSiguiente.visibility = View.VISIBLE
             botonConfirmar.visibility = View.GONE
@@ -104,14 +107,19 @@ class RegisterFormGeneralFragment : Fragment() {
     }
 
     fun registrarUsuarioPasajero(form: SignUpRequest){
-        usuarioService.registroUsuario(form).enqueue(object: Callback<String>{
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        usuarioService.registroUsuario(form).enqueue(object: Callback<RegisterEntity>{
+            override fun onFailure(call: Call<RegisterEntity>, t: Throwable) {
                 Log.i("Fallo en registro", "No se pudo registrar")
             }
 
-            override fun onResponse(call: Call<String>, response: Response<String>) {
+            override fun onResponse(call: Call<RegisterEntity>, response: Response<RegisterEntity>) {
                 if(response.isSuccessful){
-                    Toast.makeText(context, "Inicie sesión con su cuenta", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
+                    /*val fragmentManager = requireActivity().supportFragmentManager
+                    fragmentManager.popBackStack(null,0)*/
+                    requireActivity().finish()
+                } else {
+                    Toast.makeText(context, "No se pudo registrar", Toast.LENGTH_SHORT).show()
                 }
             }
         })
