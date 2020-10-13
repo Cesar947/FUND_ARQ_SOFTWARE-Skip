@@ -6,12 +6,14 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.Image
 import com.simplife.skip.*
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,16 +27,23 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.simplife.skip.adapter.ResenasRecyclerAdapter
+import com.simplife.skip.interfaces.GoogleMapDirections
 import com.simplife.skip.interfaces.SolicitudApiService
+import com.simplife.skip.interfaces.StaticMapApiService
 import com.simplife.skip.interfaces.ViajeApiService
 import com.simplife.skip.models.LoginEntity
 import com.simplife.skip.models.Solicitud
 import com.simplife.skip.models.SolicitudRequest
 import com.simplife.skip.models.Viaje
+import com.simplife.skip.util.API_KEY
 import com.simplife.skip.util.Resenas_Data
 import com.simplife.skip.util.URL_API
+import com.simplife.skip.util.URL_API_GOOGLE_MAPS
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
+import kotlinx.android.synthetic.main.dialog_solicitar.*
 import kotlinx.android.synthetic.main.viaje_list_item.view.*
+import okhttp3.ResponseBody
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -50,9 +59,10 @@ class ViajeDetail : AppCompatActivity() {
 
     private lateinit var viajeService: ViajeApiService
     private lateinit var solicitudService: SolicitudApiService
-
+    private lateinit var staticmapService :StaticMapApiService
 
     private lateinit var btn_solicitar : Button
+    private lateinit var iv_staticMap : ImageView
 
     var viaje: Viaje? = null
     var viajeid = 0L
@@ -93,15 +103,25 @@ class ViajeDetail : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+        val retrofitStaticMap = Retrofit.Builder()
+            .baseUrl(URL_API_GOOGLE_MAPS)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+
         viajeService = retrofit.create(ViajeApiService::class.java)
         solicitudService = retrofit.create(SolicitudApiService::class.java)
-
+        staticmapService = retrofitStaticMap.create(StaticMapApiService::class.java)
 
         val requestOptions = RequestOptions()
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
 
         btn_solicitar = findViewById(R.id.btn_solicitar)
+        iv_staticMap = findViewById(R.id.iv_staticmap)
+
+        cargarStaticMapRoute()
+
 
 
         viajeService.getViajeById(viajeid).enqueue(object : Callback<Viaje> {
@@ -121,8 +141,6 @@ class ViajeDetail : AppCompatActivity() {
                     .applyDefaultRequestOptions(requestOptions)
                     .load(viaje?.conductor?.imagen)
                     .into(viajedetail_image)
-
-
             }
             override fun onFailure(call: Call<Viaje>?, t: Throwable?) {
                 t?.printStackTrace()
@@ -147,17 +165,71 @@ class ViajeDetail : AppCompatActivity() {
             finish()
         }
         btn_solicitar.setOnClickListener {
-            solicitarViaje()
+            dialogSolicitar()
         }
 
-        mapFragment = supportFragmentManager.findFragmentById(R.id.mapViajeDetail) as SupportMapFragment
-        mapFragment?.getMapAsync(mapCallback)
+
+        /*mapFragment = supportFragmentManager.findFragmentById(R.id.mapViajeDetail) as SupportMapFragment
+        mapFragment?.getMapAsync(mapCallback)*/
+
+    }
+
+
+    fun cargarStaticMap()
+    {
+        val requestOptions = RequestOptions()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
+
+        var center = "40.714728,-73.998672"
+        var zoom = "11"
+        var size= "800x800"
+        var key = API_KEY
+
+        Glide.with(applicationContext)
+        .applyDefaultRequestOptions(requestOptions)
+        .load("https://maps.googleapis.com/maps/api/staticmap?center=$center&zoom=$zoom&size=$size&key=$key")
+        .into(iv_staticMap)
 
     }
 
 
 
+    fun cargarStaticMapRoute()
+    {
+        val requestOptions = RequestOptions()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
 
+        var size= "800x800"
+        var key = API_KEY
+        var points = ""
+
+        staticmapService.getRoutes("Lima","Callao","driving", key).enqueue(object :Callback<GoogleMapDirections>{
+            override fun onResponse(call: Call<GoogleMapDirections>, response: Response<GoogleMapDirections>) {
+                val googleMapDirection = response.body()
+                points = googleMapDirection!!.routes[0].overview_polyline.points
+                Log.i("Entro", points)
+
+                Glide.with(applicationContext)
+                    .applyDefaultRequestOptions(requestOptions)
+                    .load("https://maps.googleapis.com/maps/api/staticmap?size=$size&path=enc%3A$points&key=$key")
+                    .into(iv_staticMap)
+
+            }
+            override fun onFailure(call: Call<GoogleMapDirections>, t: Throwable) {
+                Log.e("F", "LA ptmr")
+                Log.e("F", t.message.toString())
+
+            }
+        })
+
+        Glide.with(applicationContext)
+            .applyDefaultRequestOptions(requestOptions)
+            .load("https://maps.googleapis.com/maps/api/staticmap?size=$size&path=enc%3A$points&key=$key")
+            .into(iv_staticMap)
+
+    }
 
     fun solicitarViaje()
     {
@@ -174,6 +246,37 @@ class ViajeDetail : AppCompatActivity() {
                 t?.printStackTrace()
             }
         })
+    }
+
+    fun dialogSolicitar()
+    {
+        val requestOptions = RequestOptions()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
+
+        //https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=12&size=400x400&key=YOUR_API_KEY
+        val builer = AlertDialog.Builder(this)
+        val inflater = layoutInflater
+        val view  = inflater.inflate(R.layout.dialog_solicitar,null)
+        builer.setView(view)
+
+        val dialog =  builer.create()
+        dialog.show()
+
+        val staticMap = view.findViewById(R.id.iv_dialog_map) as ImageView
+        var center = ""
+        var zoom = ""
+        var size = ""
+
+        val url = "$URL_API_GOOGLE_MAPS/staticmap?"
+
+
+        Glide.with(applicationContext)
+            .applyDefaultRequestOptions(requestOptions)
+            .load("https://maps.googleapis.com/maps/api/staticmap?center=40.714728,-73.998672&zoom=11&size=800x800&maptype=roadmap&key=AIzaSyBBqph0jQU_8qqrqypG35bQazc29sUanjo")
+            .into(staticMap)
+
+
     }
 
 }

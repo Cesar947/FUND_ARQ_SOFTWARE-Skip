@@ -9,6 +9,8 @@ data class Auto(
     var modelo: String,
     var limitePersonas: Int,
     var anhosUso: Int
-
-
-): Serializable
+): Serializable {
+    override fun toString(): String {
+        return "Auto(placa='$placa', polizaSoat='$polizaSoat', marca='$marca', modelo='$modelo', limitePersonas=$limitePersonas, anhosUso=$anhosUso)"
+    }
+}

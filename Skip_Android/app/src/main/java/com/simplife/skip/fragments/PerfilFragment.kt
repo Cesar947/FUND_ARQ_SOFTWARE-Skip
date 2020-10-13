@@ -146,8 +146,12 @@ class PerfilFragment : Fragment() {
 
         usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
-                val respuesta = response?.body()
-                usuario = respuesta
+                val usuario = response?.body()
+
+                edit.putString("nombres",usuario?.nombres)
+                edit.putString("apellidos",usuario?.apellidos)
+                edit.putString("imagen",usuario?.imagen)
+                edit.commit()
 
                 perfil_nombre.setText(usuario?.nombres+" "+usuario?.apellidos)
                 perfil_sede.setText(usuario?.sede)
@@ -178,8 +182,12 @@ class PerfilFragment : Fragment() {
 
         usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
-                val respuesta = response?.body()
-                usuario = respuesta
+                val usuario = response?.body()
+
+                edit.putString("nombres",usuario?.nombres)
+                edit.putString("apellidos",usuario?.apellidos)
+                edit.putString("imagen",usuario?.imagen)
+                edit.commit()
 
                 perfil_nombre.setText(usuario?.nombres+" "+usuario?.apellidos)
                 perfil_sede.setText(usuario?.sede)

@@ -65,7 +65,7 @@
 
 ////////////-------------Publicara Viaje----------------/////////////////
 {
-        "conductorId": 2,
+        "conductorId": 1,
         "sentidoRuta": true,
         "partida": {
             "ubicacion":"Peru pe",
@@ -86,3 +86,4 @@
         "horaInicio": "09:00:00",
         "horaLlegada": "10:00:00"
 }
+////////////////////////////////////////////////////////////////////////////

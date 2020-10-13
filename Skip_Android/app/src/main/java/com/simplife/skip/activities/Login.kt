@@ -97,39 +97,6 @@ class Login : AppCompatActivity() {
 
     }
 
-
-    //Logica Reciclable de login
-    fun login(email: String, pass: String){
-
-        val loginRequest = LoginRequest(userEmail.text.toString(), userPass.text.toString())
-        userService.login(loginRequest).enqueue(object : Callback<LoginEntity> {
-            override fun onResponse(call: Call<LoginEntity>?, response: Response<LoginEntity>?) {
-
-                var usuario = response?.body()
-                Log.i("Usuario", usuario.toString())
-                if (usuario != null) {
-                    edit.putString("token",usuario.token)
-                    edit.putLong("idcuenta",usuario.cuentaid)
-                    edit.putLong("idusuario",usuario.usuarioId)
-                    edit.putString("codigo",usuario.codigo)
-                    edit.commit()
-
-
-                    homeP = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(homeP)
-                    finish()
-                }
-                else{
-                    Toast.makeText(this@Login,"Ingrese un correo y contraseña existente",Toast.LENGTH_SHORT).show();}
-            }
-
-            override fun onFailure(call: Call<LoginEntity>?, t: Throwable?) {
-                t?.printStackTrace()
-            }
-        })
-
-    }
-
     override fun onBackPressed() {
         Shutdown.now(this, "Presione de nuevo para salir")
     }
