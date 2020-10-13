@@ -164,14 +164,12 @@
         app:cardElevation="5dp"
         app:cardPreventCornerOverlap="false">
 
-        <EditText
-            android:id="@+id/etCampus"
+        <Spinner
+            android:id="@+id/spCampus"
             style="@style/Base.Widget.MaterialComponents.TextInputEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:ems="10"
-            android:hint="Sede"
             android:inputType="text"
             android:textSize="14sp" />
 

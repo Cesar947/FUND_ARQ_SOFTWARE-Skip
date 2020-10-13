@@ -9,9 +9,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.simplife.skip.R
 import com.simplife.skip.activities.Login
@@ -32,14 +30,13 @@ class RegisterFormGeneralFragment : Fragment() {
     lateinit var botonConfirmar: Button
     lateinit var usuarioService: UsuarioApiService
 
-
-    private lateinit var etName : EditText
-    private lateinit var etLastName : EditText
-    private lateinit var etDni : EditText
-    private lateinit var etCodigo : EditText
-    private lateinit var etContrasena : EditText
-    private lateinit var etSede : EditText
-
+    lateinit var etName: EditText
+    lateinit var  etLastName: EditText
+    lateinit var etDni: EditText
+    lateinit var etCodigo: EditText
+    lateinit var etContrasena: EditText
+    lateinit var spSede: Spinner
+    lateinit var sede: String
 
 
 
@@ -72,26 +69,58 @@ class RegisterFormGeneralFragment : Fragment() {
         etDni = view.findViewById<EditText>(R.id.etDni)
         etCodigo = view.findViewById<EditText>(R.id.etCode)
         etContrasena = view.findViewById<EditText>(R.id.etPassword)
-        etSede = view.findViewById<EditText>(R.id.etCampus)
 
-        validateInputs()
+        spSede = view.findViewById<Spinner>(R.id.spCampus)
+
+
+        val listaSedes = arrayListOf<String>("--Sede--", "Monterrico", "San Isidro", "San Miguel", "Villa")
+
+        val adapter = ArrayAdapter<String>(requireContext(), R.layout.custom_spinner_layout, listaSedes)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+
+        sede = ""
+
+        spSede.adapter = adapter
+        spSede.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                sede = listaSedes.get(0)
+            }
+
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                sede = listaSedes.get(position)
+            }
+        }
+
 
         if(rol.equals("pasajero")){
             botonConfirmar.visibility = View.VISIBLE
             botonSiguiente.visibility = View.GONE
-            botonConfirmar.setOnClickListener {
-            val request = SignUpRequest(
-                etCodigo.text.toString(),
-                etContrasena.text.toString(),
-                etDni.text.toString(),
-                etName.text.toString(),
-                etLastName.text.toString(),
-                etSede.text.toString(),
-                "https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png",
-                listOf("pasajero").toSet(), null, null)
 
-                registrarUsuarioPasajero(request)
+
+
+            botonConfirmar.setOnClickListener {
+
+
+                    val request = SignUpRequest(
+                        etCodigo.text.toString(),
+                        etContrasena.text.toString(),
+                        etDni.text.toString(),
+                        etName.text.toString(),
+                        etLastName.text.toString(),
+                        sede,
+                        "https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png",
+                        listOf("pasajero").toSet(), null, null)
+
+                    registrarUsuarioPasajero(request)
+
             }
+
 
 
         } else if(rol.equals("conductor")){
@@ -105,7 +134,7 @@ class RegisterFormGeneralFragment : Fragment() {
                 bundle.putString("dni", etDni.text.toString())
                 bundle.putString("nombres", etName.text.toString())
                 bundle.putString("apellidos", etLastName.text.toString())
-                bundle.putString("sede", etSede.text.toString())
+                bundle.putString("sede", sede)
                 bundle.putString("imagen", "https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png")
                 fragmentDriver.arguments = bundle
                 loadFragment(fragmentDriver)
@@ -114,6 +143,7 @@ class RegisterFormGeneralFragment : Fragment() {
 
         return view
     }
+
 
     fun registrarUsuarioPasajero(form: SignUpRequest){
         usuarioService.registroUsuario(form).enqueue(object: Callback<RegisterEntity>{
@@ -159,7 +189,7 @@ class RegisterFormGeneralFragment : Fragment() {
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
         }))
-        etSede
+
     }
 
     fun validarEmail( email : String): Boolean{
