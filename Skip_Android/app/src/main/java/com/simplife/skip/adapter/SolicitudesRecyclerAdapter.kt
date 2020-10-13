@@ -16,7 +16,7 @@ class SolicitudesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ResenaViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.solicitud_list_item, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.solicitud_conductor_list_item, parent, false)
         )
     }
 
@@ -46,9 +46,9 @@ class SolicitudesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         fun bind(solicitud: Solicitud){
 
-            solisAuthor.setText(solicitud.user)
-            solisMessage.setText(solicitud.message)
-            solisTime.setText(solicitud.time)
+            solisAuthor.setText(solicitud.viaje.conductor.nombres +" "+ solicitud.viaje.conductor.apellidos)
+            solisMessage.setText(solicitud.mensaje)
+            solisTime.setText(solicitud.horaSolicitud)
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)
@@ -56,7 +56,7 @@ class SolicitudesRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>
 
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(solicitud.image)
+                .load(solicitud.viaje.conductor.imagen)
                 .into(soliUserImage)
         }
     }

@@ -2,7 +2,10 @@ package com.simplife.skip.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +38,8 @@ class RegisterFormGeneralFragment : Fragment() {
     lateinit var spSede: Spinner
     lateinit var sede: String
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,6 +69,7 @@ class RegisterFormGeneralFragment : Fragment() {
         etDni = view.findViewById<EditText>(R.id.etDni)
         etCodigo = view.findViewById<EditText>(R.id.etCode)
         etContrasena = view.findViewById<EditText>(R.id.etPassword)
+
         spSede = view.findViewById<Spinner>(R.id.spCampus)
 
 
@@ -90,6 +96,7 @@ class RegisterFormGeneralFragment : Fragment() {
                 sede = listaSedes.get(position)
             }
         }
+
 
         if(rol.equals("pasajero")){
             botonConfirmar.visibility = View.VISIBLE
@@ -134,12 +141,6 @@ class RegisterFormGeneralFragment : Fragment() {
             }
         }
 
-
-
-
-
-
-
         return view
     }
 
@@ -170,6 +171,30 @@ class RegisterFormGeneralFragment : Fragment() {
             fragmentTransaction.addToBackStack(null)
             fragmentTransaction.commit()
         }
+    }
+
+    fun validateInputs(){
+        etName
+        etLastName
+        etDni
+        etCodigo
+
+        etContrasena.addTextChangedListener(( object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString().length  < 6) etContrasena.setError("La contraseña debe tener mínimo 6 caracteres")
+                else etContrasena.setError(null)
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+        }))
+
+    }
+
+    fun validarEmail( email : String): Boolean{
+        val pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 
 

@@ -28,6 +28,7 @@ class Login : AppCompatActivity() {
     private lateinit var loginBtn: Button
     private lateinit var userEmail: EditText
     private lateinit var userPass: EditText
+
     private lateinit var userService: UsuarioApiService
     private lateinit var homeP : Intent
     private lateinit var registerBtn: Button

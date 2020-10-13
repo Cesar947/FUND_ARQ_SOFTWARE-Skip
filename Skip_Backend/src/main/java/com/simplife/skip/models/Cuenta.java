@@ -52,5 +52,17 @@ public class Cuenta implements Serializable {
 
         this.estadoTabla = true;
     }
+
+    @Override
+    public String toString() {
+        return "Cuenta{" +
+                "Id=" + Id +
+                ", codigoUpc='" + codigoUpc + '\'' +
+                ", correoUPC='" + correoUPC + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", estadoTabla=" + estadoTabla +
+                ", roles=" + roles +
+                '}';
+    }
 }
 

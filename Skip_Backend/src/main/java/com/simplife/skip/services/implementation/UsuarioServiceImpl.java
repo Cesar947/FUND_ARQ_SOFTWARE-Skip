@@ -2,6 +2,7 @@ package com.simplife.skip.services.implementation;
 
 import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.payload.requests.UsuarioResponse;
 import com.simplife.skip.repositories.UsuarioRepository;
 import com.simplife.skip.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,8 +43,13 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public Usuario verPerfil(Long id) throws Exception{
-        return this.usuarioRepository.findById(id).get();
+    public UsuarioResponse verPerfil(Long id) throws Exception{
+        Usuario aux = this.usuarioRepository.findById(id).get();
+        String facebook = this.usuarioRepository.obtenerFbPorCuenta(aux.getId());
+        UsuarioResponse usuarioReponse = new UsuarioResponse(aux.getDni(),aux.getNombres(),aux.getApellidos(), aux.getSede(), aux.getCuenta(), facebook,aux.getImagen());
+        //String dni, String nombres, String apellidos, String sede, Cuenta cuenta, String facebook, String imagen
+        return usuarioReponse;
     }
+
 
 }

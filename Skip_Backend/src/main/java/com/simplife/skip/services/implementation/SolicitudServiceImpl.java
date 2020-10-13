@@ -62,7 +62,7 @@ class SolicitudServiceImpl implements SolicitudService {
             solicitudNueva.setFechaSolicitud(fechaSolicitud);
             solicitudNueva.setHoraSolicitud(horaSolicitud);
             solicitudNueva.setEstadoPasajero("En lista");
-
+            solicitudNueva.setEstadoTabla(true);
             solicitudNueva = this.solicitudRepository.save(solicitudNueva);
             //this.viajeRepository.actualizarNumeroPasajeros(solicitudNueva.getViaje().getId());
         }catch(Exception e){
@@ -83,5 +83,13 @@ class SolicitudServiceImpl implements SolicitudService {
         return this.solicitudRepository.listarSolicitudesPorUsuario(usuarioId);
     }
 
+    @Override
+    public List<Solicitud> listarSolicitudesPorConductor(Long conductorId) throws Exception{
+        return this.solicitudRepository.listarSolicitudesPorUsuario(conductorId);
+    }
 
+    @Override
+    public List<Solicitud> listarSolicitudesPorViaje(Long viajeId) throws Exception{
+        return this.solicitudRepository.listarSolicitudesPorUsuario(viajeId);
+    }
 }

@@ -23,14 +23,14 @@ public class InformacionConductor implements Serializable {
     @Column(name = "info_conductor_id")
     private Long id;
 
-    @Column(name = "facebook_id")
-    private String facebookId;
+    @Column(name = "facebook")
+    private String facebook;
 
     @Column(name = "telefono")
     private String telefono;
 
     @Column(name = "licencia_conducir")
-    private String licenciaConductir;
+    private String licenciaConducir;
 
     /*@Column(name = "direccion")
     private String direccion;
@@ -48,4 +48,15 @@ public class InformacionConductor implements Serializable {
     @Column(name = "estado_tabla")
     private boolean estadoTabla;
 
+    @Override
+    public String toString() {
+        return "InformacionConductor{" +
+                "id=" + id +
+                ", facebook='" + facebook + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", licenciaConducir='" + licenciaConducir + '\'' +
+                ", usuario=" + usuario +
+                ", estadoTabla=" + estadoTabla +
+                '}';
+    }
 }

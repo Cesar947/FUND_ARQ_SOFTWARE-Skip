@@ -15,4 +15,10 @@ public interface SolicitudService {
     public int actualizarEstadoPasajero(Long solicitudId, Long pasajeroId, String estado) throws Exception;
 
     public List<Solicitud> listarSolicitudesPorUsuario(Long usuarioId) throws Exception;
+
+    public List<Solicitud> listarSolicitudesPorConductor(Long conductorId) throws Exception;
+
+    public List<Solicitud> listarSolicitudesPorViaje(Long viajeId) throws Exception;
+
+
 }

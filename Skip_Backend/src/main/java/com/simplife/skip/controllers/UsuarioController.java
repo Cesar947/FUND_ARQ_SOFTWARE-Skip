@@ -2,6 +2,7 @@ package com.simplife.skip.controllers;
 
 import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.payload.requests.UsuarioResponse;
 import com.simplife.skip.services.UsuarioService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public Usuario verPerfil(final @PathVariable Long id) throws Exception{
+    public UsuarioResponse verPerfil(final @PathVariable Long id) throws Exception{
         return this.usuarioService.verPerfil(id);
     }
 

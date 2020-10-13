@@ -39,5 +39,5 @@ fecha_viaje,hora_inicio,hora_llegada,hora_publicacion,visualizacion_habilitada,
 conductor_id,ruta_id)
 VALUES('Ùnete al lado oscuro', 1, 'Publicado', '2020-06-16', '2020-06-20', '09:00:00', '10:00:00', 
 '18:54:00', 1, 1, 1);
-
+account
 select * from viaje
