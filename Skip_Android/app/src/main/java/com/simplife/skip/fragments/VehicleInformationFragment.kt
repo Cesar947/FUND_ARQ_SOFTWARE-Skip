@@ -24,6 +24,12 @@ import kotlin.math.sign
 class VehicleInformationFragment : Fragment() {
 
     lateinit var usuarioService: UsuarioApiService
+    lateinit var placa: EditText
+    lateinit var nAsientos: EditText
+    lateinit var nAnhosUso: EditText
+    lateinit var poliza: EditText
+    lateinit var marca: EditText
+    lateinit var modelo: EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,12 +41,12 @@ class VehicleInformationFragment : Fragment() {
         val confirmButton: Button = view.findViewById(R.id.confirm_button_driver_register)
         val backButton: Button = view.findViewById(R.id.back_button_driver_vehicle)
 
-        val placa: EditText = view.findViewById(R.id.etPlaca)
-        val nAsientos: EditText = view.findViewById(R.id.etAsientos)
-        val nAnhosUso: EditText = view.findViewById(R.id.etAnhosUso)
-        val poliza: EditText = view.findViewById(R.id.etPoliza)
-        val marca: EditText = view.findViewById(R.id.etMarca)
-        val modelo: EditText = view.findViewById(R.id.etModelo)
+        placa = view.findViewById(R.id.etPlaca)
+        nAsientos = view.findViewById(R.id.etAsientos)
+        nAnhosUso = view.findViewById(R.id.etAnhosUso)
+        poliza = view.findViewById(R.id.etPoliza)
+        marca = view.findViewById(R.id.etMarca)
+        modelo = view.findViewById(R.id.etModelo)
 
         var request: SignUpRequest? = null
         arguments?.let{
@@ -55,16 +61,21 @@ class VehicleInformationFragment : Fragment() {
         }
 
         confirmButton.setOnClickListener {
-            request?.let{
-                val auto = Auto(
-                    placa.text.toString(),
-                    poliza.text.toString().toInt(),
-                    marca.text.toString(),
-                    modelo.text.toString(),
-                    nAsientos.text.toString().toString().toInt(),
-                    nAnhosUso.text.toString().toString().toInt())
-                it.auto = auto
-                registrarConductor(it)
+            if(camposValidos()){
+                request?.let{
+                    val auto = Auto(
+                        placa.text.toString(),
+                        poliza.text.toString(),
+                        marca.text.toString(),
+                        modelo.text.toString(),
+                        nAsientos.text.toString().toInt(),
+                        nAnhosUso.text.toString().toInt())
+                    it.auto = auto
+                    registrarConductor(it)
+                }
+
+            } else {
+                Toast.makeText(requireContext(), "Por favor, complete todos los campos", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -74,19 +85,53 @@ class VehicleInformationFragment : Fragment() {
     }
 
     fun registrarConductor(signUpRequest: SignUpRequest){
-        usuarioService.registroUsuario(signUpRequest).enqueue(object: Callback<RegisterEntity>{
-            override fun onFailure(call: Call<RegisterEntity>, t: Throwable) {
+        usuarioService.registroUsuario(signUpRequest).enqueue(object: Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.i("Fallo en registro",  "F")
             }
 
             override fun onResponse(
-                call: Call<RegisterEntity>,
-                response: Response<RegisterEntity>
+                call: Call<String>,
+                response: Response<String>
             ) {
+                Log.i("Code", response.code().toString())
                 Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                 requireActivity().finish()
             }
         })
+
+    }
+
+
+    fun camposValidos(): Boolean{
+        if(!placa.text.isEmpty() &&
+                !nAsientos.text.isEmpty() &&
+                !nAnhosUso.text.isEmpty() &&
+                !poliza.text.isEmpty() &&
+                !marca.text.isEmpty() &&
+                !modelo.text.isEmpty()){
+            return true
+        } else{
+            if(placa.text.isEmpty()){
+                placa.setError("Completar el campo placa")
+            }
+            if(nAsientos.text.isEmpty()){
+                nAsientos.setError("Completar el campo Nº de asientos")
+            }
+            if(nAnhosUso.text.isEmpty()){
+                nAnhosUso.setError("Completar el campo años de uso")
+            }
+            if(poliza.text.isEmpty()){
+                poliza.setError("Completar el campo poliza de seguro")
+            }
+            if(marca.text.isEmpty()){
+                marca.setError("Completar el campo marca")
+            }
+            if(modelo.text.isEmpty()){
+                modelo.setError("Completar el campo modelo")
+            }
+            return false
+        }
 
     }
 

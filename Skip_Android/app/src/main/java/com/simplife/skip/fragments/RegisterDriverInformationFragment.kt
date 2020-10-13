@@ -71,7 +71,7 @@ class RegisterDriverInformationFragment : Fragment() {
                 fragment.arguments = bundle
                 loadFragment(fragment)
             } else{
-                Toast.makeText(requireContext(), "Completar los campos por favor", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Por favor, completar todos los campos", Toast.LENGTH_SHORT).show()
             }
 
 
@@ -109,5 +109,7 @@ class RegisterDriverInformationFragment : Fragment() {
             return false
         }
     }
+
+
 
 }

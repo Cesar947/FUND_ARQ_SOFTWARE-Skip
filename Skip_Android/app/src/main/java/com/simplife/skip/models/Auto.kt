@@ -4,7 +4,7 @@ import java.io.Serializable
 
 data class Auto(
     var placa: String,
-    var polizaSoat: Int,
+    var polizaSoat: String,
     var marca: String,
     var modelo: String,
     var limitePersonas: Int,

@@ -36,6 +36,7 @@ class RegisterFormGeneralFragment : Fragment() {
     lateinit var etCodigo: EditText
     lateinit var etContrasena: EditText
     lateinit var spSede: Spinner
+    lateinit var errorSede: TextView
     lateinit var sede: String
 
 
@@ -71,7 +72,9 @@ class RegisterFormGeneralFragment : Fragment() {
         etContrasena = view.findViewById<EditText>(R.id.etPassword)
 
         spSede = view.findViewById<Spinner>(R.id.spCampus)
+        errorSede = view.findViewById(R.id.error_spinner_sede)
 
+        validateInputs()
 
         val listaSedes = arrayListOf<String>("--Sede--", "Monterrico", "San Isidro", "San Miguel", "Villa")
 
@@ -93,6 +96,8 @@ class RegisterFormGeneralFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
+                errorSede.setError(null)
+                errorSede.visibility = View.GONE
                 sede = listaSedes.get(position)
             }
         }
@@ -105,8 +110,7 @@ class RegisterFormGeneralFragment : Fragment() {
 
 
             botonConfirmar.setOnClickListener {
-
-
+                if(camposCompletos()){
                     val request = SignUpRequest(
                         etCodigo.text.toString(),
                         etContrasena.text.toString(),
@@ -118,6 +122,11 @@ class RegisterFormGeneralFragment : Fragment() {
                         listOf("pasajero").toSet(), null, null)
 
                     registrarUsuarioPasajero(request)
+                } else {
+                    Toast.makeText(requireContext(), "Por favor, completar todos los campos", Toast.LENGTH_SHORT).show()
+                }
+
+
 
             }
 
@@ -128,16 +137,21 @@ class RegisterFormGeneralFragment : Fragment() {
             botonSiguiente.visibility = View.VISIBLE
             botonConfirmar.visibility = View.GONE
             botonSiguiente.setOnClickListener{
-                val bundle = Bundle()
-                bundle.putString("codigo", etCodigo.text.toString())
-                bundle.putString("contrasena", etContrasena.text.toString())
-                bundle.putString("dni", etDni.text.toString())
-                bundle.putString("nombres", etName.text.toString())
-                bundle.putString("apellidos", etLastName.text.toString())
-                bundle.putString("sede", sede)
-                bundle.putString("imagen", "https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png")
-                fragmentDriver.arguments = bundle
-                loadFragment(fragmentDriver)
+                if(camposCompletos()){
+                    val bundle = Bundle()
+                    bundle.putString("codigo", etCodigo.text.toString())
+                    bundle.putString("contrasena", etContrasena.text.toString())
+                    bundle.putString("dni", etDni.text.toString())
+                    bundle.putString("nombres", etName.text.toString())
+                    bundle.putString("apellidos", etLastName.text.toString())
+                    bundle.putString("sede", sede)
+                    bundle.putString("imagen", "https://wp-content.bluebus.com.br/wp-content/uploads/2017/03/31142426/twitter-novo-avatar-padrao-2017-bluebus.png")
+                    fragmentDriver.arguments = bundle
+                    loadFragment(fragmentDriver)
+                } else {
+                    Toast.makeText(requireContext(), "Por favor, completar todos los campos", Toast.LENGTH_SHORT).show()
+                }
+
             }
         }
 
@@ -146,12 +160,12 @@ class RegisterFormGeneralFragment : Fragment() {
 
 
     fun registrarUsuarioPasajero(form: SignUpRequest){
-        usuarioService.registroUsuario(form).enqueue(object: Callback<RegisterEntity>{
-            override fun onFailure(call: Call<RegisterEntity>, t: Throwable) {
+        usuarioService.registroUsuario(form).enqueue(object: Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.i("Fallo en registro", "No se pudo registrar")
             }
 
-            override fun onResponse(call: Call<RegisterEntity>, response: Response<RegisterEntity>) {
+            override fun onResponse(call: Call<String>, response: Response<String>) {
                 if(response.isSuccessful){
                     Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                     /*val fragmentManager = requireActivity().supportFragmentManager
@@ -173,18 +187,81 @@ class RegisterFormGeneralFragment : Fragment() {
         }
     }
 
+    fun camposCompletos(): Boolean{
+        if(!etName.text.isEmpty() and
+            !etLastName.text.isEmpty() and
+            !etDni.text.isEmpty() and
+            !etCodigo.text.isEmpty() and
+            !etContrasena.text.isEmpty() and
+            (sede != "--Sede--")){
+
+            return true
+
+        } else{
+
+            if(etName.text.isEmpty()){
+                etName.setError("Completar el campo nombres")
+            }
+            if(etLastName.text.isEmpty()){
+                etLastName.setError("Completar el campo apellidos")
+            }
+            if(etDni.text.isEmpty()){
+                etDni.setError("Completar el campo DNI")
+            }
+            if(etCodigo.text.isEmpty()){
+                etCodigo.setError("Completar el campo código")
+            }
+            if(etContrasena.text.isEmpty()){
+                etContrasena.setError("Completar el campo contraseña")
+            }
+            if(sede == "--Sede--"){
+                errorSede.visibility = View.VISIBLE
+                errorSede.setError("Elegir una sede")
+            }
+            return false
+        }
+
+    }
+
     fun validateInputs(){
-        etName
-        etLastName
-        etDni
-        etCodigo
+
+        etDni.addTextChangedListener(( object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString().length < 8) etDni.setError("El dni debe tener mínimo 8 caracteres")
+                else etDni.setError(null)
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                /*if (p0.toString().length  == 8) etDni.setError("El dni solo puede tener hasta 8 caracteres")
+                else etDni.setError(null)*/
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+
+            }
+        }))
+
+
+        etCodigo.addTextChangedListener(( object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+                if (p0.toString().length  < 10) etCodigo.setError("El código debe tener 10 caracteres")
+                else etCodigo.setError(null)
+            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                /*if (p0.toString().length  == 10) etCodigo.setError("El código solo puede tener hasta 10 caracteres")
+                else etCodigo.setError(null)*/
+            }
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+        }))
 
         etContrasena.addTextChangedListener(( object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
-                if (p0.toString().length  < 6) etContrasena.setError("La contraseña debe tener mínimo 6 caracteres")
+                if (p0.toString().length  < 6) etContrasena.setError("La contraseña debe tener mínimo 6 caracteres y máximo 25 caracteres")
                 else etContrasena.setError(null)
             }
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+               /* if(p0.toString().length == 25) etContrasena.setError("La contraseña solo puede tener como máximo 25 caracteres")*/
             }
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
             }
