@@ -160,12 +160,12 @@ class RegisterFormGeneralFragment : Fragment() {
 
 
     fun registrarUsuarioPasajero(form: SignUpRequest){
-        usuarioService.registroUsuario(form).enqueue(object: Callback<String>{
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        usuarioService.registroUsuario(form).enqueue(object: Callback<RegisterEntity>{
+            override fun onFailure(call: Call<RegisterEntity>, t: Throwable) {
                 Log.i("Fallo en registro", "No se pudo registrar")
             }
 
-            override fun onResponse(call: Call<String>, response: Response<String>) {
+            override fun onResponse(call: Call<RegisterEntity>, response: Response<RegisterEntity>) {
                 if(response.isSuccessful){
                     Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
                     /*val fragmentManager = requireActivity().supportFragmentManager

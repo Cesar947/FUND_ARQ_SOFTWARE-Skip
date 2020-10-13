@@ -16,6 +16,6 @@ interface UsuarioApiService {
     fun getUsuarioById(@Path("id") id: Long): Call<Usuario>
 
     @POST("api/auth/usuario/registro")
-    fun registroUsuario(@Body request: SignUpRequest): Call<String>
+    fun registroUsuario(@Body request: SignUpRequest): Call<RegisterEntity>
 
 }

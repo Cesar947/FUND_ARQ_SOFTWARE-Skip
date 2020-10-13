@@ -4,7 +4,7 @@ import java.io.Serializable
 
 data class InformacionConductor(
 
-    var facebookId: String,
+    var facebook: String,
     var telefono: String,
     var licenciaConducir: String
 

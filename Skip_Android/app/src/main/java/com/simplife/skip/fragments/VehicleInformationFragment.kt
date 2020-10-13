@@ -85,14 +85,14 @@ class VehicleInformationFragment : Fragment() {
     }
 
     fun registrarConductor(signUpRequest: SignUpRequest){
-        usuarioService.registroUsuario(signUpRequest).enqueue(object: Callback<String>{
-            override fun onFailure(call: Call<String>, t: Throwable) {
+        usuarioService.registroUsuario(signUpRequest).enqueue(object: Callback<RegisterEntity>{
+            override fun onFailure(call: Call<RegisterEntity>, t: Throwable) {
                 Log.i("Fallo en registro",  "F")
             }
 
             override fun onResponse(
-                call: Call<String>,
-                response: Response<String>
+                call: Call<RegisterEntity>,
+                response: Response<RegisterEntity>
             ) {
                 Log.i("Code", response.code().toString())
                 Toast.makeText(context, "Registro exitoso", Toast.LENGTH_SHORT).show()
