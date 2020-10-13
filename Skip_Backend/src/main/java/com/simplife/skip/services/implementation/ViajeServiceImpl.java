@@ -1,18 +1,20 @@
 package com.simplife.skip.services.implementation;
 
 import com.simplife.skip.models.*;
+import com.simplife.skip.payload.requests.ViajeInicio;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.repositories.*;
 import com.simplife.skip.services.ViajeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.simplife.skip.models.Parada;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -47,9 +49,11 @@ public class ViajeServiceImpl implements ViajeService {
         System.out.println(viaje.getPartida().toString());
         try {
             if (this.paradaRepository.buscarPorLatYLong(partida.getLatitud(), partida.getLongitud()) == null) {
+                partida.setEstadoTabla(true);
                 partida = this.paradaRepository.save(partida);
             }
             if (this.paradaRepository.buscarPorLatYLong(destino.getLatitud(), destino.getLongitud()) == null) {
+                destino.setEstadoTabla(true);
                 destino = this.paradaRepository.save(destino);
             }
 
@@ -142,5 +146,26 @@ public class ViajeServiceImpl implements ViajeService {
     @Override
     public Viaje listarViajePorId(Long viajeId) throws Exception{
         return viajeRepository.findById(viajeId).get();
+    }
+
+    @Override
+    public List<ViajeInicio> listarViajesInicio() throws Exception{
+        List<Viaje> viajes = this.viajeRepository.listarViajesInicio();
+        List<ViajeInicio> viajesInicio = new ArrayList<>();
+        for(Viaje viaje: viajes){
+            List<Parada> paradas = this.viajeRepository.listarParadasPorViajeId(viaje.getId());
+            ViajeInicio viajeInicio = new ViajeInicio();
+            viajeInicio.setId(viaje.getId());
+            viajeInicio.setDescripcion(viaje.getDescripcion());
+            viajeInicio.setFechaPublicacion(viaje.getFechaPublicacion().toString());
+            viajeInicio.setHoraFin(viaje.getHoraLlegada().toString());
+            viajeInicio.setHoraInicio(viaje.getHoraInicio().toString());
+            viajeInicio.setNombres(viaje.getConductor().getNombres() + " " + viaje.getConductor().getApellidos());
+            viajeInicio.setParadas(paradas);
+            viajesInicio.add(viajeInicio);
+        }
+
+        return viajesInicio;
+
     }
 }

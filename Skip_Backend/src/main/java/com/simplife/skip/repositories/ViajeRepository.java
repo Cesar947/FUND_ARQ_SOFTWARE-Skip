@@ -2,6 +2,8 @@ package com.simplife.skip.repositories;
 
 import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.models.Parada;
+import com.simplife.skip.payload.requests.ViajeInicio;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -33,5 +35,14 @@ public interface ViajeRepository extends JpaRepository<Viaje, Long> {
 
    /* @Query("SELECT v FROM Viaje v JOIN Ruta r ON r.id = v.ruta.id "
     + "JOIN Itinerario i ON i.ruta.id = r.id")*/
+    @Query("SELECT v FROM Usuario u JOIN Viaje v ON u.id = v.conductor.id\n" +
+            "JOIN Ruta r ON r.id = v.ruta.id order by v.id desc")
+    List<Viaje> listarViajesInicio() throws Exception;
+
+    @Query("SELECT p FROM Parada p JOIN Itinerario i ON i.parada.id = p.id " +
+            "JOIN Ruta r ON i.ruta.id = r.id JOIN Viaje v ON v.ruta.id = r.id WHERE v.id = ?1" +
+            " ORDER BY p.id asc")
+    List<Parada> listarParadasPorViajeId(Long viajeId) throws Exception;
+
 
 }
