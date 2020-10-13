@@ -56,7 +56,7 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             viajeTitle.setText(viaje.fechaPublicacion)
             author.setText(viaje.conductor.nombres)
             viajeText.setText(viaje.descripcion)
-            viajeSource.setText(viaje.)
+            //viajeSource.setText(viaje.)
             viajeDestiny.setText(viaje.conductor.sede)
             viajeHoraDestino.setText(viaje.horaLlegada)
             viajeHoraOrigen.setText(viaje.horaInicio)
