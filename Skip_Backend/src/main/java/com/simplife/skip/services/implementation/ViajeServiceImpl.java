@@ -156,6 +156,7 @@ public class ViajeServiceImpl implements ViajeService {
             List<Parada> paradas = this.viajeRepository.listarParadasPorViajeId(viaje.getId());
             ViajeInicio viajeInicio = new ViajeInicio();
             viajeInicio.setId(viaje.getId());
+            viajeInicio.setImagen(viaje.getConductor().getImagen());
             viajeInicio.setDescripcion(viaje.getDescripcion());
             viajeInicio.setFechaPublicacion(viaje.getFechaPublicacion().toString());
             viajeInicio.setHoraFin(viaje.getHoraLlegada().toString());

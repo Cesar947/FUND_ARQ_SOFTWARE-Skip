@@ -15,6 +15,7 @@ public class ViajeInicio {
 
     private Long id;
     private String nombres;
+    private String imagen;
     private String fechaPublicacion;
     private String descripcion;
     private List<Parada> paradas;

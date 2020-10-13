@@ -26,6 +26,7 @@ import com.simplife.skip.interfaces.UsuarioApiService
 import com.simplife.skip.interfaces.ViajeApiService
 import com.simplife.skip.models.Usuario
 import com.simplife.skip.models.Viaje
+import com.simplife.skip.models.ViajeInicio
 import com.simplife.skip.util.TopSpacingItemDecoration
 import com.simplife.skip.util.URL_API
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -115,8 +116,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun addDataSet(){
-        viajeService!!.getViajes().enqueue(object: Callback<List<Viaje>> {
-            override fun onResponse(call: Call<List<Viaje>>, response: Response<List<Viaje>>) {
+        viajeService!!.getHomeViajes().enqueue(object: Callback<List<ViajeInicio>> {
+            override fun onResponse(call: Call<List<ViajeInicio>>, response: Response<List<ViajeInicio>>) {
                 val viajesaux = response.body()
 
                 var sorted = viajesaux!!.sortedWith(compareByDescending ({it.id}))
@@ -126,7 +127,7 @@ class HomeFragment : Fragment() {
                 viajeAdapter.submitList(viajesaux)
                 swipeRefreshLayout.isRefreshing = false
             }
-            override fun onFailure(call: Call<List<Viaje>>?, t: Throwable?) {
+            override fun onFailure(call: Call<List<ViajeInicio>>?, t: Throwable?) {
                 t?.printStackTrace()
                 swipeRefreshLayout.isRefreshing = false
                 Toast.makeText(context,"Ha ocurrido un error",Toast.LENGTH_SHORT).show()
