@@ -2,6 +2,7 @@ package com.simplife.skip.services;
 
 
 import com.simplife.skip.models.Usuario;
+import com.simplife.skip.payload.requests.UsuarioResponse;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ public interface UsuarioService {
 
     List<Usuario> listarUsuarios() throws Exception;
 
-    Usuario verPerfil(Long id) throws Exception;
+    UsuarioResponse verPerfil(Long id) throws Exception;
+
 
 }

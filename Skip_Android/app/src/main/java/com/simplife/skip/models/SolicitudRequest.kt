@@ -9,5 +9,8 @@ data class SolicitudRequest (
     var paradaEncuentroId: Long
 
     ): Serializable{
+    override fun toString(): String {
+        return "SolicitudRequest(mensaje='$mensaje', pasajeroId=$pasajeroId, viajeId=$viajeId, paradaEncuentroId=$paradaEncuentroId)"
+    }
 
 }

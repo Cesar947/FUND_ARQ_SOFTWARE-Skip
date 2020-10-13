@@ -157,8 +157,15 @@ public class AuthController {
 
                 }
             }
+            if (info != null)
+            {
+                return ResponseEntity.ok(auxUsuario.toString() + info.toString());
+            }
+            else
+            {
+                return ResponseEntity.ok(auxUsuario.toString());
+            }
 
-            return ResponseEntity.ok(new MessageResponse("Usuario Registrado!"+cuenta.getRoles()));
 
         }
 

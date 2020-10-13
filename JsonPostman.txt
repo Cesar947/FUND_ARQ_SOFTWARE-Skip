@@ -1,0 +1,88 @@
+////////////-------------Registrar Pasajero----------------/////////////////
+{
+    "codigo":"u201711033",
+    "contrasena":"pepino",
+    "dni":"73154123",
+    "nombres":"Jose Sebastian",
+    "apellidos":"Pinillos Centeno",
+    "sede": "San Miguel",
+    "imagen":"https://i.pinimg.com/originals/f9/fc/2e/f9fc2e9828f9be624e92bf3e38dd36b1.jpg",
+    "role": ["pasajero"],
+    "infoConductor": null,
+    "auto": null
+}
+////////////////////////////////////////////////////////////////////////////
+
+////////////-------------Registrar Conductor----------------/////////////////
+{
+    "codigo":"u201710061",
+    "contrasena":"bryanxd123",
+    "dni":"71811631",
+    "nombres":"Bryan Antony",
+    "apellidos":"Miramira Morales",
+    "sede": "San Miguel",
+    "imagen":"https://vignette.wikia.nocookie.net/grandblue/images/a/a2/Kohei_anime_3.jpg/revision/latest/scale-to-width-down/340?cb=20181025040529&path-prefix=es",
+    "role": ["conductor"],
+    "infoConductor": {
+        "facebook":"https://www.facebook.com/mariohardcarry/",
+        "telefono":"950040337",
+        "licenciaConducir":"1234567"
+    },
+    "auto": {
+        "placa":"1234567",
+        "polizaSoat":1234567891,
+        "marca":"Nissan",
+        "modelo":"Modelando",
+        "limitePersonas":4,
+        "anhosUso":2
+    }
+}
+---------------------------------------------------------------------------------------------
+{
+    "codigo":"u201710947",
+    "contrasena":"cesar123",
+    "dni":"73154123",
+    "nombres":"Cesar Alejandro",
+    "apellidos":"Pizarro Llanos",
+    "sede": "San Miguel",
+    "imagen":"https://images.genius.com/cb29dd6297f4665fa9ea492b116d7e45.639x639x1.jpg",
+    "role": ["conductor"],
+    "infoConductor": {
+        "facebook":"https://www.facebook.com/cesaralejandro.pizarrollanos",
+        "telefono":"968193335",
+        "licenciaConducir":"1234567"
+    },
+    "auto": {
+        "placa":"1234567",
+        "polizaSoat":1234567891,
+        "marca":"Onissan",
+        "modelo":"Modelandolo",
+        "limitePersonas":4,
+        "anhosUso":1
+    }
+}
+////////////////////////////////////////////////////////////////////////////
+
+////////////-------------Publicara Viaje----------------/////////////////
+{
+        "conductorId": 2,
+        "sentidoRuta": true,
+        "partida": {
+            "ubicacion":"Peru pe",
+            "latitud":123.12321,
+            "logitud":12.1231,
+            "estadoTabla":1
+        },
+        "destino": {
+            "ubicacion":"Peru pedos",
+            "latitud":123.123221,
+            "logitud":12.123121,
+            "estadoTabla":1
+        },
+        "tiempoEstimado":"Unas horas",
+        "distancia": 1000,
+        "descripcion": "Ùnete al lado blanco",
+        "fechaViaje": "2020-06-20",
+        "horaInicio": "09:00:00",
+        "horaLlegada": "10:00:00"
+}

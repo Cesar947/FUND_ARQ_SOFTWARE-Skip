@@ -15,6 +15,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -52,8 +53,8 @@ class PerfilFragment : Fragment() {
     private lateinit var usuarioService: UsuarioApiService
 
     var usuario: Usuario? = null
-
-
+    var usuarioid = 0L
+    var rol = "pasajero"
     private lateinit var prefs : SharedPreferences
     private lateinit var edit: SharedPreferences.Editor
 
@@ -76,7 +77,7 @@ class PerfilFragment : Fragment() {
         edit= prefs.edit()
 
         perfil_nombre = vista.findViewById(R.id.perfil_username)
-        //perfil_fb = vista.findViewById(R.id.perfil_fb)
+        perfil_fb = vista.findViewById(R.id.perfil_fb)
         perfil_sede = vista.findViewById(R.id.perfil_sede)
         //perfil_ubicacion = vista.findViewById(R.id.perfil_ubicacion)
         perfil_foto = vista.findViewById(R.id.perfil_photo)
@@ -87,7 +88,8 @@ class PerfilFragment : Fragment() {
         perfil_settings = vista.findViewById(R.id.perfil_settings)
 
         //Recibimos data de usuario
-        val usuarioid = prefs.getLong("idusuario",0)
+        usuarioid = prefs.getLong("idusuario",0)
+        rol = prefs.getString("rol","pasajero")!!
 
         perfil_settings.setOnClickListener{
             if(opciones.visibility == View.GONE) {
@@ -104,26 +106,52 @@ class PerfilFragment : Fragment() {
         }
 
 
-        val requestOptions = RequestOptions()
-            .centerCrop()
-            .placeholder(R.drawable.ic_launcher_background)
-            .error(R.drawable.ic_launcher_background)
+
+
 
         val retrofit: Retrofit = Retrofit.Builder()
             .baseUrl(URL_API)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
         usuarioService = retrofit.create(UsuarioApiService::class.java)
+
+        if (rol == "ROL_CONDUCTOR")
+        {
+            getConductor()
+        }
+        else
+        {
+            getPasajero()
+        }
+
+
+
+
+        return vista
+    }
+
+    companion object {
+        @JvmStatic
+        fun newInstance() = PerfilFragment()
+    }
+
+    fun getPasajero()
+    {
+
+        val requestOptions = RequestOptions()
+            .centerCrop()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
 
         usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
                 val respuesta = response?.body()
                 usuario = respuesta
 
-                perfil_nombre.setText(usuario?.nombres)
-               // perfil_ubicacion.setText(usuario?.ubicacion)
+                perfil_nombre.setText(usuario?.nombres+" "+usuario?.apellidos)
                 perfil_sede.setText(usuario?.sede)
-               // perfil_fb.setText(usuario?.facebook)
+                layoutFacebook.isVisible = false
 
                 context?.applicationContext?.let {
                     Glide.with(it)
@@ -138,13 +166,38 @@ class PerfilFragment : Fragment() {
                 t?.printStackTrace()
             }
         })
-
-        return vista
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = PerfilFragment()
+    fun getConductor()
+    {
+
+        val requestOptions = RequestOptions()
+            .centerCrop()
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
+
+        usuarioService.getUsuarioById(usuarioid).enqueue(object : Callback<Usuario> {
+            override fun onResponse(call: Call<Usuario>?, response: Response<Usuario>?) {
+                val respuesta = response?.body()
+                usuario = respuesta
+
+                perfil_nombre.setText(usuario?.nombres+" "+usuario?.apellidos)
+                perfil_sede.setText(usuario?.sede)
+                perfil_fb.setText(usuario?.facebook)
+
+                context?.applicationContext?.let {
+                    Glide.with(it)
+                        .applyDefaultRequestOptions(requestOptions)
+                        .load(usuario?.imagen)
+                        .into(perfil_foto)
+                }
+
+
+            }
+            override fun onFailure(call: Call<Usuario>?, t: Throwable?) {
+                t?.printStackTrace()
+            }
+        })
     }
 
 }

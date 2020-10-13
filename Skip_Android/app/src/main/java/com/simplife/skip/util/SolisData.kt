@@ -3,7 +3,7 @@ package com.simplife.skip.util
 import com.simplife.skip.models.Solicitud
 
 class SolisData {
-
+/*
     companion object{
 
         fun createResenas(): ArrayList<Solicitud>{
@@ -34,5 +34,5 @@ class SolisData {
             )
             return list
         }
-    }
+    }*/
 }
