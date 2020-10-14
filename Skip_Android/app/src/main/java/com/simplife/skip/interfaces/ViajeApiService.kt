@@ -1,6 +1,7 @@
 package com.simplife.skip.interfaces
 
 import com.simplife.skip.models.Viaje
+import com.simplife.skip.models.ViajeInicio
 import com.simplife.skip.models.ViajeRequest
 import retrofit2.Call
 import retrofit2.http.Body
@@ -12,6 +13,9 @@ interface ViajeApiService {
 
     @GET("api/auth/skip/viajes")
     fun getViajes(): Call<List<Viaje>>
+
+    @GET("api/auth/skip/viajes/inicio")
+    fun getHomeViajes(): Call<List<ViajeInicio>>
 
     @GET("api/auth/skip/viajes/{id}")
     fun getViajeById(@Path("id") id: Long): Call<Viaje>

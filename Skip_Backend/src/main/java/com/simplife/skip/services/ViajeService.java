@@ -2,6 +2,7 @@ package com.simplife.skip.services;
 
 import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.payload.requests.ViajeInicio;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,5 +28,5 @@ public interface ViajeService {
 
     Viaje listarViajePorId(Long viajeId) throws Exception;
 
-
+    List<ViajeInicio> listarViajesInicio() throws Exception;
 }

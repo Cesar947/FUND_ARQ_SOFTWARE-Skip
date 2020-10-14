@@ -11,11 +11,12 @@ import com.bumptech.glide.request.RequestOptions
 import com.simplife.skip.R
 import com.simplife.skip.activities.ViajeDetail
 import com.simplife.skip.models.Viaje
+import com.simplife.skip.models.ViajeInicio
 import kotlinx.android.synthetic.main.viaje_list_item.view.*
 
 class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
-    private var items : List<Viaje> = ArrayList()
+    private var items : List<ViajeInicio> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return ViajeViewHolder(
@@ -35,7 +36,7 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         }
     }
 
-    fun submitList(viajeList: List<Viaje>){
+    fun submitList(viajeList: List<ViajeInicio>){
         items = viajeList
     }
 
@@ -52,13 +53,13 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         val viajeHoraOrigen = itemView.viaje_hora_origen
         val viajeHoraDestino = itemView.viaje_hora_destino
 
-        fun bind(viaje: Viaje){
+        fun bind(viaje: ViajeInicio){
             viajeTitle.setText(viaje.fechaPublicacion)
-            author.setText(viaje.conductor.nombres)
+            author.setText(viaje.nombres)
             viajeText.setText(viaje.descripcion)
-            //viajeSource.setText(viaje.)
-            viajeDestiny.setText(viaje.conductor.sede)
-            viajeHoraDestino.setText(viaje.horaLlegada)
+            viajeSource.setText(viaje.paradas[1].ubicacion)
+            viajeDestiny.setText(viaje.paradas[1].ubicacion)
+            viajeHoraDestino.setText(viaje.horaFin)
             viajeHoraOrigen.setText(viaje.horaInicio)
 
             val requestOptions = RequestOptions()
@@ -67,7 +68,7 @@ class ViajeRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
             Glide.with(itemView.context)
                 .applyDefaultRequestOptions(requestOptions)
-                .load(viaje.conductor.imagen)
+                .load(viaje.imagen)
                 .into(userImage)
 
             itemView.setOnClickListener{
