@@ -212,7 +212,6 @@ class ViajeDetail : AppCompatActivity() {
                     .applyDefaultRequestOptions(requestOptions)
                     .load("https://maps.googleapis.com/maps/api/staticmap?size=$size&path=enc%3A$points&key=$key")
                     .into(iv_staticMap)
-
             }
             override fun onFailure(call: Call<GoogleMapDirections>, t: Throwable) {
                 Log.e("F", "LA ptmr")
