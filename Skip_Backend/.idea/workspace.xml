@@ -23,7 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b70093b8-5c55-4b0a-92d6-5a55e43fff33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/ViajeDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/activities/ViajeDetail.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/dialog_report.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/MisViajesRecyclerAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/adapter/MisViajesRecyclerAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/Constantes.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/java/com/simplife/skip/util/Constantes.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_viaje_detail.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/activity_viaje_detail.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/dialog_solicitar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Skip_Android/app/src/main/res/layout/dialog_solicitar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/bootWar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/SolicitudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/SolicitudRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ViajeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/repositories/ViajeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/ViajeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/ViajeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/simplife/skip/services/implementation/ViajeServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,22 +66,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="Skip_Backend.main" />
       <extension name="coverage">
@@ -107,6 +115,9 @@
       <updated>1602616536150</updated>
       <workItem from="1602616547490" duration="566000" />
       <workItem from="1602617128257" duration="4034000" />
+      <workItem from="1602803884951" duration="28000" />
+      <workItem from="1602803920968" duration="1355000" />
+      <workItem from="1602809303256" duration="5295000" />
     </task>
     <servers />
   </component>
