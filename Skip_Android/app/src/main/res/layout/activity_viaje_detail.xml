@@ -266,24 +266,6 @@
     </androidx.cardview.widget.CardView>
 
 
-    <Button
-        android:id="@+id/btn_solicitar"
-        android:layout_width="wrap_content"
-        android:layout_height="35dp"
-        android:layout_marginLeft="210dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="30dp"
-        android:width="160dp"
-        android:background="@drawable/login_button"
-        android:text="Solicitar"
-        android:textAllCaps="false"
-        android:textColor="#FFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
     <!--<fragment
         android:id="@+id/mapViajeDetail"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -294,6 +276,25 @@
         app:layout_constraintTop_toBottomOf="@id/btn_solicitar"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp" />-->
+    <Button
+        android:id="@+id/btn_solicitar"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="20dp"
+        android:width="160dp"
+        android:background="@drawable/login_button"
+        android:text="Solicitar"
+        android:textAllCaps="false"
+        android:textColor="#FFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
     <ImageView
         android:id="@+id/iv_staticmap"
         android:layout_width="match_parent"

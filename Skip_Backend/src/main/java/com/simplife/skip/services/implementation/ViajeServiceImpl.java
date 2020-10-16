@@ -175,6 +175,7 @@ public class ViajeServiceImpl implements ViajeService {
     }
 
     @Override
+<<<<<<< HEAD
     public List<PasajeroEnLista> listarPasajerosPorViajeId(Long viajeId) throws Exception{
         List<Usuario> pasajerosRegistrados = new ArrayList<>();
         List<PasajeroEnLista> pasajerosEnLista = new ArrayList<>();
@@ -202,4 +203,15 @@ public class ViajeServiceImpl implements ViajeService {
     }
 
 
+=======
+    public List<Viaje> listarPorPasajero(Long usuarioPasajeroId) throws Exception{
+        List<Viaje> listaViajesPorPasajero;
+        try{
+            listaViajesPorPasajero = this.viajeRepository.listarPorPasajero(usuarioPasajeroId);
+        }catch(Exception e){
+            throw e;
+        }
+        return listaViajesPorPasajero;
+    }
+>>>>>>> d29ce9f5d01540f0eed780015d56424188a54333
 }
