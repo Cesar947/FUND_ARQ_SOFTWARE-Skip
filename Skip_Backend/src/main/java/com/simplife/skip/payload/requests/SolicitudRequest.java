@@ -1,8 +1,12 @@
 package com.simplife.skip.payload.requests;
-
+import com.simplife.skip.models.Parada;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
+
 public class SolicitudRequest {
 
     //Mensaje al conductor
@@ -12,7 +16,7 @@ public class SolicitudRequest {
 
     private Long viajeId;
 
-    //Id del punto en donde se recogerá al pasajero
-    private Long paradaEncuentroId;
+    //punto en donde se recogerá al pasajero
+    private Parada puntoEncuentro;
 
 }

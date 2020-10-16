@@ -1,6 +1,7 @@
 package com.simplife.skip.services.implementation;
 
 import com.simplife.skip.models.*;
+import com.simplife.skip.payload.requests.PasajeroEnLista;
 import com.simplife.skip.payload.requests.ViajeInicio;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.repositories.*;
@@ -26,15 +27,18 @@ public class ViajeServiceImpl implements ViajeService {
     private RutaRepository rutaRepository;
     private ItinerarioRepository itinerarioRepository;
     private ParadaRepository paradaRepository;
+    private SolicitudRepository solicitudRepository;
 
     @Autowired
     public ViajeServiceImpl(ViajeRepository viajeRepository, UsuarioRepository usuarioRepository,
-                            ParadaRepository paradaRepository,ItinerarioRepository itinerarioRepository, RutaRepository rutaRepository){
+                            ParadaRepository paradaRepository,ItinerarioRepository itinerarioRepository,
+                            RutaRepository rutaRepository, SolicitudRepository solicitudRepository){
         this.viajeRepository = viajeRepository;
         this.usuarioRepository = usuarioRepository;
         this.paradaRepository = paradaRepository;
         this.rutaRepository = rutaRepository;
         this.itinerarioRepository = itinerarioRepository;
+        this.solicitudRepository = solicitudRepository;
     }
 
     @Override
@@ -169,4 +173,33 @@ public class ViajeServiceImpl implements ViajeService {
         return viajesInicio;
 
     }
+
+    @Override
+    public List<PasajeroEnLista> listarPasajerosPorViajeId(Long viajeId) throws Exception{
+        List<Usuario> pasajerosRegistrados = new ArrayList<>();
+        List<PasajeroEnLista> pasajerosEnLista = new ArrayList<>();
+
+
+        try{
+            pasajerosRegistrados = this.viajeRepository.listarPasajerosRegistradosDelViaje(viajeId);
+            for (Usuario pasajero: pasajerosRegistrados){
+                PasajeroEnLista auxPasajero = new PasajeroEnLista();
+                Solicitud auxSolicitud = this.solicitudRepository.listarSolicitudPorPasajeroYViaje(pasajero.getId(), viajeId);
+
+                auxPasajero.setUsuarioId(pasajero.getId());
+                auxPasajero.setNombres(pasajero.getNombres() + " " + pasajero.getApellidos());
+                auxPasajero.setEstadoPasajero(auxSolicitud.getEstadoPasajero());
+                auxPasajero.setViajeId(viajeId);
+                auxPasajero.setEstadoPasajero(auxSolicitud.getEstadoPasajero());
+                auxPasajero.setPuntoEncuentro(auxSolicitud.getParada().getUbicacion());
+                auxPasajero.setImagen(pasajero.getImagen());
+                pasajerosEnLista.add(auxPasajero);
+            }
+        } catch(Exception e){
+            throw e;
+        }
+        return pasajerosEnLista;
+    }
+
+
 }

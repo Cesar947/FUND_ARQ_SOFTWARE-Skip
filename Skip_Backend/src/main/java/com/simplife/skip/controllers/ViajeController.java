@@ -2,6 +2,7 @@ package com.simplife.skip.controllers;
 
 import com.simplife.skip.models.Usuario;
 import com.simplife.skip.models.Viaje;
+import com.simplife.skip.payload.requests.PasajeroEnLista;
 import com.simplife.skip.payload.requests.ViajeInicio;
 import com.simplife.skip.payload.requests.ViajeRequest;
 import com.simplife.skip.services.ViajeService;
@@ -56,8 +57,8 @@ public class ViajeController {
     }
 
     @GetMapping("/{id}/pasajeros")
-    public List<Usuario> listarPasajerosRegistradosDeViaje(@PathVariable("id") Long viajeId) throws Exception{
-        return this.viajeService.listarPasajerosPorViaje(viajeId);
+    public List<PasajeroEnLista> listarPasajerosRegistradosDeViaje(@PathVariable("id") Long viajeId) throws Exception{
+        return this.viajeService.listarPasajerosPorViajeId(viajeId);
     }
 
 

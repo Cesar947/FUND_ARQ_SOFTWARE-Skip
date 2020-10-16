@@ -9,11 +9,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.simplife.skip.R
+import com.simplife.skip.models.PasajeroEnLista
 import com.simplife.skip.models.PasajeroEnViaje
 import de.hdodenhof.circleimageview.CircleImageView
 
 class PasajerosEnViajeRecyclerAdapter(var context: Context): RecyclerView.Adapter<RecyclerView.ViewHolder>()  {
-    var items: ArrayList<PasajeroEnViaje> = ArrayList()
+    var items: ArrayList<PasajeroEnLista> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return PasajeroEnViajeViewHolder(
@@ -25,7 +26,7 @@ class PasajerosEnViajeRecyclerAdapter(var context: Context): RecyclerView.Adapte
         return items.size
     }
 
-    fun submitList(items: ArrayList<PasajeroEnViaje>){
+    fun submitList(items: ArrayList<PasajeroEnLista>){
         this.items = items
     }
 
@@ -43,13 +44,13 @@ class PasajerosEnViajeRecyclerAdapter(var context: Context): RecyclerView.Adapte
         val estado = view.findViewById<TextView>(R.id.pasajero_estado)
         val avatar = view.findViewById<CircleImageView>(R.id.avatar_pasajero)
 
-        fun bind(p: PasajeroEnViaje){
-            nombrePasajero.text = p.nombre
+        fun bind(p: PasajeroEnLista){
+            nombrePasajero.text = p.nombres
             puntoEncuentro.text = p.puntoEncuentro
             estado.text = p.estadoPasajero
 
             Glide.with(context)
-                .load(p.avatarImagen)
+                .load(p.imagen)
                 .into(avatar)
         }
     }

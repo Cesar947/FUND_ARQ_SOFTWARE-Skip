@@ -1,6 +1,7 @@
 package com.simplife.skip.services.implementation;
 
 import com.simplife.skip.models.*;
+import com.simplife.skip.payload.requests.PasajeroEnLista;
 import com.simplife.skip.repositories.*;
 import com.simplife.skip.services.SolicitudService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +41,18 @@ class SolicitudServiceImpl implements SolicitudService {
         String mensaje = solicitud.getMensaje();
         Long pasajeroId = solicitud.getPasajeroId();
         Long viajeId = solicitud.getViajeId();
-        Long paradaId = solicitud.getParadaEncuentroId();
-        Solicitud solicitudNueva;
+        Parada parada = solicitud.getPuntoEncuentro();
+        Solicitud solicitudNueva = new Solicitud();
         try{
-            Parada parada = this.paradaRepository.findById(paradaId).get();
+            /*Parada parada = this.paradaRepository.findById(paradaId).get();
             if (parada == null){
                 parada = this.paradaRepository.save(parada);
+            }*/
+            Parada auxParada = this.paradaRepository.buscarPorLatYLong(parada.getLatitud(), parada.getLongitud());
+            if(auxParada == null){
+                auxParada = this.paradaRepository.save(parada);
             }
-
+            solicitudNueva.setParada(auxParada);
 
             Usuario pasajero = this.usuarioRepository.findById(pasajeroId).get();
             Viaje viaje = this.viajeRepository.findById(viajeId).get();
@@ -87,6 +92,10 @@ class SolicitudServiceImpl implements SolicitudService {
     public List<Solicitud> listarSolicitudesPorConductor(Long conductorId) throws Exception{
         return this.solicitudRepository.listarSolicitudesPorConductor(conductorId);
     }
+
+
+
+
 
 
 

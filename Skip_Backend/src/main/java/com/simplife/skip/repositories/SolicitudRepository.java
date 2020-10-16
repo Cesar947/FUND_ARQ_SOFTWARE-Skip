@@ -17,6 +17,9 @@ public interface SolicitudRepository extends JpaRepository<Solicitud, Long> {
     @Query("SELECT s FROM Solicitud s WHERE s.pasajero.id = ?1")
     List<Solicitud> listarSolicitudesPorUsuario(Long usuarioId);
 
-    @Query("SELECT s FROM Solicitud s JOIN Viaje v ON s.viaje.id = v.id JOIN Usuario u ON v.conductor.id = u.id Where v.conductor.id = 1")
+    @Query("SELECT s FROM Solicitud s JOIN Viaje v ON s.viaje.id = v.id JOIN Usuario u ON v.conductor.id = u.id Where v.conductor.id = ?1")
     List<Solicitud> listarSolicitudesPorConductor(Long conductorId);
+
+    @Query("SELECT s FROM Solicitud s JOIN Viaje v ON s.viaje.id = v.id JOIN Usuario u ON s.pasajero.id = u.id WHERE u.id = ?1 AND v.id = ?2")
+    Solicitud listarSolicitudPorPasajeroYViaje(Long pasajeroId, Long viajeId);
 }

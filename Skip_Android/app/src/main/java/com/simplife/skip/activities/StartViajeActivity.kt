@@ -10,6 +10,7 @@ import com.simplife.skip.R
 import com.simplife.skip.adapter.PasajerosRecyclerAdapter
 import com.simplife.skip.adapter.ViajeRecyclerAdapter
 import com.simplife.skip.fragments.EnViajeFragment
+import com.simplife.skip.fragments.PassengerListFragment
 import com.simplife.skip.models.Viaje
 import kotlinx.android.synthetic.main.activity_start_viaje.*
 import kotlinx.android.synthetic.main.activity_viaje_detail.*
@@ -24,8 +25,14 @@ class StartViajeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_start_viaje)
 
         val viaje = intent.getSerializableExtra("via") as Viaje
+        val passengerList = PassengerListFragment()
         val fragmentEnViaje = EnViajeFragment()
-        loadFragment(fragmentEnViaje)
+        var bundle = Bundle()
+        bundle.putLong("viajeId", viaje.id)
+        passengerList.arguments = bundle
+        loadFragment(passengerList)
+
+
 
         /*startviaje_origen.setText(viaje.conductor.ubicacion)
         startviaje_horaorigen.setText(viaje.horaInicio)

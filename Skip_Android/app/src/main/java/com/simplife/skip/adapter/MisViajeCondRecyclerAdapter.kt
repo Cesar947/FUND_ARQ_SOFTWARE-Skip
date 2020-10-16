@@ -40,7 +40,7 @@ class MisViajeCondRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder
     class MiViajeViewHolder constructor(
         itemView: View
     ): RecyclerView.ViewHolder(itemView){
-
+       //TODO: HAY QUE ACTUALIZAR
         val miviajeSource = itemView.miviajecond_origen
         val miviajeDestiny = itemView.miviajecond_destino
         val miviajeHoraOrigen = itemView.miviajecond_horaorigen
